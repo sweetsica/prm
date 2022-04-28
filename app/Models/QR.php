@@ -31,4 +31,6 @@ class QR extends Model
             return $value;
         }
     }
+
+
 }

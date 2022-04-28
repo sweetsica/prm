@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('customers', function($table) {
-            $table->string('lastPoint')->after('totalPoint');
+            $table->string('lastPoint')->after('totalPoint')->default('0');
         });
     }
 

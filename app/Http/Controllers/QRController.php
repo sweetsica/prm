@@ -29,6 +29,7 @@ class QRController extends Controller
                         $customer_info['lastPoint'] = $customer_info['totalPoint'];
                         $customer_info->save();
                         Session::flash('notice', 'Tích điểm thành công! Điểm hiện tại của bạn là: '.$customer_info['totalPoint']);
+                        Session::forget('currentURL');
 //                        Session::flush();
                         return view('FrontEnd/blank');
                     }else{
