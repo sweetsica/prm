@@ -34,6 +34,7 @@ class QRController extends Controller
                         return view('FrontEnd/blank');
                     }else{
                         Session::flash('notice', 'Mã đã được người khác sử dụng. Vui lòng liên hệ hotline: 18001425 (miễn phí) để được xử lý. Xin cảm ơn!');
+                        Session::forget('currentURL');
                         return view('FrontEnd/blank');
                     }
                 } else {

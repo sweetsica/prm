@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QRController;
 use App\Http\Controllers\CustomerController;
@@ -26,9 +27,14 @@ Route::post('/dangkysend',[CustomerController::class,'store'])->name('signUp.sen
 Route::get('/dangnhap',[CustomerController::class,'login'])->name('login');
 Route::post('/dangnhapsend',[CustomerController::class,'checkLogin'])->name('login.send');
 
+Route::get('doithuong',function (){
+    return Redirect::to('https://promotion-manage.vercel.app/nhanthuong');
+})->name('doithuong');
+
 Route::get('/tichdiem/{promotion_id}/{product_id}/{special_code}',[QRController::class,'checkQR']);
 
 Route::get('/clear',function(){
     Session::flush();
-    echo "clear cookie thành công!";
+    Session::flash('notice_clear','');
+    return view ('FrontEnd/blank');
 });

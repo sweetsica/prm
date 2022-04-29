@@ -32,5 +32,4 @@ class QR extends Model
         }
     }
 
-
 }
