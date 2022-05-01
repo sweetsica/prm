@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Session;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('website');
 
 Route::get('/dangky',[CustomerController::class,'create'])->name('signUp');
 Route::post('/dangkysend',[CustomerController::class,'store'])->name('signUp.send');

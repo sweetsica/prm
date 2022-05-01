@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
+
 class QR extends Model
 {
     use HasFactory;
@@ -22,14 +23,15 @@ class QR extends Model
         return $this->belongsTo(Promotion::class);
     }
 
-    public function setspecialCodeAttribute($value)
-    {
-        if($value=='') {
-            $randomCode = Str::random(12);
-            $this->attributes['specialCode'] = $randomCode;
-        }else{
-            return $value;
-        }
-    }
+//    public function setspecialCodeAttribute($value)
+//    {
+//        if ($value == '') {
+//            $randomCode = Str::random(12);
+//            return $this->attributes['specialCode'] = $randomCode;
+//        } else {
+//            return $value;
+//        }
+//    }
+
 
 }

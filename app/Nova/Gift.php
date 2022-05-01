@@ -3,25 +3,46 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
-use Laravel\Nova\Fields\HasOne;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Number;
-use Laravel\Nova\Fields\Select;
+use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Text;
-use App\Models\QR;
+use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Maatwebsite\LaravelNovaExcel\Actions\DownloadExcel;
 
-class Promotion extends Resource
+class Gift extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\Promotion::class;
+    public static $model = \App\Models\Gift::class;
+
+    /**
+     * Default ordering for index query.
+     *
+     * @var array
+     */
+    public static $indexDefaultOrder = [
+        'id' => 'asc'
+    ];
+
+    /**
+     * Build an "index" query for the given resource.
+     *
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public static function indexQuery(NovaRequest $request, $query)
+    {
+        if (empty($request->get('orderBy'))) {
+            $query->getQuery()->orders = [];
+            return $query->orderBy(key(static::$indexDefaultOrder), reset(static::$indexDefaultOrder));
+        }
+        return $query;
+    }
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -36,7 +57,7 @@ class Promotion extends Resource
      * @var array
      */
     public static $search = [
-        'id','name'
+        'id',
     ];
 
     /**
@@ -49,15 +70,11 @@ class Promotion extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Tên khuyến mãi','name'),
-            BelongsTo::make('Product'),
-            BelongsTo::make('QR')->hideFromIndex()->nullable(),
-            Select::make('Loại hình khuyến mãi','typeSale')->options([
-               'point' => 'Tích điểm đổi quà',
-               'value' => 'Giảm giá trực tiếp',
-               'valuePercent' => 'Giảm giá phần trăm'
-            ])->displayUsingLabels(),
-            Number::make('Giá trị','valueSale'),
+            Text::make('Tên quà tặng','name'),
+            Image::make('Ảnh quà tặng','image'),
+            Trix::make('Mô tả','description'),
+            Text::make('Loại khuyến mãi','typePromotion'),
+            Text::make('Điểm quy đổi','valuePromotion'),
             Boolean::make('Trạng thái','status'),
         ];
     }
@@ -103,8 +120,6 @@ class Promotion extends Resource
      */
     public function actions(NovaRequest $request)
     {
-        return [
-            new DownloadExcel(),
-        ];
+        return [];
     }
 }

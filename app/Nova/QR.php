@@ -3,13 +3,12 @@
 namespace App\Nova;
 
 use App\Nova\Actions\CreateQRAction;
-use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
-use Laravel\Nova\Fields\HasOne;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Outhebox\NovaHiddenField\HiddenField;
 
 
 class QR extends Resource
@@ -34,13 +33,13 @@ class QR extends Resource
      * @var array
      */
     public static $search = [
-        'id','specialCode'
+        'id', 'specialCode'
     ];
 
     /**
      * Get the fields displayed by the resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param \Laravel\Nova\Http\Requests\NovaRequest $request
      * @return array
      */
     public function fields(NovaRequest $request)
@@ -49,16 +48,23 @@ class QR extends Resource
             ID::make()->sortable(),
             BelongsTo::make('Product')->showOnIndex(),
             BelongsTo::make('Promotion')->showOnIndex(),
-            Text::make('Code sản phẩm','specialCode')->rules('min:0','max:12')->hideWhenCreating(),
-            Text::make('Link QR','linkQr')->hideWhenCreating(),
-            Boolean::make('Trạng thái','status'),
+            Text::make('Code sản phẩm', 'specialCode')->rules('min:0', 'max:12')->showOnIndex()->hideWhenCreating(),
+//            HiddenField::make('Code sản phẩm', 'specialCode'),
+//            HiddenField::make('Link QR', 'linkQr'),
+            Text::make('Link QR', 'linkQr')->showOnIndex()->hideWhenCreating(),
+            Boolean::make('Trạng thái', 'status'),
         ];
     }
 
     /**
+     * @var int[]
+     */
+    public static $perPageOptions = [50, 100, 500, 1000];
+
+    /**
      * Get the cards available for the request.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param \Laravel\Nova\Http\Requests\NovaRequest $request
      * @return array
      */
     public function cards(NovaRequest $request)
@@ -69,7 +75,7 @@ class QR extends Resource
     /**
      * Get the filters available for the resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param \Laravel\Nova\Http\Requests\NovaRequest $request
      * @return array
      */
     public function filters(NovaRequest $request)
@@ -80,7 +86,7 @@ class QR extends Resource
     /**
      * Get the lenses available for the resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param \Laravel\Nova\Http\Requests\NovaRequest $request
      * @return array
      */
     public function lenses(NovaRequest $request)
@@ -91,7 +97,7 @@ class QR extends Resource
     /**
      * Get the actions available for the resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param \Laravel\Nova\Http\Requests\NovaRequest $request
      * @return array
      */
     public function actions(NovaRequest $request)

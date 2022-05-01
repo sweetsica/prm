@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\CustomerController;
+use App\Http\Controllers\Api\GiftController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/nguoidung',[CustomerController::class, 'index']);
+Route::get('/nguoidung/{user_id}',[CustomerController::class, 'get_info']);
+Route::get('/thongtinquatang',[GiftController::class, 'index']);

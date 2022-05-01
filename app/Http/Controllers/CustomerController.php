@@ -59,11 +59,18 @@ class CustomerController extends Controller
         }
     }
 
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function login()
     {
         return view('FrontEnd.login');
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\RedirectResponse
+     */
     public function checkLogin(Request $request)
     {
         try{

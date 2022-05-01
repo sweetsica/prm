@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e4f9a69a5f4d761ed1679c97ba195d17",
+    "content-hash": "fb1f22a2bb954b26a62974f0338cccac",
     "packages": [
         {
             "name": "box/spout",
@@ -3204,6 +3204,61 @@
             "time": "2021-11-30T19:35:32+00:00"
         },
         {
+            "name": "outhebox/nova-hidden-field",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/MohmmedAshraf/nova-hidden-field.git",
+                "reference": "426ada2f91e65429179b97bc926ab676cc6e1f46"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MohmmedAshraf/nova-hidden-field/zipball/426ada2f91e65429179b97bc926ab676cc6e1f46",
+                "reference": "426ada2f91e65429179b97bc926ab676cc6e1f46",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Outhebox\\NovaHiddenField\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Outhebox\\NovaHiddenField\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mohamed Ashraf",
+                    "email": "cupo.ashraf@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A Laravel Nova Hidden field.",
+            "keywords": [
+                "field",
+                "laravel",
+                "nova",
+                "nova default value",
+                "nova hidden field"
+            ],
+            "support": {
+                "issues": "https://github.com/MohmmedAshraf/nova-hidden-field/issues",
+                "source": "https://github.com/MohmmedAshraf/nova-hidden-field/tree/v1.0.3"
+            },
+            "time": "2020-05-20T14:43:47+00:00"
+        },
+        {
             "name": "phpoffice/phpspreadsheet",
             "version": "1.23.0",
             "source": {
@@ -4109,6 +4164,7 @@
                 "illuminate/database": "^6.20.12 || ^7.30.4 || ^8.24.0|^9.0",
                 "phpunit/phpunit": "^9.5"
             },
+            "type": "library",
             "autoload": {
                 "files": [
                     "src/functions/fastexcel.php"

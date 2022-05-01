@@ -28,12 +28,12 @@ class QRController extends Controller
                         $customer_info['totalPoint'] = $customer_info['lastPoint'] + $promotionPointBonus;
                         $customer_info['lastPoint'] = $customer_info['totalPoint'];
                         $customer_info->save();
-                        Session::flash('notice', 'Tích điểm thành công! Điểm hiện tại của bạn là: '.$customer_info['totalPoint']);
+                        Session::flash('notice', 'Tích điểm thành công! Sản phẩm của bạn đã được tích '. $promotionPointBonus .' xx điểm vào tài khoản. Cảm ơn bạn đã tham gia chương trình.');
                         Session::forget('currentURL');
 //                        Session::flush();
                         return view('FrontEnd/blank');
                     }else{
-                        Session::flash('notice', 'Mã đã được người khác sử dụng. Vui lòng liên hệ hotline: 18001425 (miễn phí) để được xử lý. Xin cảm ơn!');
+                        Session::flash('notice', 'Mã số sản phẩm của bạn đã từng được kích hoạt. Yêu cầu tích điểm không thành công. Vui lòng liên hệ CSKH của Doppelherz Việt Nam qua email info@mastertran.vn để được bồi thường và hỗ trợ tốt nhất.');
                         Session::forget('currentURL');
                         return view('FrontEnd/blank');
                     }
