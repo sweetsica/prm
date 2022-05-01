@@ -17,7 +17,7 @@ class GiftController extends Controller
     public function index()
     {
         $gift = Gift::all();
-        return response()->toJson($gift,200);
+        return response()->json($gift,200);
     }
 
     /**
