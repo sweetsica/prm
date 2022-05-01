@@ -20,6 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/nguoidung',[CustomerController::class, 'index']);
+Route::get('/nguoidung',[CustomerController::class, 'index'])->name('api.customer');
 Route::get('/nguoidung/{user_id}',[CustomerController::class, 'get_info']);
 Route::get('/thongtinquatang',[GiftController::class, 'index']);
