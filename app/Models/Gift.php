@@ -10,4 +10,9 @@ class Gift extends Model
     use HasFactory;
 
     protected $guarded = [''];
+
+    public function orders()
+    {
+        return $this->hasOne(Order::class);
+    }
 }

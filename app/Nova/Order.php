@@ -2,8 +2,12 @@
 
 namespace App\Nova;
 
+use Laravel\Nova\Fields\BelongsTo;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\HasOne;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Order extends Resource
@@ -41,8 +45,14 @@ class Order extends Resource
     {
         return [
             ID::make()->sortable(),
+            BelongsTo::make('Customer'),
+            HasOne::make('Gift'),
+            Text::make('Địa chỉ nhận quà','address')
         ];
     }
+        // Tạo bảng quan hệ nhiều nhiều gift - order
+
+
 
     /**
      * Get the cards available for the request.

@@ -1,12 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\Customer;
 use Illuminate\Http\Request;
 
-class CustomerController extends Controller
+class HistoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,18 +13,19 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        return Customer::all();
+        //
     }
 
-
-
-
-
-    public function get_info(Request $request)
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
-        $customerInfo = Customer::where('id',$request['customer_id'])->get();
-        return response()->json($customerInfo,200);
+        //
     }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -45,6 +44,17 @@ class CustomerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
     {
         //
     }

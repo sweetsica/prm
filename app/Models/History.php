@@ -5,24 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Order extends Model
+class History extends Model
 {
     use HasFactory;
 
-    protected $guarded = [''];
+    protected $table = 'histories';
 
-    public function products()
-    {
-        return $this->belongsToMany(Product::class);
-    }
+    protected $guarded = [''];
 
     public function customer()
     {
         return $this->belongsTo(Customer::class);
     }
 
-    public function gift()
-    {
-        return $this->belongsTo(Gift::class);
-    }
 }
+

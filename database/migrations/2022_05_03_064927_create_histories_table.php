@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('histories', function (Blueprint $table) {
             $table->id();
-            $table->integer('customer_id')->nullable();
-            $table->integer('gift_id')->nullable();
-            $table->text('address')->nullable();
-            $table->dateTime('deleted_at')->nullable();
+            $table->integer('user_id')->nullable();
+            $table->text('qr_specialCode')->nullable();
+            $table->text('price')->nullable();
+            $table->integer('qr_id')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('histories');
     }
 };

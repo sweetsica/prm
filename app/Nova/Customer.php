@@ -5,6 +5,7 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Password;
@@ -25,7 +26,7 @@ class Customer extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'name';
 
     /**
      * The columns that should be searched.
@@ -54,7 +55,9 @@ class Customer extends Resource
                 return Str::limit($value, 45,'...');
             }),
             Number::make('Điểm thưởng','totalPoint'),
-            Boolean::make('Trạng thái','status')
+            Boolean::make('Trạng thái','status'),
+
+            HasMany::make('History')
         ];
     }
 

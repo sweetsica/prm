@@ -79,9 +79,9 @@ class CustomerController extends Controller
                 if (Hash::check($request->password, $info_customer->password)) {
                     Session::put('customer_id',$info_customer['id']);
                     if(Session::get('currentURL')){
-                            return Redirect::to(Session::get('currentURL'));
+                            return Redirect::to(Session::get('currentURL')); // trang xu ly tich diem
                         }else{
-                           return Redirect::to('https://promotion-manage.vercel.app/nhanthuong');
+                           return Redirect::to('https://promotion-manage.vercel.app/nhanthuong'); // dashboard
                     }
                 } else {
                     Session::flash('error', 'Đăng nhập thất bại MK!');
