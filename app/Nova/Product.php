@@ -2,8 +2,6 @@
 
 namespace App\Nova;
 
-use Chaseconey\ExternalImage\ExternalImage;
-use Chaseconey\ExternalImage\ExternalImageAsAvatar;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Avatar;
 use Laravel\Nova\Fields\BelongsTo;
