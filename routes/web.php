@@ -36,5 +36,5 @@ Route::get('/tichdiem/{promotion_id}/{product_id}/{special_code}',[QRController:
 Route::get('/clear',function(){
     Session::flush();
     Session::flash('notice_clear','');
-    return view ('FrontEnd/blank');
+    return route('login');
 });
