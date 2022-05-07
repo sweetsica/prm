@@ -20,7 +20,7 @@
                 <div class="d-flex">
                     <a href="#" class="text-secondary mr-15"><span class="feather-icon"><i data-feather="printer"></i></span></a>
                     <a href="#" class="text-secondary mr-15"><span class="feather-icon"><i data-feather="download"></i></span></a>
-                    <button class="btn btn-primary btn-sm">Đổi quà</button>
+                    <a href="{{$userBillInfo->url}}" class="btn btn-primary btn-sm">Đổi thưởng</a>
                 </div>
             </div>
             <!-- /Title -->
