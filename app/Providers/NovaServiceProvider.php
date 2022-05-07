@@ -43,7 +43,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     MenuItem::resource(Gift::class),
                 ])->icon('folder-open')->collapsable(),
 
-                MenuSection::make('Kĩ thuất', [
+                MenuSection::make('Kỹ thuật', [
                     MenuItem::resource(Promotion::class),
                     MenuItem::resource(QR::class),
                 ])->icon('lightning-bolt')->collapsable(),

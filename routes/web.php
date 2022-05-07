@@ -27,6 +27,8 @@ Route::post('/dangkysend',[CustomerController::class,'store'])->name('signUp.sen
 Route::get('/dangnhap',[CustomerController::class,'login'])->name('login');
 Route::post('/dangnhapsend',[CustomerController::class,'checkLogin'])->name('login.send');
 
+Route::get('/hoadon',[CustomerController::class,'userBill'])->name('user.bill');
+
 Route::get('doithuong',function (){
     return Redirect::to('https://promotion-manage.vercel.app/nhanthuong');
 })->name('doithuong');
@@ -38,3 +40,4 @@ Route::get('/clear',function(){
     Session::flash('notice_clear','');
     return route('login');
 });
+

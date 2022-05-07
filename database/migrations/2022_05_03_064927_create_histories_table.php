@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('histories', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->nullable();
+            $table->integer('customer_id')->nullable();
             $table->text('qr_specialCode')->nullable();
+            $table->text('product_name')->nullable();
             $table->text('price')->nullable();
             $table->integer('qr_id')->nullable();
             $table->timestamps();

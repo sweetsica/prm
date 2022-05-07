@@ -96,6 +96,14 @@ class CustomerController extends Controller
             return redirect()->route('login');
         }
     }
+
+    public function userBill()
+    {
+        $userBillInfo = Customer::where('id','=',1)->first();
+        $userBillInfo['histories'] = $userBillInfo->history()->get();
+        return view('FrontEnd/bill',compact($userBillInfo));
+    }
+
     /**
      * Display the specified resource.
      *

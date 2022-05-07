@@ -33,7 +33,7 @@ class OrderController extends Controller
                         $order->address = $userInfo['address'];
                         $order->save();
                         return response()->json('Đổi quà thành công, chúng tôi sẽ liên hệ khi hàng được chuyển tới bạn. Xin cảm ơn!', 200);
-                    } else {
+                    } elseif ($request['type'] == 'edit') {
                         $customerInfo = Customer::where('id', '=', $request['customer_id']);
                         $customerInfo->update([
                             'name' => $request['name'],
@@ -46,24 +46,31 @@ class OrderController extends Controller
                         $userInfo = Customer::where('id', $request['customer_id'])->first();
                         $orderInfo->address = $userInfo['address'];
                         $orderInfo->save();
+                        return response()->json('Đổi quà thành công, chúng tôi sẽ liên hệ khi hàng được chuyển tới bạn. Xin cảm ơn!', 200);
+                    }else{
+                        return response()->json('Vui lòng thêm trường type cho yêu cầu',400);
                     }
                 } else {
-                    return response()->json('Cần thêm địa chỉ', 00);
+                    $customerInfo = Customer::where('id', '=', $request['customer_id']);
+                    $customerInfo->update([
+                        'name' => $request['name'],
+                        'phone' => $request['phone'],
+                        'address' => $request['address']
+                    ]);
+                    $orderInfo = new Order();
+                    $orderInfo->customer_id = $request['customer_id'];
+                    $orderInfo->gift_id = $request['gift_id'];
+                    $userInfo = Customer::where('id', $request['customer_id'])->first();
+                    $orderInfo->address = $userInfo['address'];
+                    $orderInfo->save();
+                    return response()->json('Đổi quà thành công, chúng tôi sẽ liên hệ khi hàng được chuyển tới bạn. Xin cảm ơn!', 200);
                 }
-                return response()->json('Đổi quà thành công! Sản phẩm sẽ được chuyển tới: ' . $userInfo['address'], 200);
             } else {
                 return response()->json('Không đủ điểm thưởng', 500);
             }
         } else {
             return response()->json('Không tồn tại user này', 404);
         }
-    }
-
-    public function postOrdertoAddress(Request $request)
-    {
-
-        return response()->json('Đổi quà thành công, chúng tôi sẽ liên hệ khi hàng được chuyển tới bạn. Xin cảm ơn!', 200);
-
     }
 
     /**
