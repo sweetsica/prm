@@ -15,18 +15,10 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        return Customer::all();
+        $customer_all = Customer::get()->all();
+        return response()->json($customer_all,200);
     }
 
-
-
-
-
-    public function get_info(Request $request)
-    {
-        $customerInfo = Customer::where('id',$request['customer_id'])->get();
-        return response()->json($customerInfo,200);
-    }
     /**
      * Store a newly created resource in storage.
      *
@@ -46,7 +38,8 @@ class CustomerController extends Controller
      */
     public function show($id)
     {
-        //
+        $customerInfo = Customer::where('id','=',$id)->first();
+        return response()->json($customerInfo,200);
     }
 
     /**
