@@ -20,6 +20,7 @@
                 <div class="d-flex">
                     <a href="#" class="text-secondary mr-15"><span class="feather-icon"><i data-feather="printer"></i></span></a>
                     <a href="#" class="text-secondary mr-15"><span class="feather-icon"><i data-feather="download"></i></span></a>
+{{--                    {{dd($userBillInfo)}}--}}
                     <a href="{{$userBillInfo->url}}" class="btn btn-primary btn-sm">Đổi thưởng</a>
                 </div>
             </div>
@@ -32,7 +33,7 @@
                         <div class="invoice-from-wrap">
                             <div class="row">
                                 <div class="col-md-7 mb-20">
-                                    <img class="img-fluid invoice-brand-img d-block mb-20" src="dist/img/invoice-logo.png" alt="brand" />
+                                    <img class="img-fluid invoice-brand-img d-block mb-20" src="{{asset('src/dist/img/invoice-logo.png')}}" alt="brand" />
                                     <h6 class="mb-5">Doppelherz Việt Nam</h6>
                                     <address>
                                         <span class="d-block">Tầng 06, tháp A, tòa Central Point số 219 Trung Kính</span>
@@ -41,9 +42,9 @@
                                     </address>
                                 </div>
                                 <div class="col-md-5 mb-20">
-                                    <h4 class="mb-35 font-weight-600">Điểm thưởng: </h4>
-                                    <span class="d-block">Ngày tham gia:<span class="pl-10 text-dark">Nov 17,2017 11:23 AM</span></span>
-                                    <span class="d-block">Mã khách hàng: #<span class="pl-10 text-dark">21321434</span></span>
+                                    <h4 class="mb-35 font-weight-600">Điểm thưởng: {{$userBillInfo->totalPoint}}</h4>
+                                    <span class="d-block">Ngày tham gia:<span class="pl-10 text-dark"> {{$userBillInfo->created_at}}</span></span>
+                                    <span class="d-block">Mã khách hàng: #<span class="pl-10 text-dark"> {{$userBillInfo->id}}</span></span>
                                 </div>
                             </div>
                         </div>
@@ -62,11 +63,11 @@
                                 </div>
                                 <div class="col-md-5 mb-30">
                                     <span class="d-block text-uppercase mb-5 font-13">Payment info</span>
-                                    <span class="d-block">Scott L Thompson</span>
-                                    <span class="d-block">MasterCard#########1234</span>
-                                    <span class="d-block">Customer #<span class="text-dark">324148</span></span>
+                                    <span class="d-block">{{$userBillInfo->name}}</span>
+                                    <span class="d-block">{{$userBillInfo->address}}</span>
+                                    <span class="d-block">Khách hàng thứ #<span class="text-dark">{{$userBillInfo->id}}</span></span>
                                     <span class="d-block text-uppercase mt-20 mb-5 font-13">Tổng điểm tới giờ: </span>
-                                    <span class="d-block text-dark font-18 font-weight-600">$22,010</span>
+                                    <span class="d-block text-dark font-18 font-weight-600">{{$userBillInfo->summaryPoint}}</span>
                                 </div>
                             </div>
                         </div>
