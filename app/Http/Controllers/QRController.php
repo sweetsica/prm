@@ -32,15 +32,18 @@ class QRController extends Controller
                     $qrs->save();
 
                     $customer_info = Customer::where('id', '=', Session::get('customer_id'))->first();
+                    $customer_info['summaryPoint'] = $customer_info['summaryPoint']+ $promotionPointBonus;
                     $customer_info['totalPoint'] = $customer_info['lastPoint'] + $promotionPointBonus;
                     $customer_info['lastPoint'] = $customer_info['totalPoint'];
                     $customer_info->save();
 
+
                     $history = new History();
-                    $history->user_id = Session::get('customer_id');
+                    $history->customer_id = Session::get('customer_id');
                     $history->qr_specialCode = $special_code;
-                    $productPrice = Product::where('id', $promotion_infomation->product_id)->get('price')->firstOrFail();
-                    $history->price = $productPrice['price'];
+                    $productInfo = Product::where('id', $promotion_infomation->product_id)->firstOrFail();
+                    $history->product_name = $productInfo['name'];
+                    $history->price = $productInfo['price'];
                     $history->qr_id = $promotion_infomation['id'];
                     $history->save();
 

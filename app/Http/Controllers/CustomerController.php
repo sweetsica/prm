@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class CustomerController extends Controller
 {
@@ -96,6 +97,15 @@ class CustomerController extends Controller
             return redirect()->route('login');
         }
     }
+
+    public function userBill()
+    {
+        $userBillInfo = Customer::where('id','=',1)->first();
+        $userBillInfo['histories'] = $userBillInfo->history()->get();
+        $userBillInfo['url'] = 'https://promotion-manage.vercel.app/nhanthuong/'.base64_encode(1).'/'.Str::random(5);
+        return view('FrontEnd/bill',compact('userBillInfo'));
+    }
+
     /**
      * Display the specified resource.
      *

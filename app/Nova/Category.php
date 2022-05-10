@@ -74,7 +74,7 @@ class Category extends Resource
             Trix::make('Mô tả','description'),
             Boolean::make('Trạng thái','status'),
 
-            HasMany::make('Products'),
+            HasMany::make('Products')->nullable(true),
         ];
     }
 

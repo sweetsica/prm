@@ -22,7 +22,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/nguoidung',[CustomerController::class, 'index'])->name('api.customer');
-Route::get('/nguoidung/{user_id}',[CustomerController::class, 'get_info']);
+Route::get('/nguoidung/{customer_id}',[CustomerController::class, 'show']);
 
 Route::get('/thongtinquatang',[GiftController::class, 'index']);
 Route::post('/doiqua',[OrderController::class,'changeGift']);
+
+Route::get('/testmd5',function (){
+    $data = "muop dang la kho qua 9991";
+//    return md5($data);
+    return base64_encode($data);
+});
+

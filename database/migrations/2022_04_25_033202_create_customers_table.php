@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('totalPoint')->default('0')->nullable();
             $table->string('lastPoint')->default('0')->nullable();
+            $table->string('summaryPoint')->default('0')->nullable();
             $table->boolean('status')->default('1');
             $table->dateTime('deleted_at')->nullable();
             $table->timestamps();
