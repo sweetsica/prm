@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use App\Models\History;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
@@ -76,13 +77,15 @@ class CustomerController extends Controller
     {
         try{
             $info_customer = Customer::where('phone', $request->phone)->first();
+            $url= 'https://promotion-manage.vercel.app/nhanthuong/'.base64_encode($info_customer->id).'/'.Str::random(5);
             if ($info_customer) {
                 if (Hash::check($request->password, $info_customer->password)) {
                     Session::put('customer_id',$info_customer['id']);
+                    Session::put('customer_name',$info_customer['name']);
                     if(Session::get('currentURL')){
                             return Redirect::to(Session::get('currentURL')); // trang xu ly tich diem
                         }else{
-                           return Redirect::to('https://promotion-manage.vercel.app/nhanthuong'); // dashboard
+                           return Redirect::to($url); // dashboard
                     }
                 } else {
                     Session::flash('error', 'Đăng nhập thất bại MK!');
@@ -100,10 +103,17 @@ class CustomerController extends Controller
 
     public function userBill()
     {
-        $userBillInfo = Customer::where('id','=',1)->first();
-        $userBillInfo['histories'] = $userBillInfo->history()->get();
-        $userBillInfo['url'] = 'https://promotion-manage.vercel.app/nhanthuong/'.base64_encode(1).'/'.Str::random(5);
-        return view('FrontEnd/bill',compact('userBillInfo'));
+        if (Session::get('customer_id') !== null) {
+            $customerId = Session::get('customer_id');
+            $userBillInfo = Customer::where('id','=',$customerId)->first();
+            $histories = History::where('customer_id',$userBillInfo->id)->get();
+            $userBillInfo['histories'] = $userBillInfo->history()->get();
+            $userBillInfo['url'] = 'https://promotion-manage.vercel.app/nhanthuong/'.base64_encode($userBillInfo->id).'/'.Str::random(5);
+            return view('FrontEnd/bill',compact('userBillInfo','histories'));
+        } else {
+            return redirect(route('login'));
+        }
+
     }
 
     /**

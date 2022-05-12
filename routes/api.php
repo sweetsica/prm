@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\QrController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\CustomerController;
@@ -26,6 +27,7 @@ Route::get('/nguoidung/{customer_id}',[CustomerController::class, 'show']);
 
 Route::get('/thongtinquatang',[GiftController::class, 'index']);
 Route::post('/doiqua',[OrderController::class,'changeGift']);
+Route::get("/qrcode",[QrController::class,'index']);
 
 Route::get('/testmd5',function (){
     $data = "muop dang la kho qua 9991";

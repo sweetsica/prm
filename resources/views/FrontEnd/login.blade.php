@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-		<title>Brunette I Login</title>
+		<title>Đăng Nhập</title>
 		<meta name="description" content="A responsive bootstrap 4 admin dashboard template by hencework" />
 
 		<!-- Favicon -->
@@ -29,12 +29,7 @@
 
 			<!-- Main Content -->
 			<div class="hk-pg-wrapper hk-auth-wrapper">
-				<header class="d-flex justify-content-end align-items-center">
-					<div class="btn-group btn-group-sm">
-						<a href="{{asset('src/#')}}" class="btn btn-outline-secondary">Help</a>
-						<a href="{{asset('src/#')}}" class="btn btn-outline-secondary">About Us</a>
-					</div>
-				</header>
+
 				<div class="container-fluid">
 					<div class="row">
 						<div class="col-xl-12 pa-0">
@@ -52,10 +47,7 @@
 										</div>
 										<div class="form-group">
 											<div class="input-group">
-												<input class="form-control" name='password' placeholder="Password" type="password">
-												<div class="input-group-append">
-													<span class="input-group-text"><span class="feather-icon"><i data-feather="eye-off"></i></span></span>
-												</div>
+												<input class="form-control" name='password' id="password" placeholder="Password" type="password">
 											</div>
 										</div>
 										<button class="btn btn-primary btn-block" type="submit">Đăng nhập</button>
@@ -64,6 +56,7 @@
 {{--											<div class="col-sm-6 mb-20"><button class="btn btn-indigo btn-block btn-wth-icon"> <span class="icon-label"><i class="fa fa-facebook"></i> </span><span class="btn-text">Login with facebook</span></button></div>--}}
 {{--											<div class="col-sm-6 mb-20"><button class="btn btn-sky btn-block btn-wth-icon"> <span class="icon-label"><i class="fa fa-twitter"></i> </span><span class="btn-text">Login with Twitter</span></button></div>--}}
 {{--										</div>--}}
+                                        <div class="option-sep">hoặc</div>
 										<p class="text-center">Chưa có tài khoản? <a href="{{route('signUp')}}">Đăng ký</a></p>
 									</form>
 								</div>
@@ -97,5 +90,24 @@
 
 		<!-- Init JavaScript -->
 		<script src="{{asset('src/dist/js/init.js')}}"></script>
+        <script>
+            const togglePassword = document.querySelector("#togglePassword");
+            const password = document.querySelector("#password");
+
+            togglePassword.addEventListener("click", function () {
+                // toggle the type attribute
+                const type = password.getAttribute("type") === "password" ? "text" : "password";
+                password.setAttribute("type", type);
+
+                // toggle the icon
+                this.classList.toggle("bi-eye");
+            });
+
+            // prevent form submit
+            const form = document.querySelector("form");
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+            });
+        </script>
 	</body>
 </html>

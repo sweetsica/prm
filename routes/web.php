@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Session;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->to("https://promotion-manage.vercel.app/");
 })->name('website');
 
 Route::get('/dangky',[CustomerController::class,'create'])->name('signUp');
