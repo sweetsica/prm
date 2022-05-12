@@ -86,24 +86,15 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <td class="w-70">Design Service</td>
-                                            <td class="text-right">2</td>
-                                            <td class="text-right">$1500</td>
-                                            <td class="text-right">$3000</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="w-70">Website Development</td>
-                                            <td class="text-right">1</td>
-                                            <td class="text-right">$7500</td>
-                                            <td class="text-right">$7500</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="w-70">Social Media Services</td>
-                                            <td class="text-right">15</td>
-                                            <td class="text-right">$180</td>
-                                            <td class="text-right">$9000</td>
-                                        </tr>
+                                        @foreach($histories as $historyItem)
+                                            <tr>
+                                                <td class="w-70">{{$historyItem->product_name}}</td>
+                                                <td class="text-right">{{$historyItem->product_name}}</td>
+                                                <td class="text-right">{{$historyItem->price}}</td>
+                                                <td class="text-right">{{$historyItem->created_at}}</td>
+                                            </tr>
+                                        @endforeach
+
                                         </tbody>
                                         <tfoot class="border-bottom border-1">
                                         <tr>
