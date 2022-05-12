@@ -102,11 +102,17 @@ class CustomerController extends Controller
 
     public function userBill()
     {
-        $userBillInfo = Customer::where('id','=',1)->first();
-        $histories = History::where('customer_id',$userBillInfo->id)->get();
-        $userBillInfo['histories'] = $userBillInfo->history()->get();
-        $userBillInfo['url'] = 'https://promotion-manage.vercel.app/nhanthuong/'.base64_encode($userBillInfo->id).'/'.Str::random(5);
-        return view('FrontEnd/bill',compact('userBillInfo','histories'));
+        if (Session::get('customer_id') !== null) {
+            $customerId = Session::get('customer_id');
+            $userBillInfo = Customer::where('id','=',$customerId)->first();
+            $histories = History::where('customer_id',$userBillInfo->id)->get();
+            $userBillInfo['histories'] = $userBillInfo->history()->get();
+            $userBillInfo['url'] = 'https://promotion-manage.vercel.app/nhanthuong/'.base64_encode($userBillInfo->id).'/'.Str::random(5);
+            return view('FrontEnd/bill',compact('userBillInfo','histories'));
+        } else {
+            return redirect(route('login'));
+        }
+
     }
 
     /**
