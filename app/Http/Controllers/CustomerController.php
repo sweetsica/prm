@@ -81,6 +81,7 @@ class CustomerController extends Controller
             if ($info_customer) {
                 if (Hash::check($request->password, $info_customer->password)) {
                     Session::put('customer_id',$info_customer['id']);
+                    Session::put('customer_name',$info_customer['name']);
                     if(Session::get('currentURL')){
                             return Redirect::to(Session::get('currentURL')); // trang xu ly tich diem
                         }else{

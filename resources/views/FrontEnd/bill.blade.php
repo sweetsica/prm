@@ -89,19 +89,19 @@
                                         @foreach($histories as $historyItem)
                                             <tr>
                                                 <td class="w-70">{{$historyItem->product_name}}</td>
-                                                <td class="text-right">{{$historyItem->product_name}}</td>
+                                                <td class="text-right">{{$historyItem->qr_specialCode}}</td>
                                                 <td class="text-right">{{$historyItem->price}}</td>
-                                                <td class="text-right">{{$historyItem->created_at}}</td>
+                                                <td class="text-right">{{$historyItem->created_at->format('d/m/Y')}}</td>
                                             </tr>
                                         @endforeach
 
                                         </tbody>
-                                        <tfoot class="border-bottom border-1">
-                                        <tr>
-                                            <th colspan="3" class="text-right font-weight-600">total</th>
-                                            <th class="text-right font-weight-600">$22,010</th>
-                                        </tr>
-                                        </tfoot>
+{{--                                        <tfoot class="border-bottom border-1">--}}
+{{--                                        <tr>--}}
+{{--                                            <th colspan="3" class="text-right font-weight-600">total</th>--}}
+{{--                                            <th class="text-right font-weight-600">$22,010</th>--}}
+{{--                                        </tr>--}}
+{{--                                        </tfoot>--}}
                                     </table>
                                 </div>
                             </div>
