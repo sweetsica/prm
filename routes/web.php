@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QRController;
 use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\URL;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,5 +40,12 @@ Route::get('/clear',function(){
     Session::flush();
     Session::flash('notice_clear','');
     return route('login');
+});
+
+Route::get('/testmd5',function (){
+    $data = "muop dang la kho qua 9991";
+    dd(URL::route('website'));
+//    return md5($data);
+//    return base64_encode($data);
 });
 
