@@ -21,7 +21,7 @@ class AktivMenoSeeder extends Seeder
         $promotion_id = 4;
         $product_id = 4 ;
         $count = 5000;
-        for ($i =0 ; $i <= $count ; $i++){
+        for ($i =0 ; $i < $count ; $i++){
             $specialCode = Str::random(12);
             DB::table('q_r_s')->insert([
                 "promotion_id"=>$promotion_id,
