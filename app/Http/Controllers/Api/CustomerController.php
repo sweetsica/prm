@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
+use Cassandra\Custom;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
@@ -51,7 +52,9 @@ class CustomerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $member = Customer::find($id);
+        $member->update($request->all());
+        return $member;
     }
 
     /**
