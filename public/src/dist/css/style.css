@@ -20690,3 +20690,18 @@ table.dataTable {
     width: 250px;
     height: 100%;
 }
+.logo-in-auth{
+    width: 100px;
+    height: 100%;
+    object-fit: contain;
+}
+.logo-nav{
+    width: 70px;
+    height: 100%;
+    object-fit: contain;
+}
+.logo-bill{
+    width: 70px;
+    height: 70px;
+}
+

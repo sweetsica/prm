@@ -34,14 +34,13 @@
 					<div class="row">
 						<div class="col-xl-12 pa-0">
 							<div class="auth-form-wrap pt-xl-0 pt-70">
-								<div class="auth-form w-xl-30 w-lg-55 w-sm-75 w-100">
-									<a class="auth-brand text-center d-block mb-20" href="{{asset('src/#')}}">
-										<img class="brand-img" src="{{asset('src/dist/img/logo-light.png')}}" alt="brand"/>
+								<div class="auth-form border pa-20 rounded-20 bg-white w-xl-30 w-lg-55 w-sm-75 w-100">
+									<a class="auth-brand text-center d-block mb-20 " href="{{asset('/')}}">
+										<img class="logo-in-auth" src="{{asset('src/dist/img/logo/logo.png')}}" alt="brand"/>
 									</a>
-									<form method="POST" action="{{route('login.send')}}">
+									<form class="border-top" method="POST" action="{{route('login.send')}}">
                                         @csrf
-										<h1 class="display-4 text-center mb-10">Xin chào!</h1>
-										<p class="text-center mb-30">Đăng nhập ngay để nhận hàng ngàn phần quà từ Doppelherz VN.</p>
+										<h1 class="display-4 text-center font-24 font-weight-700 mt-10 mb-10">Đăng Nhập!</h1>
 										<div class="form-group">
 											<input class="form-control" name='phone' placeholder="Số điện thoại" type="text">
 										</div>
@@ -50,14 +49,14 @@
 												<input class="form-control" name='password' id="password" placeholder="Password" type="password">
 											</div>
 										</div>
-										<button class="btn btn-primary btn-block" type="submit">Đăng nhập</button>
+										<button class="btn btn-red btn-block" type="submit">Đăng nhập</button>
 {{--										<div class="option-sep">or</div>--}}
 {{--										<div class="form-row">--}}
 {{--											<div class="col-sm-6 mb-20"><button class="btn btn-indigo btn-block btn-wth-icon"> <span class="icon-label"><i class="fa fa-facebook"></i> </span><span class="btn-text">Login with facebook</span></button></div>--}}
 {{--											<div class="col-sm-6 mb-20"><button class="btn btn-sky btn-block btn-wth-icon"> <span class="icon-label"><i class="fa fa-twitter"></i> </span><span class="btn-text">Login with Twitter</span></button></div>--}}
 {{--										</div>--}}
                                         <div class="option-sep">hoặc</div>
-										<p class="text-center">Chưa có tài khoản? <a href="{{route('signUp')}}">Đăng ký</a></p>
+										<p class="text-center">Chưa có tài khoản? <a class="text-red" href="{{route('signUp')}}">Đăng ký</a></p>
 									</form>
 								</div>
 							</div>

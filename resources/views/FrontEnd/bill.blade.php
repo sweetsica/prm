@@ -1,6 +1,6 @@
 @extends('FrontEnd.template.master-full')
 @section('content-body')
-    <div class="hk-pg-wrapper">
+    <div class="hk-pg-wrapper m-auto">
         <!-- Breadcrumb -->
         <nav class="hk-breadcrumb" aria-label="breadcrumb">
             <ol class="breadcrumb breadcrumb-light bg-transparent">
@@ -21,7 +21,7 @@
                     <a href="#" class="text-secondary mr-15"><span class="feather-icon"><i data-feather="printer"></i></span></a>
                     <a href="#" class="text-secondary mr-15"><span class="feather-icon"><i data-feather="download"></i></span></a>
 {{--                    {{dd($userBillInfo)}}--}}
-                    <a href="{{$userBillInfo->url}}" class="btn btn-primary btn-sm">Đổi thưởng</a>
+                    <a href="{{$userBillInfo->url}}" class="btn btn-red btn-sm">Đổi thưởng</a>
                 </div>
             </div>
             <!-- /Title -->
@@ -33,7 +33,7 @@
                         <div class="invoice-from-wrap">
                             <div class="row">
                                 <div class="col-md-7 mb-20">
-                                    <img class="img-fluid invoice-brand-img d-block mb-20" src="{{asset('src/dist/img/invoice-logo.png')}}" alt="brand" />
+                                    <img class="img-fluid invoice-brand-img d-block flex logo-bill mb-20" src="{{asset('src/dist/img/logo/logo.png')}}" alt="brand" />
                                     <h6 class="mb-5">Doppelherz Việt Nam</h6>
                                     <address>
                                         <span class="d-block">Tầng 06, tháp A, tòa Central Point số 219 Trung Kính</span>
@@ -78,23 +78,28 @@
                                 <div class="table-responsive">
                                     <table class="table table-striped table-border mb-0">
                                         <thead>
-                                        <tr>
-                                            <th class="w-70">Tên sản phẩm</th>
+                                        <tr class="border-bottom">
+                                            <th class="">Tên sản phẩm</th>
                                             <th class="text-right">Mã sản phẩm</th>
                                             <th class="text-right">Đơn giá</th>
                                             <th class="text-right">Ngày quét mã</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach($histories as $historyItem)
+                                        @if($histories === null)
                                             <tr>
-                                                <td class="w-70">{{$historyItem->product_name}}</td>
-                                                <td class="text-right">{{$historyItem->qr_specialCode}}</td>
-                                                <td class="text-right">{{$historyItem->price}}</td>
-                                                <td class="text-right">{{$historyItem->created_at->format('d/m/Y')}}</td>
+                                                <td colspan="4" class="">Bạn Chưa Mua Sản Phẩm Nào!, <a class="text-red " href="https://doppelherz.vn/san-pham/">Mua Hàng Để Nhận Điểm</a></td>
                                             </tr>
-                                        @endforeach
-
+                                         @else
+                                            @foreach($histories as $historyItem)
+                                                <tr>
+                                                    <td class="">{{$historyItem->product_name}}</td>
+                                                    <td class="text-right">{{$historyItem->qr_specialCode}}</td>
+                                                    <td class="text-right">{{$historyItem->price}}</td>
+                                                    <td class="text-right">{{$historyItem->created_at->format('d/m/Y')}}</td>
+                                                </tr>
+                                            @endforeach
+                                        @endif
                                         </tbody>
 {{--                                        <tfoot class="border-bottom border-1">--}}
 {{--                                        <tr>--}}

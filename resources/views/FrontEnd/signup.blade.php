@@ -31,14 +31,13 @@
                 <div class="row">
                     <div class="col-xl-12 pa-0">
                         <div class="auth-form-wrap pt-xl-0 pt-70">
-                            <div class="auth-form w-xl-30 w-lg-55 w-sm-75 w-100">
+                            <div class="auth-form border pa-20 rounded-20 bg-white w-xl-30 w-lg-55 w-sm-75 w-100">
                                 <a class="auth-brand text-center d-block mb-20" href={{asset('/')}}>
-                                    <img class="brand-img" src="{{asset('src/dist/img/logo-light.png')}}" alt="brand" />
+                                    <img class="logo-in-auth" src="{{asset('src/dist/img/logo/logo.png')}}" alt="brand"/>
                                 </a>
-                                <form method="Post" action="{{route('signUp.send')}}">
+                                <form  class="border-top" method="Post" action="{{route('signUp.send')}}">
                                     @csrf
-                                    <h1 class="display-4 mb-10 text-center">Đăng ký</h1>
-                                    <p class="mb-30 text-center">Một tài khoản - Ngàn quà tặng</p>
+                                    <h1 class="display-4 text-center font-24 font-weight-700 mt-10 mb-10">Đăng Ký!</h1>
                                     <div class="form-row">
                                         <div class="col-md-6 form-group">
                                             <input class="form-control" name='name' placeholder="Họ Tên" value="" type="text">
@@ -60,9 +59,9 @@
                                     </div>
                                     <div class="custom-control custom-checkbox mb-25">
                                         <input class="custom-control-input" id="same-address" type="checkbox" checked>
-                                        <label class="custom-control-label font-14" for="same-address">Tôi đồng ý với <a href=""><u>điều khoản và chính sách bảo mật</u></a></label>
+                                        <label class="custom-control-label font-14" for="same-address">Tôi đồng ý với <a class="text-red" href=""><u>điều khoản và chính sách bảo mật</u></a></label>
                                     </div>
-                                    <button class="btn btn-primary btn-block" type="submit">Đăng ký</button>
+                                    <button class="btn btn-red btn-block" type="submit">Đăng ký</button>
                                     <div class="option-sep">hoặc</div>
 {{--                                    <div class="form-row">--}}
 {{--                                        <div class="col-sm-6 mb-20">--}}
@@ -72,7 +71,7 @@
 {{--                                            <button class="btn btn-sky btn-block btn-wth-icon"> <span class="icon-label"><i class="fa fa-twitter"></i> </span><span class="btn-text">Login with Twitter</span></button>--}}
 {{--                                        </div>--}}
 {{--                                    </div>--}}
-                                    <p class="text-center">Đã có tài khoản? <a href="{{asset('/dangnhap')}}">Đăng nhập</a></p>
+                                    <p class="text-center">Đã có tài khoản? <a class="text-red" href="{{asset('/dangnhap')}}">Đăng nhập</a></p>
                                 </form>
                             </div>
                         </div>
