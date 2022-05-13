@@ -92,7 +92,7 @@ class CustomerController extends Controller
                     return view('FrontEnd/login');
                 }
             } else {
-                Session::flash('error', 'Đăng nhập thất bại TK!');
+                Session::flash('error', 'Đăng nhập thất bại, vui lòng kiểm tra lại tài khoản và mật khẩu');
                 return view('FrontEnd/login');
             }
         }catch (\Exception $error){

@@ -38,6 +38,11 @@
 									<a class="auth-brand text-center d-block mb-20 " href="{{asset('/')}}">
 										<img class="logo-in-auth" src="{{asset('src/dist/img/logo/logo.png')}}" alt="brand"/>
 									</a>
+                                    @if (Session::has('error'))
+                                        <div class="alert alert-danger" role="alert">
+                                            Đăng nhập thất bại, vui lòng kiểm tra lại số điện thoại và mật khẩu
+                                        </div>
+                                    @endif
 									<form class="border-top" method="POST" action="{{route('login.send')}}">
                                         @csrf
 										<h1 class="display-4 text-center font-24 font-weight-700 mt-10 mb-10">Đăng Nhập!</h1>
