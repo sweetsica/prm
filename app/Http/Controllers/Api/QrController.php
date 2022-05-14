@@ -13,10 +13,10 @@ class QrController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-        $result = QR::all();
+        $limit = $request->get('limit');
+        $result = QR::limit($limit);
         return response()->json($result,200);
     }
 

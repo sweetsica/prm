@@ -22,7 +22,12 @@ class QR extends Model
     {
         return $this->belongsTo(Promotion::class);
     }
-
+    public function scopeLimit($query,$limit){
+        if($limit == "" || $limit == null){
+            return $query->paginate(100);
+        }
+        return $query->paginate($limit);
+    }
 //    public function setspecialCodeAttribute($value)
 //    {
 //        if ($value == '') {
