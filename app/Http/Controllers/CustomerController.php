@@ -75,28 +75,35 @@ class CustomerController extends Controller
     public function checkLogin(Request $request)
     {
         try{
-            $info_customer = Customer::where('phone', $request->phone)->first();
-            $url= 'https://promotion-manage.vercel.app/nhanthuong/'.base64_encode($info_customer->id).'/'.Str::random(5);
-            if ($info_customer) {
-                if (Hash::check($request->password, $info_customer->password)) {
-                    Session::put('customer_id',$info_customer['id']);
-                    Session::put('customer_name',$info_customer['name']);
-                    if(Session::get('currentURL')){
+            if(!$request->phone == null){
+                $info_customer = Customer::where('phone', $request->phone)->first();
+                $url= 'https://promotion-manage.vercel.app/nhanthuong/'.base64_encode($info_customer->id).'/'.Str::random(5);
+                if (!$info_customer == null)
+                {
+                    if (Hash::check($request->password, $info_customer->password)) {
+                        Session::put('customer_id',$info_customer['id']);
+                        Session::put('customer_name',$info_customer['name']);
+                        if(Session::get('currentURL')){
                             return Redirect::to(Session::get('currentURL')); // trang xu ly tich diem
                         }else{
-                           return Redirect::to($url); // dashboard
+                            return Redirect::to($url); // dashboard
+                        }
+                    } else {
+                        Session::flash('error', 'Đăng nhập thất bại, vui lòng kiểm tra lại tài khoản và mật khẩu');
+                        return view('FrontEnd/login');
                     }
-                } else {
-                    Session::flash('error', 'Đăng nhập thất bại MK!');
-                    return view('FrontEnd/login');
                 }
-            } else {
+                else {
+                  dd($info_customer);
+                }
+            }else{
                 Session::flash('error', 'Đăng nhập thất bại, vui lòng kiểm tra lại tài khoản và mật khẩu');
                 return view('FrontEnd/login');
             }
+
         }catch (\Exception $error){
-            Log::error($error);
-            return redirect()->route('login');
+            Session::flash('error', 'Đăng nhập thất bại, vui lòng kiểm tra lại tài khoản và mật khẩu');
+            return view('FrontEnd/login');
         }
     }
 
