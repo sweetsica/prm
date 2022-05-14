@@ -48,7 +48,6 @@ class CustomerController extends Controller
             'email' => 'required'
         ]);
         if($validator->fails()){
-            dd('fails');
             return response()->json($validator->errors());
         }else{
             $customer['name'] = $request['name'];

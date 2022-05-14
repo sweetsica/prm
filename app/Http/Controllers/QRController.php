@@ -47,11 +47,13 @@ class QRController extends Controller
                     $history->qr_id = $promotion_infomation['id'];
                     $history->save();
 
-                    Session::flash('notice', 'Tích điểm thành công! Sản phẩm của bạn đã được tích ' . $promotionPointBonus . ' điểm vào tài khoản. Cảm ơn bạn đã tham gia chương trình.');
+                    Session::flash('notice-success', [
+                        $promotionPointBonus,$productInfo
+                    ]);
                     Session::forget('currentURL');
                     return view('FrontEnd/blank');
                 } else {
-                    Session::flash('notice', 'Mã số sản phẩm của bạn đã từng được kích hoạt. Yêu cầu tích điểm không thành công. Vui lòng liên hệ CSKH của Doppelherz Việt Nam qua email info@mastertran.vn để được bồi thường và hỗ trợ tốt nhất.');
+                    Session::flash('notice-fail', 'Mã số sản phẩm của bạn đã từng được kích hoạt. Yêu cầu tích điểm không thành công. Vui lòng liên hệ CSKH của Doppelherz Việt Nam qua email info@mastertran.vn để được bồi thường và hỗ trợ tốt nhất.');
                     Session::forget('currentURL');
                     return view('FrontEnd/blank');
                 }
@@ -61,6 +63,10 @@ class QRController extends Controller
         } else {
             return redirect(route('login'));
         }
+    }
+
+    public  function  testNotify(){
+        return view('FrontEnd/blank');
     }
 
 }

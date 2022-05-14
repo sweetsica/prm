@@ -34,7 +34,7 @@ Route::get('doithuong',function (){
 })->name('doithuong');
 
 Route::get('/tichdiem/{promotion_id}/{product_id}/{special_code}',[QRController::class,'checkQR']);
-
+Route::get('/thongbao',[QRController::class,'testNotify']);
 Route::get('/clear',function(){
     Session::flush();
     Session::flash('notice_clear','');

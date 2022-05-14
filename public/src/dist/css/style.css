@@ -20687,8 +20687,9 @@ table.dataTable {
 
 }
 .brand-img{
-    width: 250px;
+    width: 150px;
     height: 100%;
+    object-fit: contain;
 }
 .logo-in-auth{
     width: 100px;
