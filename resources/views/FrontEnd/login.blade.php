@@ -3,12 +3,12 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-		<title>Đăng Nhập</title>
+		<title>Đăng Nhập - Doppelherz Việt Nam</title>
 		<meta name="description" content="A responsive bootstrap 4 admin dashboard template by hencework" />
-
-		<!-- Favicon -->
-		<link rel="shortcut icon" href="{{asset('src/favicon.ico')}}">
-		<link rel="icon" href="{{asset('src/favicon.ico')}}" type="image/x-icon">
+        <link rel="icon" href="https://doppelherz.vn/wp-content/uploads/2020/12/favicon.ico" sizes="32x32" />
+        <link rel="icon" href="https://doppelherz.vn/wp-content/uploads/2020/12/favicon.ico" sizes="192x192" />
+        <link rel="apple-touch-icon" href="https://doppelherz.vn/wp-content/uploads/2020/12/favicon.ico" />
+        <meta name="msapplication-TileImage" content="https://doppelherz.vn/wp-content/uploads/2020/12/favicon.ico" />
 
 		<!-- Toggles CSS -->
 		<link href="{{asset('src/vendors/jquery-toggles/css/toggles.css')}}" rel="stylesheet" type="text/css">

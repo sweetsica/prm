@@ -4,9 +4,12 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Brunette I Invoice</title>
+    <title>@yield('title','Trang Chủ') - Doppelherz Việt Nam </title>
     <meta name="description" content="A responsive bootstrap 4 admin dashboard template by hencework" />
-
+    <link rel="icon" href="https://doppelherz.vn/wp-content/uploads/2020/12/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="https://doppelherz.vn/wp-content/uploads/2020/12/favicon.ico" sizes="192x192" />
+    <link rel="apple-touch-icon" href="https://doppelherz.vn/wp-content/uploads/2020/12/favicon.ico" />
+    <meta name="msapplication-TileImage" content="https://doppelherz.vn/wp-content/uploads/2020/12/favicon.ico" />
     <!-- Favicon -->
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -163,6 +166,7 @@
 {{--                        </div>--}}
 {{--                    </div>--}}
 {{--                    <div class="dropdown-divider"></div>--}}
+                    <a class="dropdown-item" href="https://tichdiem.doppelherz.vn/nguoidung"><i class="dropdown-icon zmdi zmdi-account"></i><span>Người Dùng</span></a>
                     <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-power"></i><span>Đăng Xuất</span></a>
                 </div>
             </li>

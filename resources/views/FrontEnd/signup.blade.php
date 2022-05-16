@@ -4,12 +4,14 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Đăng Ký</title>
+    <title>Đăng Ký - Doppelherz Việt Nam</title>
     <meta name="description" content="A responsive bootstrap 4 admin dashboard template by hencework" />
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="https://doppelherz.vn/wp-content/uploads/2020/12/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="https://doppelherz.vn/wp-content/uploads/2020/12/favicon.ico" sizes="192x192" />
+    <link rel="apple-touch-icon" href="https://doppelherz.vn/wp-content/uploads/2020/12/favicon.ico" />
+    <meta name="msapplication-TileImage" content="https://doppelherz.vn/wp-content/uploads/2020/12/favicon.ico" />
 
     <!-- Custom CSS -->
     <link href="{{asset('src/dist/css/style.css')}}" rel="stylesheet" type="text/css">

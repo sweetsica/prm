@@ -28,6 +28,12 @@ class QR extends Model
         }
         return $query->paginate($limit);
     }
+    public function scopePromotionByID($query,$promotion_id){
+        if($promotion_id == "" || $promotion_id == null){
+            return $query;
+        }
+        return $query->where('promotion_id',$promotion_id);
+    }
 //    public function setspecialCodeAttribute($value)
 //    {
 //        if ($value == '') {

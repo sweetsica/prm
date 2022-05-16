@@ -28,6 +28,7 @@ Route::put('/nguoidung/{customer_id}',[CustomerController::class, 'update']);
 Route::get('/thongtinquatang',[GiftController::class, 'index']);
 Route::post('/doiqua',[OrderController::class,'changeGift']);
 Route::get('/qrcode',[\App\Http\Controllers\Api\QrController::class,'index']);
+Route::get('/promotion',[\App\Http\Controllers\Api\QrController::class,'promotion']);
 
 Route::get('/testmd5',function (){
     $data = "muop dang la kho qua 9991";

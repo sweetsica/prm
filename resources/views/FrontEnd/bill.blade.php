@@ -1,4 +1,5 @@
 @extends('FrontEnd.template.master-full')
+@section('title','Hoá Đơn')
 @section('content-body')
     <div class="hk-pg-wrapper m-auto">
         <!-- Breadcrumb -->
@@ -18,8 +19,6 @@
                     <h4 class="hk-pg-title"><span class="pg-title-icon"><span class="feather-icon"><i data-feather="book"></i></span></span>Hóa đơn</h4>
                 </div>
                 <div class="d-flex">
-                    <a href="#" class="text-secondary mr-15"><span class="feather-icon"><i data-feather="printer"></i></span></a>
-                    <a href="#" class="text-secondary mr-15"><span class="feather-icon"><i data-feather="download"></i></span></a>
 {{--                    {{dd($userBillInfo)}}--}}
                     <a href="{{$userBillInfo->url}}" class="btn btn-red btn-sm">Đổi thưởng</a>
                 </div>
@@ -136,10 +135,9 @@
 {{--                        <p>--}}
                     </div>
                     <div class="col-md-6 col-sm-12">
-                        <p class="d-inline-block">Follow us</p>
-                        <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-facebook"></i></span></a>
-                        <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-twitter"></i></span></a>
-                        <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-google-plus"></i></span></a>
+                        <p class="d-inline-block">Theo Dõi Chúng Tôi:</p>
+                        <a href="https://www.facebook.com/DoppelherzVietnam" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-facebook"></i></span></a>
+                        <a href="https://doppelherz.vn/" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-google-plus"></i></span></a>
                     </div>
                 </div>
             </footer>
