@@ -147,7 +147,7 @@
 {{--                            <span class="badge badge-success badge-indicator"></span>--}}
 {{--                        </div>--}}
                         <div class="media-body">
-                            <span><i class="dropdown-icon zmdi zmdi-account mr-5"><i class="zmdi zmdi-chevron-down"></i></span>
+                            <span><i class="dropdown-icon zmdi zmdi-account font-30 mr-5"></i><i class="zmdi zmdi-chevron-down"></i></span>
 {{--                            {{Session::get('customer_name')}}--}}
                         </div>
                     </div>
