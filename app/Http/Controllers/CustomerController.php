@@ -42,6 +42,9 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
+        if(Session::get('customer_id') || Session::get('customer_name')){
+            return Redirect::to('/hoadon');
+        }
         $validator = Validator::make($request->all(),[
             'name' => 'required|string|max:60',
             'password' => 'required|min:6|max:60|confirmed',
@@ -65,7 +68,19 @@ class CustomerController extends Controller
      */
     public function login()
     {
+        if(Session::get('customer_id') || Session::get('customer_name')){
+            return Redirect::to('/hoadon');
+        }
         return view('FrontEnd.login');
+    }
+    public  function  logout(){
+        if(Session::get('customer_id') || Session::get('customer_name')){
+            Session::forget('customer_id');
+            Session::forget('customer_name');
+            return Redirect::to('/dangnhap');
+        }else{
+            return Redirect::to('/dangnhap');
+        }
     }
 
     /**
@@ -77,7 +92,6 @@ class CustomerController extends Controller
         try{
             if(!$request->phone == null){
                 $info_customer = Customer::where('phone', $request->phone)->first();
-                $url= 'https://promotion-manage.vercel.app/nhanthuong/'.base64_encode($info_customer->id).'/'.Str::random(5);
                 if (!$info_customer == null)
                 {
                     if (Hash::check($request->password, $info_customer->password)) {
@@ -86,7 +100,7 @@ class CustomerController extends Controller
                         if(Session::get('currentURL')){
                             return Redirect::to(Session::get('currentURL')); // trang xu ly tich diem
                         }else{
-                            return Redirect::to($url); // dashboard
+                            return Redirect::to('/hoadon'); // dashboard
                         }
                     } else {
                         Session::flash('error', 'Đăng nhập thất bại, vui lòng kiểm tra lại tài khoản và mật khẩu');

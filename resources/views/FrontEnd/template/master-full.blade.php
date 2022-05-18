@@ -168,7 +168,7 @@
 {{--                    </div>--}}
 {{--                    <div class="dropdown-divider"></div>--}}
                     <a class="dropdown-item" href="https://tichdiem.doppelherz.vn/nguoidung"><i class="dropdown-icon zmdi zmdi-account"></i><span>Người Dùng</span></a>
-                    <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-power"></i><span>Đăng Xuất</span></a>
+                    <a class="dropdown-item" href="{{asset('/dangxuat')}}"><i class="dropdown-icon zmdi zmdi-power"></i><span>Đăng Xuất</span></a>
                 </div>
             </li>
         </ul>

@@ -24,6 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/nguoidung',[CustomerController::class, 'index'])->name('api.customer');
 Route::get('/nguoidung/{customer_id}',[CustomerController::class, 'show']);
 Route::put('/nguoidung/{customer_id}',[CustomerController::class, 'update']);
+Route::put('/dangxuat',[CustomerController::class, 'logout']);
 
 Route::get('/thongtinquatang',[GiftController::class, 'index']);
 Route::post('/doiqua',[OrderController::class,'changeGift']);

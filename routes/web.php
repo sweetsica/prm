@@ -25,6 +25,7 @@ Route::get('/dangky',[CustomerController::class,'create'])->name('signUp');
 Route::post('/dangkysend',[CustomerController::class,'store'])->name('signUp.send');
 
 Route::get('/dangnhap',[CustomerController::class,'login'])->name('login');
+Route::get('/dangxuat',[CustomerController::class,'logout'])->name('logout');
 Route::post('/dangnhapsend',[CustomerController::class,'checkLogin'])->name('login.send');
 
 Route::get('/hoadon',[CustomerController::class,'userBill'])->name('user.bill');
