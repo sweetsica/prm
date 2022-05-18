@@ -6,6 +6,7 @@ use App\Models\QR;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
 
 class VitalPregnaSeeder extends Seeder
@@ -26,7 +27,7 @@ class VitalPregnaSeeder extends Seeder
                 "promotion_id"=>$promotion_id,
                 "product_id"=>$product_id,
                 "specialCode"=>$specialCode,
-                "linkQr"=>"http://127.0.0.1:8000/tichdiem/".$promotion_id."/".$product_id."/".$specialCode,
+                "linkQr"=>URL::route('website')."/tichdiem/".$promotion_id."/".$product_id."/".$specialCode,
             ]);
         }
     }
