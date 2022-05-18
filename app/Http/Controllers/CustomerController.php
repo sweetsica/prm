@@ -31,6 +31,9 @@ class CustomerController extends Controller
      */
     public function create()
     {
+        if(Session::get('customer_id') || Session::get('customer_name')){
+            return Redirect::to('/hoadon');
+        }
         return view('FrontEnd/signup');
     }
 
@@ -42,9 +45,7 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        if(Session::get('customer_id') || Session::get('customer_name')){
-            return Redirect::to('/hoadon');
-        }
+
         $validator = Validator::make($request->all(),[
             'name' => 'required|string|max:60',
             'password' => 'required|min:6|max:60|confirmed',
