@@ -57,7 +57,7 @@
                             @if(Session::has('notice-success'))
                                 <div class="text-center">
                                     <h1 class=" mb-10 text-center text-red">Tích Điểm Thành Công.</h1>
-                                    <h3 class="font-20 mb-5">Sản Phẩm Đã Quyét:  <span class="text-red">{{ Session::get('notice-success')[1]->name }}</span></h3>
+                                    <h3 class="font-20 mb-5">Sản Phẩm Đã Quét:  <span class="text-red">{{ Session::get('notice-success')[1]->name }}</span></h3>
                                     <p class="mb-30 text-center">Bạn đã được tích <span class="text-red">{{Session::get('notice-success')[0]}} điểm</span> vào tài khoản, Cảm ơn bạn đã tham gia chương trình</p>
                                     <a href="{{asset('/hoadon')}}" class="btn btn-red text-white">Xem Lịch Sử</a>
                                 </div>
