@@ -8,7 +8,6 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
-
 class AktivMenoSeeder extends Seeder
 {
     /**
@@ -18,10 +17,10 @@ class AktivMenoSeeder extends Seeder
      */
     public function run()
     {
-
         $promotion_id = 4;
         $product_id = 4 ;
-        $count = 5000;
+
+        $count = 10000;
         for ($i =0 ; $i < $count ; $i++){
             $specialCode = Str::random(12);
             DB::table('q_r_s')->insert([
@@ -31,8 +30,6 @@ class AktivMenoSeeder extends Seeder
                 "linkQr"=>URL::route('website')."/tichdiem/".$promotion_id."/".$product_id."/".$specialCode,
             ]);
         }
-
-
 
     }
 }

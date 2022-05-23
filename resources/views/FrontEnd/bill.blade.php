@@ -1,4 +1,4 @@
-@extends('FrontEnd.template.master-full')
+{{--@extends('FrontEnd.template.master-full')--}}
 @section('title','Hoá Đơn')
 @section('content-body')
     <div class="hk-pg-wrapper m-auto">
@@ -85,7 +85,8 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @if($histories === null)
+{{--                                        {{dd()}}--}}
+                                        @if($histories == null)
                                             <tr>
                                                 <td colspan="4" class="">Bạn Chưa Mua Sản Phẩm Nào!, <a class="text-red " href="https://doppelherz.vn/san-pham/">Mua Hàng Để Nhận Điểm</a></td>
                                             </tr>

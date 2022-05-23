@@ -45,15 +45,24 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-
-        $validator = Validator::make($request->all(),[
-            'name' => 'required|string|max:60',
-            'password' => 'required|min:6|max:60|confirmed',
-            'email' => 'required'
+        $request->validate([
+            "name"=>"required",
+            "email"=>"required|email|unique:customers",
+            "phone"=>"required|unique:customers",
+            "password"=>"required",
+            "password_confirmation"=>"same:password"
+        ],[
+            "name.required"=>"Vui lòng nhập họ và tên",
+            "phone.required"=>"Vui lòng nhập số điện thoại",
+            "phone.unique"=>"Số điện thoại đã tồn tại.",
+            "email.required"=>"Vui lòng nhập địa chỉ email",
+            "email.unique"=>"Email đã tồn tại.",
+            "email.email"=>"Email không hợp lệ, vui lòng nhập lại",
+            "password.required"=>"Vui lòng nhập mật khẩu",
+            "password_confirmation.same"=>"Mật khẩu không khớp"
         ]);
-        if($validator->fails()){
-            return response()->json($validator->errors());
-        }else{
+
+        try{
             $customer['name'] = $request['name'];
             $customer['email'] = $request['email'];
             $customer['phone'] = $request['phone'];
@@ -61,7 +70,11 @@ class CustomerController extends Controller
             Customer::create($customer);
             Session::flash('notice', 'Tạo thành công!');
             return redirect(route('login'));
+        }catch (\Exception $e){
+            abort(404);
         }
+
+
     }
 
     /**
@@ -109,7 +122,8 @@ class CustomerController extends Controller
                     }
                 }
                 else {
-                  dd($info_customer);
+                    Session::flash('error', 'Đăng nhập thất bại, vui lòng kiểm tra lại tài khoản và mật khẩu');
+                    return view('FrontEnd/login');
                 }
             }else{
                 Session::flash('error', 'Đăng nhập thất bại, vui lòng kiểm tra lại tài khoản và mật khẩu');
@@ -127,7 +141,7 @@ class CustomerController extends Controller
         if (Session::get('customer_id') !== null) {
             $customerId = Session::get('customer_id');
             $userBillInfo = Customer::where('id','=',$customerId)->first();
-            $histories = History::where('customer_id',$userBillInfo->id)->get();
+            $histories = History::where('customer_id',$userBillInfo->id)->get('qr_specialCode');
             $userBillInfo['histories'] = $userBillInfo->history()->get();
             $userBillInfo['url'] = 'https://tichdiem.doppelherz.vn/nhanthuong/'.base64_encode($userBillInfo->id).'/'.Str::random(5);
             return view('FrontEnd/bill',compact('userBillInfo','histories'));

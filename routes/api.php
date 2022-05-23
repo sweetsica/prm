@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\QrController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\CustomerController;
@@ -28,12 +29,12 @@ Route::put('/dangxuat',[CustomerController::class, 'logout']);
 
 Route::get('/thongtinquatang',[GiftController::class, 'index']);
 Route::post('/doiqua',[OrderController::class,'changeGift']);
+
 Route::get('/qrcode',[\App\Http\Controllers\Api\QrController::class,'index']);
 Route::get('/promotion',[\App\Http\Controllers\Api\QrController::class,'promotion']);
-
 Route::get('/testmd5',function (){
     $data = "muop dang la kho qua 9991";
 //    return md5($data);
-    return base64_encode($data);
+//    return base64_encode($data);
 });
 

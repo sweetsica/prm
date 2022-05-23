@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-            $table->string('phone')->nullable();
-            $table->string('password')->nullable();
-            $table->string('email')->nullable();
+            $table->string('name');
+            $table->string('phone')->unique();
+            $table->string('password');
+            $table->string('email')->unique();
             $table->string('address')->nullable();
             $table->string('totalPoint')->default('0')->nullable();
             $table->string('lastPoint')->default('0')->nullable();

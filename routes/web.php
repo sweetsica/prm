@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QRController;
 use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\URL;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,11 +23,11 @@ Route::get('/', function () {
 })->name('website');
 
 Route::get('/dangky',[CustomerController::class,'create'])->name('signUp');
-Route::post('/dangkysend',[CustomerController::class,'store'])->name('signUp.send');
+Route::post('/dangky',[CustomerController::class,'store'])->name('signUp.send');
 
 Route::get('/dangnhap',[CustomerController::class,'login'])->name('login');
 Route::get('/dangxuat',[CustomerController::class,'logout'])->name('logout');
-Route::post('/dangnhapsend',[CustomerController::class,'checkLogin'])->name('login.send');
+Route::post('/dangnhap',[CustomerController::class,'checkLogin'])->name('login.send');
 
 Route::get('/hoadon',[CustomerController::class,'userBill'])->name('user.bill');
 
@@ -40,5 +41,12 @@ Route::get('/clear',function(){
     Session::flush();
     Session::flash('notice_clear','');
     return route('login');
+});
+
+Route::get('/testmd5',function (){
+    $data = "muop dang la kho qua 9991";
+    dd(URL::route('website'));
+//    return md5($data);
+//    return base64_encode($data);
 });
 

@@ -42,26 +42,42 @@
                                     <h1 class="display-4 text-center font-24 font-weight-700 mt-10 mb-10">Đăng Ký!</h1>
                                     <div class="form-row">
                                         <div class="col-md-6 form-group">
-                                            <input class="form-control" name='name' placeholder="Họ Tên" value="" type="text">
+                                            <input class="form-control" name='name' placeholder="Họ Tên" value="{{old("name")}}" type="text">
+                                            @error("name")
+                                            <span class="text-danger mt-10">{{$message}}</span>
+                                            @enderror
                                         </div>
                                         <div class="col-md-6 form-group">
-                                            <input class="form-control" name='phone' placeholder="Số điện thoại" value="" type="number">
+                                            <input class="form-control" name='phone' min="0" placeholder="Số điện thoại" value="{{old("phone")}}" type="number">
+                                            @error("phone")
+                                            <span class="text-danger mt-10">{{$message}}</span>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control" name='email' placeholder="Email" type="email">
+                                        <input class="form-control" name='email' placeholder="Email" value="{{old("email")}}" type="email">
+                                        @error("email")
+                                        <span class="text-danger mt-10">{{$message}}</span>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control" name='password' placeholder="Mật khẩu" type="password">
+                                        <input class="form-control" name='password'  placeholder="Mật khẩu" value="{{old("password")}}" type="password">
+                                        @error("password")
+                                        <span class="text-danger mt-10">{{$message}}</span>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <input class="form-control" name='password_confirmation' placeholder="Xác nhận mật khẩu" type="password">
+                                            <input class="form-control" name='password_confirmation' placeholder="Xác nhận mật khẩu"  type="password">
+
                                         </div>
+                                        @error("password_confirmation")
+                                        <span class="text-danger mt-10">{{$message}}</span>
+                                        @enderror
                                     </div>
                                     <div class="custom-control custom-checkbox mb-25">
                                         <input class="custom-control-input" id="same-address" type="checkbox" checked>
-                                        <label class="custom-control-label font-14" for="same-address">Tôi đồng ý với <a class="text-red" href=""><u>điều khoản và chính sách bảo mật</u></a></label>
+                                        <label class="custom-control-label font-14" for="same-address">Tôi đồng ý với <a class="text-red" href="https://tichdiem.doppelherz.vn/baomat"><u>điều khoản và chính sách bảo mật</u></a></label>
                                     </div>
                                     <button class="btn btn-red btn-block" type="submit">Đăng ký</button>
                                     <div class="option-sep">hoặc</div>
