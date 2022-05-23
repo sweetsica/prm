@@ -129,7 +129,7 @@ class CustomerController extends Controller
             $userBillInfo = Customer::where('id','=',$customerId)->first();
             $histories = History::where('customer_id',$userBillInfo->id)->get();
             $userBillInfo['histories'] = $userBillInfo->history()->get();
-            $userBillInfo['url'] = 'https://promotion-manage.vercel.app/nhanthuong/'.base64_encode($userBillInfo->id).'/'.Str::random(5);
+            $userBillInfo['url'] = 'https://tichdiem.doppelherz.vn/nhanthuong/'.base64_encode($userBillInfo->id).'/'.Str::random(5);
             return view('FrontEnd/bill',compact('userBillInfo','histories'));
         } else {
             return redirect(route('login'));
