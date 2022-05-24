@@ -48,7 +48,7 @@
                                             @enderror
                                         </div>
                                         <div class="col-md-6 form-group">
-                                            <input class="form-control" name='phone' min="0" placeholder="Số điện thoại" value="{{old("phone")}}" type="number">
+                                            <input class="form-control" name='phone' min="0" placeholder="Số điện thoại" value="{{old("phone")}}" type="tel">
                                             @error("phone")
                                             <span class="text-danger mt-10">{{$message}}</span>
                                             @enderror

@@ -48,13 +48,14 @@ class CustomerController extends Controller
         $request->validate([
             "name"=>"required",
             "email"=>"required|email|unique:customers",
-            "phone"=>"required|unique:customers",
+            "phone"=>["required","regex:/(84|0[3|5|7|8|9])+([0-9]{8})\b/","unique:customers"],
             "password"=>"required",
             "password_confirmation"=>"same:password"
         ],[
             "name.required"=>"Vui lòng nhập họ và tên",
             "phone.required"=>"Vui lòng nhập số điện thoại",
             "phone.unique"=>"Số điện thoại đã tồn tại.",
+            "phone.regex"=>"Số điện thoại không hợp lệ.",
             "email.required"=>"Vui lòng nhập địa chỉ email",
             "email.unique"=>"Email đã tồn tại.",
             "email.email"=>"Email không hợp lệ, vui lòng nhập lại",
