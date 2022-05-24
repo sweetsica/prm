@@ -141,7 +141,7 @@ class CustomerController extends Controller
         if (Session::get('customer_id') !== null) {
             $customerId = Session::get('customer_id');
             $userBillInfo = Customer::where('id','=',$customerId)->first();
-            $histories = History::where('customer_id',$userBillInfo->id)->get('qr_specialCode');
+            $histories = History::where('customer_id',$userBillInfo->id)->get();
             $userBillInfo['histories'] = $userBillInfo->history()->get();
             $userBillInfo['url'] = 'https://tichdiem.doppelherz.vn/nhanthuong/'.base64_encode($userBillInfo->id).'/'.Str::random(5);
             return view('FrontEnd/bill',compact('userBillInfo','histories'));

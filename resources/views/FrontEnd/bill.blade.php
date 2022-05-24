@@ -1,7 +1,8 @@
-{{--@extends('FrontEnd.template.master-full')--}}
+@extends('FrontEnd.template.master-full')
 @section('title','Hoá Đơn')
 @section('content-body')
     <div class="hk-pg-wrapper m-auto">
+
         <!-- Breadcrumb -->
         <nav class="hk-breadcrumb" aria-label="breadcrumb">
             <ol class="breadcrumb breadcrumb-light bg-transparent">
@@ -12,7 +13,7 @@
         <!-- /Breadcrumb -->
 
         <!-- Container -->
-        <div class="container">
+        <div class="container mb-30">
             <!-- Title -->
             <div class="hk-pg-header mb-10">
                 <div>
@@ -51,17 +52,17 @@
                         <div class="invoice-to-wrap pb-20">
                             <div class="row">
                                 <div class="col-md-7 mb-30">
-                                    <span class="d-block text-uppercase mb-5 font-13">Thông tin tài khoản</span>
-                                    <h6 class="mb-5">Tên khách hàng</h6>
+                                    <h6 class="d-block text-uppercase mb-5 font-13">Thông tin tài khoản</h6>
                                     <address>
+                                        <span class="d-block">Tên khách hàng</span>
                                         <span class="d-block">Địa chỉ khách hàng</span>
                                         <span class="d-block">Địa bàn khách hàng</span>
                                         <span class="d-block">Email khách hàng</span>
                                         <span class="d-block">Số điện thoại khách hàng</span>
                                     </address>
                                 </div>
-                                <div class="col-md-5 mb-30">
-                                    <span class="d-block text-uppercase mb-5 font-13">Payment info</span>
+                                <div class="col-md-5 pt-20 mb-30">
+
                                     <span class="d-block">{{$userBillInfo->name}}</span>
                                     <span class="d-block">{{$userBillInfo->address}}</span>
                                     <span class="d-block">Khách hàng thứ #<span class="text-dark">{{$userBillInfo->id}}</span></span>
@@ -85,8 +86,7 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-{{--                                        {{dd()}}--}}
-                                        @if($histories == null)
+                                        @if($histories->all() == [])
                                             <tr>
                                                 <td colspan="4" class="">Bạn Chưa Mua Sản Phẩm Nào!, <a class="text-red " href="https://doppelherz.vn/san-pham/">Mua Hàng Để Nhận Điểm</a></td>
                                             </tr>
@@ -129,7 +129,7 @@
 
         <!-- Footer -->
         <div class="hk-footer-wrap container">
-            <footer class="footer">
+            <footer class="footer  ">
                 <div class="row">
                     <div class="col-md-6 col-sm-12">
                         <p>PrM thuộc<a href="https://doppelherz.vn" class="text-dark" target="_blank">Doppelherz</a> © 2022 - Phát triển bởi đội IT <a href="https://tbht.vn" class="text-dark" target="_blank">Thái Hưng</a></p>
@@ -144,6 +144,5 @@
             </footer>
         </div>
         <!-- /Footer -->
-
     </div>
 @endsection

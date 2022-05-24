@@ -26,6 +26,7 @@ Route::get('/nguoidung',[CustomerController::class, 'index'])->name('api.custome
 Route::get('/nguoidung/{customer_id}',[CustomerController::class, 'show']);
 Route::put('/nguoidung/{customer_id}',[CustomerController::class, 'update']);
 Route::put('/dangxuat',[CustomerController::class, 'logout']);
+Route::get('/thongtinsanpham',[GiftController::class, 'product']);
 
 Route::get('/thongtinquatang',[GiftController::class, 'index']);
 Route::post('/doiqua',[OrderController::class,'changeGift']);
