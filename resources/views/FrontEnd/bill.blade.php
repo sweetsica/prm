@@ -118,7 +118,7 @@
                         <hr>
                         <ul class="invoice-terms-wrap font-14 list-ul">
                             <li>Các sản phẩm quà hoặc xuất kho trước 15/05/2022 sẽ không có mã QR</li>
-                            <li>Mọi thắc mắc về chương trình vui lòng liên hệ hotline: 18001770 hoặc email cskh@doppelherz.vn</li>
+                            <li>Mọi thắc mắc về chương trình vui lòng liên hệ hotline: 18001770 hoặc email info@mastertran.vn</li>
                         </ul>
                     </section>
                 </div>
