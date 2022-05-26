@@ -24,20 +24,20 @@ class QRController extends Controller
         Session::put('currentURL', url()->current());
         if (Session::get('customer_id') !== null) {
             $promotion_infomation = QR::where('promotion_id', $promotion_id)->where('product_id', $product_id)->firstOrFail();
+            if(Session::get('notice-success')){
+                Session::forget('notice-success');
+            }
             if ($promotion_infomation !== null) {
                 $promotionPointBonus = Promotion::where('id', "=", $promotion_infomation['promotion_id'])->first()->valueSale;
                 $qrs = QR::where('specialCode', '=', $special_code)->firstOrFail();
                 if ($qrs['status'] == 1) {
                     $qrs->status = 0;
                     $qrs->save();
-
                     $customer_info = Customer::where('id', '=', Session::get('customer_id'))->first();
                     $customer_info['summaryPoint'] = $customer_info['summaryPoint']+ $promotionPointBonus;
                     $customer_info['totalPoint'] = $customer_info['lastPoint'] + $promotionPointBonus;
                     $customer_info['lastPoint'] = $customer_info['totalPoint'];
                     $customer_info->save();
-
-
                     $history = new History();
                     $history->customer_id = Session::get('customer_id');
                     $history->qr_specialCode = $special_code;
