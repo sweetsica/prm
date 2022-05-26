@@ -77,7 +77,7 @@
                                     </div>
                                     <div class="custom-control custom-checkbox mb-25">
                                         <input class="custom-control-input" id="same-address" type="checkbox" checked>
-                                        <label class="custom-control-label font-14" for="same-address">Tôi đồng ý với <a class="text-red" href="https://tichdiem.doppelherz.vn/baomat"><u>điều khoản và chính sách bảo mật</u></a></label>
+                                        <label class="custom-control-label font-14" for="same-address">Tôi đồng ý với <a class="text-red" target="_blank" href="https://tichdiem.doppelherz.vn/baomat"><u>điều khoản và chính sách bảo mật</u></a></label>
                                     </div>
                                     <button class="btn btn-red btn-block" type="submit">Đăng ký</button>
                                     <div class="option-sep">hoặc</div>

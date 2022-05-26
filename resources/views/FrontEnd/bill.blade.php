@@ -38,13 +38,12 @@
                                     <address>
                                         <span class="d-block">Tầng 06, tháp A, tòa Central Point số 219 Trung Kính</span>
                                         <span class="d-block">Phường Yên Hòa, Quận Cầu Giấy, Hà Nội</span>
-                                        <span class="d-block">cskh@doppelherz.vn</span>
+                                        <span class="d-block">info@mastertran.vn</span>
                                     </address>
                                 </div>
                                 <div class="col-md-5 mb-20">
                                     <h4 class="mb-35 font-weight-600">Điểm thưởng: {{$userBillInfo->totalPoint}}</h4>
-                                    <span class="d-block">Ngày tham gia:<span class="pl-10 text-dark"> {{$userBillInfo->created_at}}</span></span>
-                                    <span class="d-block">Mã khách hàng: #<span class="pl-10 text-dark"> {{$userBillInfo->id}}</span></span>
+                                    <span class="d-block">Ngày tham gia:<span class="pl-10 text-dark"> {{$userBillInfo->created_at->format('d/m/Y')}}</span></span>
                                 </div>
                             </div>
                         </div>
@@ -54,20 +53,28 @@
                                 <div class="col-md-7 mb-30">
                                     <h6 class="d-block text-uppercase mb-5 font-13">Thông tin tài khoản</h6>
                                     <address>
-                                        <span class="d-block">Tên khách hàng</span>
-                                        <span class="d-block">Địa chỉ khách hàng</span>
-                                        <span class="d-block">Địa bàn khách hàng</span>
-                                        <span class="d-block">Email khách hàng</span>
-                                        <span class="d-block">Số điện thoại khách hàng</span>
+                                        <span class="d-block">Mã khách hàng:</span>
+                                        <span class="d-block">Tên khách hàng:</span>
+                                        <span class="d-block">Email khách hàng:</span>
+                                        <span class="d-block">Số điện thoại khách hàng:</span>
+                                        <span class="d-block">Địa chỉ khách hàng:</span>
+                                        <span class="d-block text-uppercase mt-20 mb-5 font-13">Tổng điểm tới giờ: </span>
                                     </address>
                                 </div>
                                 <div class="col-md-5 pt-20 mb-30">
-
+                                    <span class="d-block"><span class="text-dark">#{{$userBillInfo->id}}</span></span>
                                     <span class="d-block">{{$userBillInfo->name}}</span>
-                                    <span class="d-block">{{$userBillInfo->address}}</span>
-                                    <span class="d-block">Khách hàng thứ #<span class="text-dark">{{$userBillInfo->id}}</span></span>
-                                    <span class="d-block text-uppercase mt-20 mb-5 font-13">Tổng điểm tới giờ: </span>
-                                    <span class="d-block text-dark font-18 font-weight-600">{{$userBillInfo->summaryPoint}}</span>
+                                    <span class="d-block">{{$userBillInfo->email}}</span>
+                                    <span class="d-block">{{$userBillInfo->phone}}</span>
+                                    <span class="d-block">
+                                        @if($userBillInfo->address == null)
+                                            <span class="text-danger">Vui thêm thông tin địa chỉ</span>
+                                        @else
+                                            {{$userBillInfo->address}}
+                                        @endif
+
+                                    </span>
+                                    <span class="d-block text-uppercase mt-20 mb-5 font-13 text-dark font-weight-600">{{$userBillInfo->summaryPoint}}</span>
                                 </div>
                             </div>
                         </div>
