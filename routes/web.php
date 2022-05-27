@@ -28,6 +28,7 @@ Route::post('/dangky',[CustomerController::class,'store'])->name('signUp.send');
 Route::get('/dangnhap',[CustomerController::class,'login'])->name('login');
 Route::get('/dangxuat',[CustomerController::class,'logout'])->name('logout');
 Route::post('/dangnhap',[CustomerController::class,'checkLogin'])->name('login.send');
+Route::post('/doithongtin/{id}',[CustomerController::class,'changeInfoCus']);
 
 Route::get('/hoadon',[CustomerController::class,'userBill'])->name('user.bill');
 
