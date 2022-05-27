@@ -167,12 +167,37 @@
 {{--                        </div>--}}
 {{--                    </div>--}}
 {{--                    <div class="dropdown-divider"></div>--}}
-{{--                    <a class="dropdown-item" href="https://tichdiem.doppelherz.vn/nguoidung"><i class="dropdown-icon zmdi zmdi-account"></i><span>Người Dùng</span></a>--}}
+                    <a data-toggle="modal" data-target="#changeinfo" class="dropdown-item" href="javascript:void(0)"><i class="dropdown-icon zmdi zmdi-account"></i><span>Người Dùng</span></a>
                     <a class="dropdown-item" href="{{asset('/dangxuat')}}"><i class="dropdown-icon zmdi zmdi-power"></i><span>Đăng Xuất</span></a>
                 </div>
             </li>
         </ul>
     </nav>
+
+{{--    <div class="modal fade" id="changeinfo" tabindex="-1" role="dialog" aria-labelledby="changeinfo" aria-hidden="true">--}}
+{{--        <div class="modal-dialog modal-dialog-centered" role="document">--}}
+{{--            <div class="modal-content">--}}
+{{--                <div class="modal-header">--}}
+{{--                    <h5 class="modal-title">Thay Đổi Thông Tin</h5>--}}
+{{--                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">--}}
+{{--                        <span aria-hidden="true">&times;</span>--}}
+{{--                    </button>--}}
+{{--                </div>--}}
+{{--                <div class="modal-body">--}}
+{{--                    <form action="{{url('/')}}" method="put">--}}
+
+{{--                    </form>--}}
+
+{{--                </div>--}}
+{{--                <div class="modal-footer">--}}
+{{--                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>--}}
+{{--                    <button type="button" class="btn btn-success">Save changes</button>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+
+
 {{--    <form role="search" class="navbar-search">--}}
 {{--        <div class="position-relative">--}}
 {{--            <a href="javascript:void(0);" class="navbar-search-icon"><span class="feather-icon"><i data-feather="search"></i></span></a>--}}

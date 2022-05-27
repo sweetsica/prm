@@ -21,7 +21,6 @@
                                     data-feather="book"></i></span></span>Hóa đơn</h4>
                 </div>
                 <div class="d-flex">
-                    <a href="javascript:void(0)" data-toggle="modal" data-target="#changeinfo" class="btn btn-red btn-sm mr-2">Đổi Thông Tin</a>
                     <a href="{{$userBillInfo->url}}" class="btn btn-red btn-sm">Đổi thưởng</a>
                 </div>
             </div>
@@ -178,7 +177,7 @@
                   method="POST" class="modal-content">
                 @csrf
                 <div class="modal-header">
-                    <h5 class="modal-title">Thêm Địa Chỉ</h5>
+                    <h5 class="modal-title">Đổi Thông Tin</h5>
                     <button type="button" class="close" data-dismiss="modal"
                             aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -227,8 +226,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary"
-                            data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-success">Save changes</button>
+                            data-dismiss="modal">Hủy</button>
+                    <button type="submit" class="btn btn-success">Xác Nhận</button>
                 </div>
             </form>
         </div>
