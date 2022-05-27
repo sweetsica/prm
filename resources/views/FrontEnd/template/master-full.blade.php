@@ -33,7 +33,7 @@
 <div class="hk-wrapper hk-vertical-nav">
 
     <!-- Top Navbar -->
-    <nav class="navbar navbar-expand-xl navbar-light fixed-top hk-navbar">
+    <nav class="navbar navbar-expand-xl d-flex flex-wrap navbar-light fixed-top hk-navbar">
         <a class="navbar-brand" href="{{asset("/")}}">
             <img class="brand-img d-inline-block logo-nav" src="{{asset('src/dist/img/logo/logo.png')}}" alt="brand" />
         </a>
@@ -138,40 +138,43 @@
 {{--                </div>--}}
 {{--            </li>--}}
             <li class="nav-item dropdown dropdown-authentication">
-                <a class="nav-link dropdown-toggle no-caret" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <div class="media">
-{{--                        <div class="media-img-wrap">--}}
-{{--                            <div class="avatar">--}}
-{{--                                <img src="{{asset('src/dist/img/avatar12.jpg')}}" alt="user" class="avatar-img rounded-circle">--}}
-{{--                            </div>--}}
-{{--                            <span class="badge badge-success badge-indicator"></span>--}}
-{{--                        </div>--}}
-                        <div class="media-body">
-                            <span><i class="dropdown-icon zmdi zmdi-account font-30 mr-5"></i><i class="zmdi zmdi-chevron-down"></i></span>
-{{--                            {{Session::get('customer_name')}}--}}
-                        </div>
-                    </div>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
-{{--                    <a class="dropdown-item" href="profile.html"><i class="dropdown-icon zmdi zmdi-account"></i><span>Profile</span></a>--}}
-{{--                    <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-card"></i><span>My balance</span></a>--}}
-{{--                    <a class="dropdown-item" href="inbox.html"><i class="dropdown-icon zmdi zmdi-email"></i><span>Inbox</span></a>--}}
-{{--                    <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-settings"></i><span>Settings</span></a>--}}
-{{--                    <div class="dropdown-divider"></div>--}}
-{{--                    <div class="sub-dropdown-menu show-on-hover">--}}
-{{--                        <a href="#" class="dropdown-toggle dropdown-item no-caret"><i class="zmdi zmdi-check text-success"></i>Online</a>--}}
-{{--                        <div class="dropdown-menu open-left-side">--}}
-{{--                            <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-check text-success"></i><span>Online</span></a>--}}
-{{--                            <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-circle-o text-warning"></i><span>Busy</span></a>--}}
-{{--                            <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-minus-circle-outline text-danger"></i><span>Offline</span></a>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div class="dropdown-divider"></div>--}}
-                    <a data-toggle="modal" data-target="#changeinfo" class="dropdown-item" href="javascript:void(0)"><i class="dropdown-icon zmdi zmdi-account"></i><span>Người Dùng</span></a>
-                    <a class="dropdown-item" href="{{asset('/dangxuat')}}"><i class="dropdown-icon zmdi zmdi-power"></i><span>Đăng Xuất</span></a>
-                </div>
+
             </li>
         </ul>
+        <div>
+            <a class="nav-link dropdown-toggle no-caret text-red" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="media">
+                    {{--                        <div class="media-img-wrap">--}}
+                    {{--                            <div class="avatar">--}}
+                    {{--                                <img src="{{asset('src/dist/img/avatar12.jpg')}}" alt="user" class="avatar-img rounded-circle">--}}
+                    {{--                            </div>--}}
+                    {{--                            <span class="badge badge-success badge-indicator"></span>--}}
+                    {{--                        </div>--}}
+                    <div class="media-body">
+                        <span><i class="dropdown-icon zmdi zmdi-account font-30 mr-5"></i><i class="zmdi zmdi-chevron-down"></i></span>
+                        {{--                            {{Session::get('customer_name')}}--}}
+                    </div>
+                </div>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
+                {{--                    <a class="dropdown-item" href="profile.html"><i class="dropdown-icon zmdi zmdi-account"></i><span>Profile</span></a>--}}
+                {{--                    <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-card"></i><span>My balance</span></a>--}}
+                {{--                    <a class="dropdown-item" href="inbox.html"><i class="dropdown-icon zmdi zmdi-email"></i><span>Inbox</span></a>--}}
+                {{--                    <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-settings"></i><span>Settings</span></a>--}}
+                {{--                    <div class="dropdown-divider"></div>--}}
+                {{--                    <div class="sub-dropdown-menu show-on-hover">--}}
+                {{--                        <a href="#" class="dropdown-toggle dropdown-item no-caret"><i class="zmdi zmdi-check text-success"></i>Online</a>--}}
+                {{--                        <div class="dropdown-menu open-left-side">--}}
+                {{--                            <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-check text-success"></i><span>Online</span></a>--}}
+                {{--                            <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-circle-o text-warning"></i><span>Busy</span></a>--}}
+                {{--                            <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-minus-circle-outline text-danger"></i><span>Offline</span></a>--}}
+                {{--                        </div>--}}
+                {{--                    </div>--}}
+                {{--                    <div class="dropdown-divider"></div>--}}
+                <a data-toggle="modal" data-target="#changeinfo" class="dropdown-item" href="javascript:void(0)"><i class="dropdown-icon zmdi zmdi-account"></i><span>Người Dùng</span></a>
+                <a class="dropdown-item" href="{{asset('/dangxuat')}}"><i class="dropdown-icon zmdi zmdi-power"></i><span>Đăng Xuất</span></a>
+            </div>
+        </div>
     </nav>
 
 {{--    <div class="modal fade" id="changeinfo" tabindex="-1" role="dialog" aria-labelledby="changeinfo" aria-hidden="true">--}}
