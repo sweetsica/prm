@@ -35,7 +35,7 @@
                                 <div class="col-md-7 mb-20">
                                     <img class="img-fluid invoice-brand-img d-block flex logo-bill mb-20"
                                          src="{{asset('src/dist/img/logo/logo.png')}}" alt="brand"/>
-                                    <h6 class="mb-5">Doppelherz Việt Nam</h6>
+                                    <h6 class="mb-5 d-block mb-5 font-24 font-weight-700">Doppelherz Việt Nam</h6>
                                     <address>
                                         <span
                                             class="d-block">Tầng 06, tháp A, tòa Central Point số 219 Trung Kính</span>
@@ -93,7 +93,7 @@
                                 </div>
                             </div>
                         </div>
-                        <h5>Lịch sử tích điểm</h5>
+                        <h5 class="d-block text-uppercase mb-5 font-13 font-weight-700">Lịch sử tích điểm</h5>
                         <hr>
                         <div class="invoice-details">
                             <div class="table-wrap">
