@@ -21,6 +21,10 @@
                                     data-feather="book"></i></span></span>Hóa đơn</h4>
                 </div>
                 <div class="d-flex">
+                    @if($userBillInfo->address == null)
+                        <a class="btn-sm btn-red text-sm mr-10" data-toggle="modal" data-target="#changeinfo"
+                           href="javascript:void(0)">Thêm Địa Chi</a>
+                    @endif
                     <a href="{{$userBillInfo->url}}" class="btn btn-red btn-sm">Đổi thưởng</a>
                 </div>
             </div>
@@ -74,9 +78,6 @@
                                 <div class="text-dark d-block">
                                     @if($userBillInfo->address == null)
                                         <p class="text-danger">Vui lòng thêm thông tin địa chỉ</p>
-                                        <a class="btn-xs btn-red" data-toggle="modal" data-target="#changeinfo"
-                                           href="javascript:void(0)">thêm</a>
-
                                     @else
                                         {{$userBillInfo->address}}
                                     @endif
