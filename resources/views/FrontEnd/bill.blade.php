@@ -52,37 +52,44 @@
                         </div>
                         <hr class="mt-0">
                         <div class="invoice-to-wrap pb-20">
-                            <div class="row">
-                                <div class="col-md-7 mb-30">
-                                    <h6 class="d-block text-uppercase mb-5 font-13">Thông tin tài khoản</h6>
-                                    <address>
-                                        <span class="d-block">Mã khách hàng:</span>
-                                        <span class="d-block">Tên khách hàng:</span>
-                                        <span class="d-block">Email khách hàng:</span>
-                                        <span class="d-block">Số điện thoại khách hàng:</span>
-                                        <span class="d-block">Địa chỉ khách hàng:</span>
-                                        <span
-                                            class="d-block text-uppercase mt-20 mb-5 font-13">Tổng điểm tới giờ: </span>
-                                    </address>
+                            <h6 class="d-block text-uppercase mb-5 font-13 font-weight-700 ">Thông tin tài khoản</h6>
+                            <div class="d-md-flex mb-2 mb-lg-0 justify-content-between w-full">
+                                <div class="blog font-weight-500">Mã khách hàng:</div>
+                                <div class="text-dark ">#{{$userBillInfo->id}}</div>
+                            </div>
+                            <div class="d-md-flex mb-2 mb-lg-0 justify-content-between w-full">
+                                <div class="blog font-weight-500">Tên khách hàng:</div>
+                                <div class="text-dark ">{{$userBillInfo->name}}</div>
+                            </div>
+                            <div class="d-md-flex mb-2 mb-lg-0 justify-content-between w-full">
+                                <div class="blog font-weight-500">Email khách hàng:</div>
+                                <div class="text-dark ">{{$userBillInfo->email}}</div>
+                            </div>
+                            <div class="d-md-flex mb-2 mb-lg-0 justify-content-between w-full">
+                                <div class="blog font-weight-500">Số điện thoại khách hàng:</div>
+                                <div class="text-dark">{{$userBillInfo->phone}}</div>
+                            </div>
+                            <div class="d-md-flex mb-2 mb-lg-0 justify-content-between w-full">
+                                <div class="blog font-weight-500">Địa chỉ khách hàng:</div>
+                                <div class="text-dark d-block">
+                                    @if($userBillInfo->address == null)
+                                        <p class="text-danger">Vui lòng thêm thông tin địa chỉ</p>
+                                        <a class="btn-xs btn-red" data-toggle="modal" data-target="#changeinfo"
+                                           href="javascript:void(0)">thêm</a>
+
+                                    @else
+                                        {{$userBillInfo->address}}
+                                    @endif
                                 </div>
-                                <div class="col-md-5 pt-20 mb-30">
-                                    <span class="d-block"><span class="text-dark">#{{$userBillInfo->id}}</span></span>
-                                    <span class="d-block">{{$userBillInfo->name}}</span>
-                                    <span class="d-block">{{$userBillInfo->email}}</span>
-                                    <span class="d-block">{{$userBillInfo->phone}}</span>
-                                    <span class="d-block">
-                                        @if($userBillInfo->address == null)
-                                            <p class="text-danger">Vui lòng thêm thông tin địa chỉ</p>
-                                            <a class="btn-xs btn-red" data-toggle="modal" data-target="#changeinfo"
-                                               href="javascript:void(0)">thêm</a>
 
-                                        @else
-                                            {{$userBillInfo->address}}
-                                        @endif
-
-                                    </span>
-                                    <span
-                                        class="d-block text-uppercase mt-20 mb-5 font-13 text-dark font-weight-600">{{$userBillInfo->summaryPoint}}</span>
+                            </div>
+                            <div class="d-md-flex justify-content-between mt-20 mt-md-0 w-full">
+                                <div class="blog"><span
+                                        class="d-block text-uppercase mt-md-20 mb-md-5 font-18 font-weight-500">Tổng điểm tới giờ: </span>
+                                </div>
+                                <div class="text-dark ml-lg-0 ml-1">
+                                         <span
+                                             class="d-block text-uppercase mt-md-20 mb-md-5 font-18 text-dark font-weight-600">{{$userBillInfo->summaryPoint}}</span>
                                 </div>
                             </div>
                         </div>
@@ -186,7 +193,8 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="name">Họ Và Tên</label>
-                        <input type="text" name="name" class="form-control" required id="name" value="{{$userBillInfo->name}}" placeholder="Nguyen Van A">
+                        <input type="text" name="name" class="form-control" required id="name"
+                               value="{{$userBillInfo->name}}" placeholder="Nguyen Van A">
                         @error("name")
                         <span
                             class="text-danger mt-10">{{$message}}</span>
@@ -194,8 +202,10 @@
                     </div>
                     <div class="form-group">
                         <label for="phone">Số Điện Thoại</label>
-                        <input type="tel" name="phone" required class="form-control" value="{{$userBillInfo->phone}}" id="phone" placeholder="+84">
-                        <small id="emailHelp" class="form-text text-muted">Thay số điện thoại sẽ thay đổi luôn thông tin đăng nhập.</small>
+                        <input type="tel" name="phone" required class="form-control" value="{{$userBillInfo->phone}}"
+                               id="phone" placeholder="+84">
+                        <small id="emailHelp" class="form-text text-muted">Thay số điện thoại sẽ thay đổi luôn thông tin
+                            đăng nhập.</small>
 
                         @error("phone")
                         <span
@@ -204,7 +214,8 @@
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" name="email" required class="form-control" value="{{$userBillInfo->email}}" id="email" placeholder="name@example.com">
+                        <input type="email" name="email" required class="form-control" value="{{$userBillInfo->email}}"
+                               id="email" placeholder="name@example.com">
                         @error("email")
                         <span
                             class="text-danger mt-10">{{$message}}</span>
@@ -226,7 +237,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary"
-                            data-dismiss="modal">Hủy</button>
+                            data-dismiss="modal">Hủy
+                    </button>
                     <button type="submit" class="btn btn-success">Xác Nhận</button>
                 </div>
             </form>

@@ -17,7 +17,7 @@
     <!-- Toggles CSS -->
     <link href="{{asset('src/vendors/jquery-toggles/css/toggles.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('src/vendors/jquery-toggles/css/themes/toggles-light.css')}}" rel="stylesheet" type="text/css">
-
+{{--    <link rel="stylesheet" href="{{ mix('css/app.css') }}">--}}
     <!-- Custom CSS -->
     <link href="{{asset('src/dist/css/style.css')}}" rel="stylesheet" type="text/css">
 </head>
