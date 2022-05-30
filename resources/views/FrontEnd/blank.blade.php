@@ -64,7 +64,7 @@
                             @elseif(Session::has('notice-fail'))
                                 <div class="text-center">
                                     <h1 class=" mb-10 text-center text-red">Tích Điểm Thất Bại.</h1>
-                                    <p class="mb-30 text-center">Mã số sản phẩm của bạn đã từng được kích hoạt. Yêu cầu tích điểm không thành công. Vui lòng liên hệ <span class="text-red">CSKH </span>của <a href="https://doppelherz.vn/" class="text-red">Doppelherz Việt Nam</a> qua email <a href="mailto:info@mastertran.vn" class="text-red font-20 "><u>info@mastertran.vn</u></a> để được bồi thường và hỗ trợ tốt nhất</p>
+                                    <p class="mb-30 text-center">Mã số sản phẩm của bạn đã từng được kích hoạt. Yêu cầu tích điểm không thành công. Vui lòng liên hệ <span class="text-red">CSKH </span>của <a href="https://doppelherz.vn/" class="text-red">Doppelherz Việt Nam</a> qua email <a href="mailto:info@mastertran.vn" class="text-red "><u>info@mastertran.vn</u></a> để được bồi thường và hỗ trợ tốt nhất</p>
                                     <a href="{{asset('/hoadon')}}" class="btn btn-red text-white">Xem Lịch Sử</a>
                                 </div>
                             @endif

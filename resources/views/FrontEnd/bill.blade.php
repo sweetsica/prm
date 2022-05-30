@@ -3,27 +3,18 @@
 @section('content-body')
     <div class="hk-pg-wrapper m-auto">
 
-        <!-- Breadcrumb -->
-        <nav class="hk-breadcrumb" aria-label="breadcrumb">
-            <ol class="breadcrumb breadcrumb-light bg-transparent">
-                <li class="breadcrumb-item"><a href="#"> </a></li>
-                <li class="breadcrumb-item active" aria-current="page"></li>
-            </ol>
-        </nav>
-        <!-- /Breadcrumb -->
 
         <!-- Container -->
-        <div class="container mb-30">
+        <div class="container mb-30 mt-70 mt-lg-100">
             <!-- Title -->
             <div class="hk-pg-header mb-10">
                 <div>
-                    <h4 class="hk-pg-title"><span class="pg-title-icon"><span class="feather-icon"><i
-                                    data-feather="book"></i></span></span>Hóa đơn</h4>
+                    <h4 style="color: gray" class="hk-pg-title uppercase font-18 font-lg-22 font-weight-600 text-g">  LỊCH SỬ TÍCH ĐIỂM</h4>
                 </div>
                 <div class="d-flex">
                     @if($userBillInfo->address == null)
-                        <a class="btn-sm btn-red text-sm mr-10" data-toggle="modal" data-target="#changeinfo"
-                           href="javascript:void(0)">Thêm Địa Chi</a>
+                        <a data-toggle="modal" data-target="#changeinfo"
+                           href="javascript:void(0)" class="btn btn-red btn-sm mr-2">Thêm địa chỉ</a>
                     @endif
                     <a href="{{$userBillInfo->url}}" class="btn btn-red btn-sm">Đổi thưởng</a>
                 </div>
@@ -86,7 +77,7 @@
                             </div>
                             <div class="d-md-flex justify-content-between mt-20 mt-md-0 w-full">
                                 <div class="blog"><span
-                                        class="d-block text-uppercase mt-md-20 mb-md-5 font-18 font-weight-500">Tổng điểm tới giờ: </span>
+                                        class="d-block text-uppercase mt-md-20 mb-md-5 font-18 font-weight-500">Tổng điểm tích lũy: </span>
                                 </div>
                                 <div class="text-dark ml-lg-0 ml-1">
                                          <span
@@ -103,9 +94,9 @@
                                         <thead>
                                         <tr class="border-bottom">
                                             <th class="">Tên sản phẩm</th>
-                                            <th class="text-right">Mã sản phẩm</th>
-                                            <th class="text-right">Đơn giá</th>
-                                            <th class="text-right">Ngày quét mã</th>
+                                            <th class="text-left">Mã sản phẩm</th>
+                                            <th class="text-left">Đơn giá</th>
+                                            <th class="text-left">Ngày quét mã</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -119,9 +110,9 @@
                                             @foreach($histories as $historyItem)
                                                 <tr>
                                                     <td class="">{{$historyItem->product_name}}</td>
-                                                    <td class="text-right">{{$historyItem->qr_specialCode}}</td>
-                                                    <td class="text-right">{{$historyItem->price}}</td>
-                                                    <td class="text-right">{{$historyItem->created_at->format('d/m/Y')}}</td>
+                                                    <td class="text-left">{{$historyItem->qr_specialCode}}</td>
+                                                    <td class="text-left">{{$historyItem->price}}</td>
+                                                    <td class="text-left">{{$historyItem->created_at->format('d/m/Y')}}</td>
                                                 </tr>
                                             @endforeach
                                         @endif

@@ -1,6 +1,7 @@
 @charset "UTF-8";
 /*------------------------------------------------------------------
 [Master Stylesheet]
+
 Project:	Brunette
 ++++ Imports ++++
 ++++ Reset ++++
@@ -93,7 +94,6 @@ Project:	Brunette
 /****************************/
 /** Imports **/
 /****************************/
-@import url(https://fonts.googleapis.com/icon?family=Material+Icons|Roboto:300i,400,400i,500,700);
 @import url(../../vendors/bootstrap/dist/css/bootstrap.min.css);
 @import url(font-awesome.min.css);
 @import url(ionicons.min.css);
@@ -107,6 +107,8 @@ Project:	Brunette
 @import url(material-design-iconic-font.min.css);
 @import url(../../vendors/owl.carousel/dist/assets/owl.carousel.min.css);
 @import url(../../vendors/owl.carousel/dist/assets/owl.theme.default.min.css);
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400;1,500;1,700&display=swap');
+
 /*__________________________________________________________________;
 [Mixin]
 Project:	Brunette
@@ -123,8 +125,9 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, pre, a
   padding: 0;
   border: 0;
   font-size: 100%;
-  font: inherit;
-  vertical-align: baseline; }
+  vertical-align: baseline;
+  font-family: 'Roboto', sans-serif;
+}
 
 em, cite {
   font-style: italic; }
@@ -137,7 +140,7 @@ body {
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   line-height: 1.5;
   background: #acb0b1;
   overflow-x: hidden; }
