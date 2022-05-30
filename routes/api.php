@@ -22,7 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/nguoidung',[CustomerController::class, 'index'])->name('api.customer');
+//Route::get('/nguoidung',[CustomerController::class, 'index'])->name('api.customer');
 Route::get('/nguoidung/{customer_id}',[CustomerController::class, 'show']);
 Route::put('/nguoidung/{customer_id}',[CustomerController::class, 'update']);
 Route::put('/dangxuat',[CustomerController::class, 'logout']);
