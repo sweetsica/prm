@@ -45,13 +45,13 @@
                                     @endif
 									<form class="border-top" method="POST" action="{{route('login.send')}}">
                                         @csrf
-										<h1 class="display-4 text-center font-24 font-weight-700 mt-10 mb-10">Đăng Nhập!</h1>
+										<h1 class="display-4 text-center font-24 font-weight-700 mt-10 mb-10">Đăng Nhập</h1>
 										<div class="form-group">
 											<input class="form-control" name='phone' placeholder="Số điện thoại" type="text">
 										</div>
 										<div class="form-group">
 											<div class="input-group">
-												<input class="form-control" name='password' id="password" placeholder="Password" type="password">
+												<input class="form-control" name='password' id="password" placeholder="Mật khẩu" type="password">
 											</div>
 										</div>
 										<button class="btn btn-red btn-block" type="submit">Đăng nhập</button>

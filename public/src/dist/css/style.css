@@ -20421,12 +20421,15 @@ table.dataTable {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    height: 100vh; }
+  }
     .hk-pg-wrapper.hk-auth-wrapper .auth-form-wrap .auth-form {
-      margin: 0 auto; }
+      margin: 100px auto;
+
+    }
       .hk-pg-wrapper.hk-auth-wrapper .auth-form-wrap .auth-form .option-sep {
         position: relative;
         text-align: center;
