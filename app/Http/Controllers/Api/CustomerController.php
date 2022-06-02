@@ -55,9 +55,9 @@ class CustomerController extends Controller
         $member = Customer::find($id);
         $member->update([
             'name' => $request->get('name'),
-            'email' => $request->get('email'),
+//            'email' => $request->get('email'),
             'address' => $request->get('address'),
-        ]);;
+        ]);
         return $member;
     }
 
