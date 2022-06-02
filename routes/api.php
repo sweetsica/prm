@@ -38,4 +38,8 @@ Route::get('/testmd5',function (){
 //    return md5($data);
 //    return base64_encode($data);
 });
+Route::get('/test', function() {
+    return "hello";
+})->middleware('auth:sanctum');
+Route::post('login',[\App\Http\Controllers\Api\AuthController::class,'login']);
 
