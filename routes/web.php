@@ -19,14 +19,16 @@ use Illuminate\Support\Facades\URL;
 */
 
 Route::get('/', function () {
-    return redirect()->to("https://promotion-manage.vercel.app/");
+    return redirect()->to("https://tichdiem.doppelherz.vn");
 })->name('website');
 
 Route::get('/dangky',[CustomerController::class,'create'])->name('signUp');
-Route::post('/dangkysend',[CustomerController::class,'store'])->name('signUp.send');
+Route::post('/dangky',[CustomerController::class,'store'])->name('signUp.send');
 
 Route::get('/dangnhap',[CustomerController::class,'login'])->name('login');
-Route::post('/dangnhapsend',[CustomerController::class,'checkLogin'])->name('login.send');
+Route::get('/dangxuat',[CustomerController::class,'logout'])->name('logout');
+Route::post('/dangnhap',[CustomerController::class,'checkLogin'])->name('login.send');
+Route::post('/doithongtin/{id}',[CustomerController::class,'changeInfoCus']);
 
 Route::get('/hoadon',[CustomerController::class,'userBill'])->name('user.bill');
 
@@ -35,7 +37,7 @@ Route::get('doithuong',function (){
 })->name('doithuong');
 
 Route::get('/tichdiem/{promotion_id}/{product_id}/{special_code}',[QRController::class,'checkQR']);
-
+Route::get('/thongbao',[QRController::class,'testNotify']);
 Route::get('/clear',function(){
     Session::flush();
     Session::flash('notice_clear','');

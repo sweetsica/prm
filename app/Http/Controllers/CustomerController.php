@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 
 class CustomerController extends Controller
 {
@@ -31,6 +32,9 @@ class CustomerController extends Controller
      */
     public function create()
     {
+        if(Session::get('customer_id') || Session::get('customer_name')){
+            return Redirect::to('/hoadon');
+        }
         return view('FrontEnd/signup');
     }
 
@@ -42,15 +46,26 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(),[
-            'name' => 'required|string|max:60',
-            'password' => 'required|min:6|max:60|confirmed',
-            'email' => 'required'
+        $request->validate([
+            "name"=>"required",
+            "email"=>["required","regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/","unique:customers"],
+            "phone"=>["required","regex:/(84|0[3|5|7|8|9])+([0-9]{8})\b/","unique:customers"],
+            "password"=>["required","regex:/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/"],
+            "password_confirmation"=>"same:password"
+        ],[
+            "name.required"=>"Vui lòng nhập họ và tên",
+            "phone.required"=>"Vui lòng nhập số điện thoại",
+            "phone.unique"=>"Số điện thoại đã tồn tại.",
+            "phone.regex"=>"Số điện thoại không hợp lệ.",
+            "email.required"=>"Vui lòng nhập địa chỉ email",
+            "email.unique"=>"Email đã tồn tại.",
+            "email.regex"=>"Email không hợp lệ, vui lòng nhập lại",
+            "password.required"=>"Vui lòng nhập mật khẩu",
+            "password.regex"=>"Mật khẩu phải có ít nhất 6 ký tự, có ký tự số (0-9), ký tự hoa, ký tự thường",
+            "password_confirmation.same"=>"Mật khẩu không khớp"
         ]);
-        if($validator->fails()){
-            dd('fails');
-            return response()->json($validator->errors());
-        }else{
+
+        try{
             $customer['name'] = $request['name'];
             $customer['email'] = $request['email'];
             $customer['phone'] = $request['phone'];
@@ -58,7 +73,11 @@ class CustomerController extends Controller
             Customer::create($customer);
             Session::flash('notice', 'Tạo thành công!');
             return redirect(route('login'));
+        }catch (\Exception $e){
+            abort(404);
         }
+
+
     }
 
     /**
@@ -66,7 +85,19 @@ class CustomerController extends Controller
      */
     public function login()
     {
+        if(Session::get('customer_id') || Session::get('customer_name')){
+            return Redirect::to('/hoadon');
+        }
         return view('FrontEnd.login');
+    }
+    public  function  logout(){
+        if(Session::get('customer_id') || Session::get('customer_name')){
+            Session::forget('customer_id');
+            Session::forget('customer_name');
+            return Redirect::to('/dangnhap');
+        }else{
+            return Redirect::to('/dangnhap');
+        }
     }
 
     /**
@@ -76,39 +107,76 @@ class CustomerController extends Controller
     public function checkLogin(Request $request)
     {
         try{
-            $info_customer = Customer::where('phone', $request->phone)->first();
-            $url= 'https://promotion-manage.vercel.app/nhanthuong/'.base64_encode($info_customer->id).'/'.Str::random(5);
-            if ($info_customer) {
-                if (Hash::check($request->password, $info_customer->password)) {
-                    Session::put('customer_id',$info_customer['id']);
-                    Session::put('customer_name',$info_customer['name']);
-                    if(Session::get('currentURL')){
+            if(!$request->phone == null || !$request->password == null){
+                $info_customer = Customer::where('phone', $request->phone)->first();
+                if (!$info_customer == null)
+                {
+                    if (Hash::check($request->password, $info_customer->password)) {
+                        Session::put('customer_id',$info_customer['id']);
+                        Session::put('customer_name',$info_customer['name']);
+                        if(Session::get('currentURL')){
                             return Redirect::to(Session::get('currentURL')); // trang xu ly tich diem
                         }else{
-                           return Redirect::to($url); // dashboard
+                            return Redirect::to('/hoadon'); // dashboard
+                        }
+                    } else {
+                        Session::flash('error', 'Đăng nhập thất bại, vui lòng kiểm tra lại tài khoản và mật khẩu');
+                        return view('FrontEnd/login');
                     }
-                } else {
-                    Session::flash('error', 'Đăng nhập thất bại MK!');
+                }
+                else {
+                    Session::flash('error', 'Đăng nhập thất bại, vui lòng kiểm tra lại tài khoản và mật khẩu');
                     return view('FrontEnd/login');
                 }
-            } else {
-                Session::flash('error', 'Đăng nhập thất bại TK!');
+            }else{
+                Session::flash('error', 'Đăng nhập thất bại, vui lòng kiểm tra lại tài khoản và mật khẩu');
                 return view('FrontEnd/login');
             }
+
         }catch (\Exception $error){
-            Log::error($error);
-            return redirect()->route('login');
+            Session::flash('error', 'Đăng nhập thất bại, vui lòng kiểm tra lại tài khoản và mật khẩu');
+            return view('FrontEnd/login');
         }
+    }
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\RedirectResponse
+     */
+    public function changeInfoCus(Request $request,int $id){
+        $request->validate([
+            "name"=>"required",
+            "email"=>["required","regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/", Rule::unique('customers')->ignore($id)],
+//            "phone"=>["required","regex:/(84|0[3|5|7|8|9])+([0-9]{8})\b/", Rule::unique('customers')->ignore($id)],
+            "address"=>["required"],
+        ],[
+            "name.required"=>"Vui lòng nhập họ và tên",
+//            "phone.required"=>"Vui lòng nhập số điện thoại",
+//            "phone.regex"=>"Số điện thoại không hợp lệ.",
+//            "phone.unique"=>"Số điện thoại đã tồn tại.",
+            "email.required"=>"Vui lòng nhập địa chỉ email",
+            "email.unique"=>"Email đã tồn tại.",
+            "email.regex"=>"Email không hợp lệ, vui lòng nhập lại",
+            "address.required"=>"Vui lòng nhập địa chỉ",
+        ]);
+        $member = Customer::find($id);
+        $member->update([
+            'name' => $request->get('name'),
+//            'email' => $request->get('email'),
+            'address' => $request->get('address'),
+        ]);
+        return redirect()->to("/hoadon");
+
     }
 
     public function userBill()
     {
+
         if (Session::get('customer_id') !== null) {
             $customerId = Session::get('customer_id');
             $userBillInfo = Customer::where('id','=',$customerId)->first();
             $histories = History::where('customer_id',$userBillInfo->id)->get();
             $userBillInfo['histories'] = $userBillInfo->history()->get();
-            $userBillInfo['url'] = 'https://promotion-manage.vercel.app/nhanthuong/'.base64_encode($userBillInfo->id).'/'.Str::random(5);
+            $userBillInfo['url'] = 'https://tichdiem.doppelherz.vn/nhanthuong/'.base64_encode($userBillInfo->id).'/'.Str::random(5);
             return view('FrontEnd/bill',compact('userBillInfo','histories'));
         } else {
             return redirect(route('login'));

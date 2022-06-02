@@ -53,7 +53,11 @@ class CustomerController extends Controller
     public function update(Request $request, $id)
     {
         $member = Customer::find($id);
-        $member->update($request->all());
+        $member->update([
+            'name' => $request->get('name'),
+            'email' => $request->get('email'),
+            'address' => $request->get('address'),
+        ]);;
         return $member;
     }
 

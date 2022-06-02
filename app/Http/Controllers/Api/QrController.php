@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Promotion;
 use App\Models\QR;
 use Illuminate\Http\Request;
 
@@ -13,13 +14,17 @@ class QrController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-        $result = QR::all();
+        $limit = $request->get('limit');
+        $promotion_id = $request->get('promotion_id');
+        $result = QR::promotionById($promotion_id)->limit($limit);
         return response()->json($result,200);
     }
-
+    public function promotion(){
+        $result = Promotion::all();
+        return response()->json($result,200);
+    }
     /**
      * Show the form for creating a new resource.
      *
