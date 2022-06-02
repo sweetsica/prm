@@ -169,9 +169,9 @@
         </div>
         <!-- /Footer -->
     </div>
-    <div class="modal fade" id="changeinfo" tabindex="-1" role="dialog"
+    <div class="modal  fade" id="changeinfo" tabindex="-1" role="dialog"
          aria-labelledby="changeinfo" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <form action="{{url('/doithongtin',["id"=>$userBillInfo->id])}}"
                   method="POST" class="modal-content">
                 @csrf
@@ -183,8 +183,9 @@
                     </button>
                 </div>
                 <div class="modal-body">
+
                     <div class="form-group">
-                        <label for="name">Họ Và Tên</label>
+                        <label for="name">Họ và Tên</label>
                         <input type="text" name="name" class="form-control" required id="name"
                                value="{{$userBillInfo->name}}" placeholder="Nguyen Van A">
                         @error("name")
@@ -194,25 +195,26 @@
                     </div>
                     <div class="form-group">
                         <label for="phone">Số Điện Thoại</label>
-                        <input type="tel" name="phone" required class="form-control" value="{{$userBillInfo->phone}}"
+                        <input type="tel" disabled required class="form-control" value="{{$userBillInfo->phone}}"
                                id="phone" placeholder="+84">
-                        <small id="emailHelp" class="form-text text-muted">Thay số điện thoại sẽ thay đổi luôn thông tin
-                            đăng nhập.</small>
+{{--                        <small id="emailHelp" class="form-text text-muted text-orange">Thay số điện thoại sẽ thay đổi luôn thông tin--}}
+{{--                            đăng nhập.</small>--}}
 
-                        @error("phone")
-                        <span
-                            class="text-danger mt-10">{{$message}}</span>
-                        @enderror
+{{--                        @error("phone")--}}
+{{--                        <span--}}
+{{--                            class="text-danger mt-10">{{$message}}</span>--}}
+{{--                        @enderror--}}
+
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" name="email" required class="form-control" value="{{$userBillInfo->email}}"
-                               id="email" placeholder="name@example.com">
-                        @error("email")
-                        <span
-                            class="text-danger mt-10">{{$message}}</span>
-                        @enderror
-                    </div>
+{{--                    <div class="form-group">--}}
+{{--                        <label for="email">Email</label>--}}
+{{--                        <input type="email" name="email" required class="form-control" value="{{$userBillInfo->email}}"--}}
+{{--                               id="email" placeholder="name@example.com">--}}
+{{--                        @error("email")--}}
+{{--                        <span--}}
+{{--                            class="text-danger mt-10">{{$message}}</span>--}}
+{{--                        @enderror--}}
+{{--                    </div>--}}
                     <div class="form-group text-left">
                         <label for="address">Địa Chỉ</label>
                         <textarea class="form-control"
@@ -225,6 +227,10 @@
                         <span
                             class="text-danger mt-10">{{$message}}</span>
                         @enderror
+                    </div>
+                    <div class="text-center">
+                        <span>Quý khách muốn đổi số điện thoại xin vui lòng liên hệ đến</span><br/>
+                        Email: <a class="text-red" href="mailto:info@mastertran.com">info@mastertran.com</a>
                     </div>
                 </div>
                 <div class="modal-footer">

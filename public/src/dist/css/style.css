@@ -143,7 +143,8 @@ body {
   font-family: 'Roboto', sans-serif;
   line-height: 1.5;
   background: #acb0b1;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+}
 
 .main-font, .jq-toast-wrap .jq-toast-single, .jq-toast-wrap .jq-toast-single .jq-toast-heading {
   font-family: "Roboto", sans-serif; }

@@ -54,9 +54,9 @@ class Customer extends Resource
             Text::make('Địa chỉ','address')->displayUsing(function ($value) {
                 return Str::limit($value, 45,'...');
             }),
-            Number::make('Điểm thưởng','totalPoint'),
+            Number::make('Điểm thưởng hiện tại','totalPoint'),
+            Number::make('Tổng điểm tới giờ','summaryPoint'),
             Boolean::make('Trạng thái','status'),
-
             HasMany::make('History')
         ];
     }
