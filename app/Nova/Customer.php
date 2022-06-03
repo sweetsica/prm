@@ -55,7 +55,7 @@ class Customer extends Resource
                 return Str::limit($value, 45,'...');
             }),
             Number::make('Điểm thưởng hiện tại','totalPoint'),
-            Number::make('Tổng điểm tới giờ','summaryPoint'),
+            Number::make('Tổng điểm tới giờ','summaryPoint')->readonly(true),
             Boolean::make('Trạng thái','status'),
             HasMany::make('History')
         ];
