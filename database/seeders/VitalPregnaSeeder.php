@@ -18,7 +18,7 @@ class VitalPregnaSeeder extends Seeder
      */
     public function run()
     {
-        $count = 5000;
+        $count = 60000;
         $promotion_id = 26;//Vital Pregna
         $product_id = 26;//Vital Pregna
         for ($i =0 ; $i < $count ; $i++){

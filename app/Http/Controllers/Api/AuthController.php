@@ -18,7 +18,7 @@ class AuthController extends Controller
                 "phone"=>["required"],
                 "password"=>"required"
             ],[
-                "phone.required"=>"Vui lòng nhập họ và tên",
+                "phone.required"=>"Vui lòng nhập số điện thoại",
                 "password.required"=>"Vui lòng nhập mật khẩu"
             ]);
             $user = Customer::where('phone',$request->phone)->first();
