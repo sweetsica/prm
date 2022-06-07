@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Customer;
 use App\Models\History;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
@@ -174,11 +175,13 @@ class CustomerController extends Controller
 
         if (Session::get('customer_id') !== null) {
             $customerId = Session::get('customer_id');
+            $order =  Order::where("customer_id",$customerId)->with("gift")->get();
             $userBillInfo = Customer::where('id','=',$customerId)->first();
             $histories = History::where('customer_id',$userBillInfo->id)->get();
             $userBillInfo['histories'] = $userBillInfo->history()->get();
+//            dd($order);
             $userBillInfo['url'] = 'https://tichdiem.doppelherz.vn/nhanthuong/'.base64_encode($userBillInfo->id).'/'.Str::random(5);
-            return view('FrontEnd/bill',compact('userBillInfo','histories'));
+            return view('FrontEnd/bill',compact('userBillInfo','histories','order'));
         } else {
             return redirect(route('login'));
         }
