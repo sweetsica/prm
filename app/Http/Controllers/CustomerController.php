@@ -50,19 +50,20 @@ class CustomerController extends Controller
             "name"=>"required",
             "email"=>["required","regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/","unique:customers"],
             "phone"=>["required","regex:/(84|0[3|5|7|8|9])+([0-9]{8})\b/","unique:customers"],
-            "password"=>["required","regex:/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/"],
+            "password"=>["required","min:6"],
             "password_confirmation"=>"same:password"
         ],[
             "name.required"=>"Vui lòng nhập họ và tên",
             "phone.required"=>"Vui lòng nhập số điện thoại",
             "phone.unique"=>"Số điện thoại đã tồn tại.",
             "phone.regex"=>"Số điện thoại không hợp lệ.",
-            "email.required"=>"Vui lòng nhập địa chỉ email",
+            "email.required"=>"Vui lòng nhập địa chỉ email.",
             "email.unique"=>"Email đã tồn tại.",
-            "email.regex"=>"Email không hợp lệ, vui lòng nhập lại",
-            "password.required"=>"Vui lòng nhập mật khẩu",
-            "password.regex"=>"Mật khẩu phải có ít nhất 6 ký tự, có ký tự số (0-9), ký tự hoa, ký tự thường",
-            "password_confirmation.same"=>"Mật khẩu không khớp"
+            "email.regex"=>"Email không hợp lệ, vui lòng nhập lại.",
+            "password.required"=>"Vui lòng nhập mật khẩu.",
+            "password.min"=>"Mật khẩu phải ít nhất 6 ký tự.",
+//            "password.regex"=>"Mật khẩu phải có ít nhất 6 ký tự, có ký tự số (0-9), ký tự hoa, ký tự thường",
+            "password_confirmation.same"=>"Mật khẩu không khớp."
         ]);
 
         try{
@@ -145,7 +146,7 @@ class CustomerController extends Controller
     public function changeInfoCus(Request $request,int $id){
         $request->validate([
             "name"=>"required",
-            "email"=>["required","regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/", Rule::unique('customers')->ignore($id)],
+//            "email"=>["required","regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/", Rule::unique('customers')->ignore($id)],
 //            "phone"=>["required","regex:/(84|0[3|5|7|8|9])+([0-9]{8})\b/", Rule::unique('customers')->ignore($id)],
             "address"=>["required"],
         ],[
@@ -153,9 +154,9 @@ class CustomerController extends Controller
 //            "phone.required"=>"Vui lòng nhập số điện thoại",
 //            "phone.regex"=>"Số điện thoại không hợp lệ.",
 //            "phone.unique"=>"Số điện thoại đã tồn tại.",
-            "email.required"=>"Vui lòng nhập địa chỉ email",
-            "email.unique"=>"Email đã tồn tại.",
-            "email.regex"=>"Email không hợp lệ, vui lòng nhập lại",
+//            "email.required"=>"Vui lòng nhập địa chỉ email",
+//            "email.unique"=>"Email đã tồn tại.",
+//            "email.regex"=>"Email không hợp lệ, vui lòng nhập lại",
             "address.required"=>"Vui lòng nhập địa chỉ",
         ]);
         $member = Customer::find($id);

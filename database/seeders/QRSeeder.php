@@ -2,15 +2,13 @@
 
 namespace Database\Seeders;
 
-use App\Models\QR;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
-class DatabaseSeeder extends Seeder
+class QRSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
@@ -42,7 +40,10 @@ class DatabaseSeeder extends Seeder
             Omega3FolicAxitSeeder::class,/*23*/
             ProstacalmSeeder::class,/*24*/
             VitaminD3K2Seeder::class,/*25*/
-            ZincodinSeeder::class/*26*/
+            ZincodinSeeder::class,/*26*/
+
+            AktivMenoSeeder::class,/*27*/
+            VitalPregnaSeeder::class,/*28*/
         ]);
     }
 }
