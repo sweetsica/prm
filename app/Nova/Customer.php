@@ -59,7 +59,7 @@ class Customer extends Resource
             Number::make('Tổng điểm tới giờ','summaryPoint')->readonly(true),
             Boolean::make('Trạng thái','status'),
             HasMany::make('History'),
-            HasMany::make("Order",'orders')
+            HasMany::make('Order','orders')
         ];
     }
 

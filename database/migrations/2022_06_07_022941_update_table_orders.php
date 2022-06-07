@@ -13,11 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('category_product', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('category_id');
-            $table->foreignId('product_id');
-            $table->timestamps();
+        Schema::table('orders', function (Blueprint $table) {
+            $table->string('status')->nullable()->after('address')->default('Đang xử lý');
         });
     }
 
@@ -28,6 +25,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('category_product');
+        //
     }
 };

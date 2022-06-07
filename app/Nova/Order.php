@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\HasOne;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -18,23 +19,20 @@ class Order extends Resource
      * @var string
      */
     public static $model = \App\Models\Order::class;
-
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
     public static $title = 'id';
-
     /**
      * The columns that should be searched.
      *
      * @var array
      */
     public static $search = [
-        'id',
+        'id','address'
     ];
-
     /**
      * Get the fields displayed by the resource.
      *
@@ -47,13 +45,18 @@ class Order extends Resource
             ID::make()->sortable(),
             BelongsTo::make('Customer'),
             HasOne::make('Gift'),
+            Select::make('Trạng thái','status')
+            ->options([
+                'Đang xử lý' => ['label' => 'Đang xử lý', 'group' => 'Admin'],
+                'Đang chuẩn bị hàng' => ['label' => 'Đang chuẩn bị hàng', 'group' => 'Kho'],
+                'Đã xuất kho' => ['label' => 'Đã xuất kho', 'group' => 'Kho'],
+                'Đang giao' => ['label' => 'Đang giao', 'group' => 'Đơn vị vận chuyển'],
+                'Giao thành công' => ['label' => 'Giao thành công', 'group' => 'Hoàn tất'],
+            ]),
             Text::make('Địa chỉ nhận quà','address')
         ];
     }
         // Tạo bảng quan hệ nhiều nhiều gift - order
-
-
-
     /**
      * Get the cards available for the request.
      *
@@ -64,7 +67,6 @@ class Order extends Resource
     {
         return [];
     }
-
     /**
      * Get the filters available for the resource.
      *
