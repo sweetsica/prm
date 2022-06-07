@@ -4,6 +4,7 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
@@ -57,7 +58,8 @@ class Customer extends Resource
             Number::make('Điểm thưởng hiện tại','totalPoint'),
             Number::make('Tổng điểm tới giờ','summaryPoint')->readonly(true),
             Boolean::make('Trạng thái','status'),
-            HasMany::make('History')
+            HasMany::make('History'),
+            HasMany::make('Order','orders')
         ];
     }
 
