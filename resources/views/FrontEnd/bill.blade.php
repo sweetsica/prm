@@ -9,7 +9,8 @@
             <!-- Title -->
             <div class="hk-pg-header mb-10">
                 <div>
-                    <h4 style="color: gray" class="hk-pg-title uppercase font-18 font-lg-22 font-weight-600 text-g">  LỊCH SỬ TÍCH ĐIỂM</h4>
+                    <h4 style="color: gray" class="hk-pg-title uppercase font-18 font-lg-22 font-weight-600 text-g">
+                        LỊCH SỬ TÍCH ĐIỂM</h4>
                 </div>
                 <div class="d-flex">
                     @if($userBillInfo->address == null)
@@ -24,6 +25,7 @@
             <!-- Row -->
             <div class="row">
                 <div class="col-xl-12">
+
                     <section class="hk-sec-wrapper hk-invoice-wrap pa-35">
                         <div class="invoice-from-wrap">
                             <div class="row">
@@ -85,52 +87,164 @@
                                 </div>
                             </div>
                         </div>
-                        <h5 class="d-block text-uppercase mb-5 font-13 font-weight-700">Lịch sử tích điểm</h5>
-                        <hr>
-                        <div class="invoice-details">
-                            <div class="table-wrap">
-                                <div class="table-responsive">
-                                    <table class="table table-striped table-border mb-0">
-                                        <thead>
-                                        <tr class="border-bottom">
-                                            <th class="">Tên sản phẩm</th>
-                                            <th class="text-left">Mã sản phẩm</th>
-                                            <th class="text-left">Đơn giá</th>
-                                            <th class="text-left">Ngày quét mã</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        @if($histories->all() == [])
-                                            <tr>
-                                                <td colspan="4" class="">Bạn Chưa Mua Sản Phẩm Nào!, <a
-                                                        class="text-red " href="https://doppelherz.vn/san-pham/">Mua
-                                                        Hàng Để Nhận Điểm</a></td>
-                                            </tr>
-                                        @else
-                                            @foreach($histories as $historyItem)
-                                                <tr>
-                                                    <td class="">{{$historyItem->product_name}}</td>
-                                                    <td class="text-left">{{$historyItem->qr_specialCode}}</td>
-                                                    <td class="text-left">{{$historyItem->price}}</td>
-                                                    <td class="text-left">{{$historyItem->created_at->format('d/m/Y')}}</td>
+
+                        <ul class="nav nav-tabs mb-30" id="myTab" role="tablist">
+                            <li class="nav-item pl-0 pr-2" role="presentation">
+                                <a class="nav-link active pl-0 pr-0" id="tichdiem-tab" data-toggle="tab" href="#lichsutichdien"
+                                   role="tab" aria-controls="home" aria-selected="true">Lịch sử tích điểm</a>
+                            </li>
+                            <li class="nav-item pl-2 pr-2" role="presentation ">
+                                <a class="nav-link  px-5" id="doiqua-tab" data-toggle="tab" href="#lichsudoiqua" role="tab"
+                                   aria-controls="profile" aria-selected="false">Lịch sử đổi quà</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="lichsutichdien" role="tabpanel"
+                                 aria-labelledby="nav-home-tab">
+                                <h5 class="d-block text-uppercase mb-5 font-13 font-weight-700">Lịch sử tích điểm</h5>
+                                <hr>
+                                <div class="invoice-details">
+                                    <div class="table-wrap">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped table-border mb-0">
+                                                <thead>
+                                                <tr class="border-bottom">
+                                                    <th class="">Tên sản phẩm</th>
+                                                    <th class="text-left">Mã sản phẩm</th>
+                                                    <th class="text-left">Đơn giá</th>
+                                                    <th class="text-left">Ngày quét mã</th>
                                                 </tr>
-                                            @endforeach
-                                        @endif
-                                        </tbody>
-                                        {{--                                        <tfoot class="border-bottom border-1">--}}
-                                        {{--                                        <tr>--}}
-                                        {{--                                            <th colspan="3" class="text-right font-weight-600">total</th>--}}
-                                        {{--                                            <th class="text-right font-weight-600">$22,010</th>--}}
-                                        {{--                                        </tr>--}}
-                                        {{--                                        </tfoot>--}}
-                                    </table>
+                                                </thead>
+                                                <tbody>
+                                                @if($histories->all() == [])
+                                                    <tr>
+                                                        <td colspan="4" class="">Bạn Chưa Mua Sản Phẩm Nào!, <a
+                                                                class="text-red "
+                                                                href="https://doppelherz.vn/san-pham/">Mua
+                                                                Hàng Để Nhận Điểm</a></td>
+                                                    </tr>
+                                                @else
+                                                    @foreach($histories as $historyItem)
+                                                        <tr>
+                                                            <td class="">{{$historyItem->product_name}}</td>
+                                                            <td class="text-left">{{$historyItem->qr_specialCode}}</td>
+                                                            <td class="text-left">{{$historyItem->price}}</td>
+                                                            <td class="text-left">{{$historyItem->created_at->format('d/m/Y')}}</td>
+                                                        </tr>
+                                                    @endforeach
+                                                @endif
+                                                </tbody>
+                                                {{--                                        <tfoot class="border-bottom border-1">--}}
+                                                {{--                                        <tr>--}}
+                                                {{--                                            <th colspan="3" class="text-right font-weight-600">total</th>--}}
+                                                {{--                                            <th class="text-right font-weight-600">$22,010</th>--}}
+                                                {{--                                        </tr>--}}
+                                                {{--                                        </tfoot>--}}
+                                            </table>
+                                        </div>
+                                    </div>
+                                    {{--                            <div class="invoice-sign-wrap text-right py-60">--}}
+                                    {{--                                <img class="img-fluid d-inline-block" src="dist/img/signature.png" alt="sign" />--}}
+                                    {{--                                <span class="d-block text-light font-14">Digital Signature</span>--}}
+                                    {{--                            </div>--}}
                                 </div>
                             </div>
-                            {{--                            <div class="invoice-sign-wrap text-right py-60">--}}
-                            {{--                                <img class="img-fluid d-inline-block" src="dist/img/signature.png" alt="sign" />--}}
-                            {{--                                <span class="d-block text-light font-14">Digital Signature</span>--}}
-                            {{--                            </div>--}}
+                            <div class="tab-pane fade" id="lichsudoiqua" role="tabpanel"
+                                 aria-labelledby="nav-profile-tab">
+                                <h5 class="d-block text-uppercase mb-5 font-13 font-weight-700">Lịch sử đổi quà</h5>
+                                <hr>
+                                <div class="invoice-details">
+                                    <div class="table-wrap">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped table-border mb-0">
+                                                <thead>
+                                                <tr class="border-bottom">
+                                                    <th class="">Tên phần quà</th>
+                                                    <th class="text-left">Địa chỉ nhận quà</th>
+                                                    <th class="text-left">Ngày đổi quà</th>
+                                                    <th class="text-left">Trạng thái</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                @if($order->all() == [])
+                                                    <tr>
+                                                        <td colspan="4" class="">Bạn chứ đổi phần quà nào!, <a
+                                                                class="text-red "
+                                                                href="{{$userBillInfo->url}}">Đổi quà ngay!</a></td>
+                                                    </tr>
+                                                @else
+                                                    @foreach($order as $orderItem)
+                                                        <tr>
+                                                            <td class="">{{$orderItem->gift->name}}</td>
+                                                            <td class="text-left">{{$orderItem->address}}</td>
+                                                            <td class="text-left">{{$orderItem->created_at->format('d/m/Y')}}</td>
+                                                            <td></td>
+                                                        </tr>
+                                                    @endforeach
+                                                @endif
+                                                </tbody>
+                                                {{--                                        <tfoot class="border-bottom border-1">--}}
+                                                {{--                                        <tr>--}}
+                                                {{--                                            <th colspan="3" class="text-right font-weight-600">total</th>--}}
+                                                {{--                                            <th class="text-right font-weight-600">$22,010</th>--}}
+                                                {{--                                        </tr>--}}
+                                                {{--                                        </tfoot>--}}
+                                            </table>
+                                        </div>
+                                    </div>
+                                    {{--                            <div class="invoice-sign-wrap text-right py-60">--}}
+                                    {{--                                <img class="img-fluid d-inline-block" src="dist/img/signature.png" alt="sign" />--}}
+                                    {{--                                <span class="d-block text-light font-14">Digital Signature</span>--}}
+                                    {{--                            </div>--}}
+                                </div>
+                            </div>
                         </div>
+{{--                        <h5 class="d-block text-uppercase mb-5 font-13 font-weight-700">Lịch sử tích điểm</h5>--}}
+{{--                        <hr>--}}
+{{--                        <div class="invoice-details">--}}
+{{--                            <div class="table-wrap">--}}
+{{--                                <div class="table-responsive">--}}
+{{--                                    <table class="table table-striped table-border mb-0">--}}
+{{--                                        <thead>--}}
+{{--                                        <tr class="border-bottom">--}}
+{{--                                            <th class="">Tên sản phẩm</th>--}}
+{{--                                            <th class="text-left">Mã sản phẩm</th>--}}
+{{--                                            <th class="text-left">Đơn giá</th>--}}
+{{--                                            <th class="text-left">Ngày quét mã</th>--}}
+{{--                                        </tr>--}}
+{{--                                        </thead>--}}
+{{--                                        <tbody>--}}
+{{--                                        @if($histories->all() == [])--}}
+{{--                                            <tr>--}}
+{{--                                                <td colspan="4" class="">Bạn Chưa Mua Sản Phẩm Nào!, <a--}}
+{{--                                                        class="text-red " href="https://doppelherz.vn/san-pham/">Mua--}}
+{{--                                                        Hàng Để Nhận Điểm</a></td>--}}
+{{--                                            </tr>--}}
+{{--                                        @else--}}
+{{--                                            @foreach($histories as $historyItem)--}}
+{{--                                                <tr>--}}
+{{--                                                    <td class="">{{$historyItem->product_name}}</td>--}}
+{{--                                                    <td class="text-left">{{$historyItem->qr_specialCode}}</td>--}}
+{{--                                                    <td class="text-left">{{$historyItem->price}}</td>--}}
+{{--                                                    <td class="text-left">{{$historyItem->created_at->format('d/m/Y')}}</td>--}}
+{{--                                                </tr>--}}
+{{--                                            @endforeach--}}
+{{--                                        @endif--}}
+{{--                                        </tbody>--}}
+{{--                                        --}}{{--                                        <tfoot class="border-bottom border-1">--}}
+{{--                                        --}}{{--                                        <tr>--}}
+{{--                                        --}}{{--                                            <th colspan="3" class="text-right font-weight-600">total</th>--}}
+{{--                                        --}}{{--                                            <th class="text-right font-weight-600">$22,010</th>--}}
+{{--                                        --}}{{--                                        </tr>--}}
+{{--                                        --}}{{--                                        </tfoot>--}}
+{{--                                    </table>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            --}}{{--                            <div class="invoice-sign-wrap text-right py-60">--}}
+{{--                            --}}{{--                                <img class="img-fluid d-inline-block" src="dist/img/signature.png" alt="sign" />--}}
+{{--                            --}}{{--                                <span class="d-block text-light font-14">Digital Signature</span>--}}
+{{--                            --}}{{--                            </div>--}}
+{{--                        </div>--}}
                         <hr>
                         <ul class="invoice-terms-wrap font-14 list-ul">
                             <li>Các sản phẩm quà hoặc xuất kho trước 15/05/2022 sẽ không có mã QR</li>

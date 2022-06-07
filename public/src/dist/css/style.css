@@ -15,7 +15,7 @@ Project:	Brunette
 	++Border++
 	++Colors++
 	++Shadow++
-	++Font Size++
+	++Fotnt Size++
 	++Font Weight++
 	++Text Case++
 	++Letter Spacing++
@@ -13631,24 +13631,25 @@ Project:	Brunette
     border-top: none;
     border-left: none;
     border-right: none;
-    border-radius: 0;
+      color: #363636;
+      border-radius: 0;
     border-bottom: 3px solid transparent;
     -webkit-transition: 0.2s ease-in-out;
     -moz-transition: 0.2s ease-in-out;
     transition: 0.2s ease-in-out; }
     .nav.nav-tabs .nav-link.active {
-      color: #324148;
+     color: #ea2030;
       background: transparent;
-      border-color: #7a5449; }
+      border-color: #ea2030; }
       .nav.nav-tabs .nav-link.active:hover, .nav.nav-tabs .nav-link.active:focus {
-        border-color: #7a5449; }
+        border-color: #ea2030; }
     .nav.nav-tabs .nav-link:hover, .nav.nav-tabs .nav-link:focus {
-      color: #324148;
+        color: #ea2030;
       border-color: transparent; }
     .nav.nav-tabs .nav-link.disabled {
-      color: #c1c6c8; }
+        color: #ea203070; }
   .nav.nav-tabs .nav-item.show .nav-link {
-    color: #324148;
+      color: #ea2030;
     border-color: #00acf0;
     background: transparent; }
   .nav.nav-tabs .dropdown-menu {
