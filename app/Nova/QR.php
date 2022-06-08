@@ -8,6 +8,7 @@ use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Maatwebsite\LaravelNovaExcel\Actions\DownloadExcel;
 use Outhebox\NovaHiddenField\HiddenField;
 
 
@@ -36,6 +37,7 @@ class QR extends Resource
         'id', 'specialCode'
     ];
 
+
     /**
      * Get the fields displayed by the resource.
      *
@@ -52,7 +54,7 @@ class QR extends Resource
 //            HiddenField::make('Code sản phẩm', 'specialCode'),
 //            HiddenField::make('Link QR', 'linkQr'),
             Text::make('Link QR', 'linkQr')->showOnIndex()->hideWhenCreating(),
-            Boolean::make('Trạng thái', 'status'),
+            Boolean::make('Trạng thái', 'status')->sortable(),
         ];
     }
 
@@ -104,6 +106,7 @@ class QR extends Resource
     {
         return [
             new CreateQRAction(),
+            new DownloadExcel(),
         ];
     }
 }
