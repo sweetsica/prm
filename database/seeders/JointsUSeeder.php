@@ -17,8 +17,8 @@ class JointsUSeeder extends Seeder
      */
     public function run()
     {
-        $promotion_id =15;
-        $product_id = 15;
+        $promotion_id =14;
+        $product_id = 14;
         $count = 10000;
         for ($i =0 ; $i < $count ; $i++){
             $specialCode = Str::random(12);
