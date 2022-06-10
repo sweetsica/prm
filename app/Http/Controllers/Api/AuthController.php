@@ -4,15 +4,15 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
-use App\Nova\User;
+use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
 class AuthController extends Controller
 {
+
     public function login(Request $request)
     {
         try {
@@ -252,5 +252,40 @@ class AuthController extends Controller
             ],
             400
         );
+    }
+    public function loginForQrcode(Request $request){
+        try {
+            $validator = Validator::make($request->all(), [
+                "email" => ["required"],
+                "password" => "required"
+            ],[
+                "email.required"=>"Vui lòng nhập email",
+                "password.required"=>"Vui lòng nhập mật khẩu"
+            ]);
+            if ($validator->fails()) {
+                return response()->json([
+                    "status_code"=>400,
+                    "error"=>$validator->errors()
+                ], 400);
+            }
+            $user = User::where('email', $request->email)->first();
+            if ($user == null && !Hash::check($request->password, $user->password)) {
+                return response()->json([
+                    "status_code"=>400,
+                    "error" => "Sai thông tin đăng nhập"
+                ], 400);
+            }
+            $tokenResult = $user->createToken('authToken')->plainTextToken;
+            return response()->json([
+                'status_code' => 200,
+                'access_token' => $tokenResult,
+                'token_type' => 'Bearer',
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                "status_code"=>500,
+                'error' => $e,
+            ], 500);
+        }
     }
 }
