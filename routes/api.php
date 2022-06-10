@@ -31,17 +31,13 @@ Route::post('/doiqua',[OrderController::class,'changeGift']);
 
 Route::get('/qrcode',[\App\Http\Controllers\Api\QrController::class,'index']);
 Route::get('/promotion',[\App\Http\Controllers\Api\QrController::class,'promotion']);
-Route::get('/testmd5',function (){
-    $data = "muop dang la kho qua 9991";
-//    return md5($data);
-//    return base64_encode($data);
-});
 
 
 Route::post('/login',[\App\Http\Controllers\Api\AuthController::class,'login']);
 Route::post('/register',[\App\Http\Controllers\Api\AuthController::class,'register']);
 Route::get ("/user",[\App\Http\Controllers\Api\AuthController::class,'getUserInfo'])->middleware('auth:sanctum');
 Route::get('/history',[\App\Http\Controllers\Api\BillController::class,'userBill'])->middleware('auth:sanctum');
+Route::get('/history-gift-exchange',[\App\Http\Controllers\Api\HistoryController::class,'historyGiftExchange'])->middleware('auth:sanctum');
 Route::post('/gift-exchange',[\App\Http\Controllers\Api\GiftExchangeController::class,'giftExchange'])->middleware('auth:sanctum');
 Route::post('/change-info',[\App\Http\Controllers\Api\AuthController::class,'changeInformation'])->middleware('auth:sanctum');
 Route::post('/change-password-has-token',[\App\Http\Controllers\Api\AuthController::class,'changePasswordHasToken'])->middleware('auth:sanctum');

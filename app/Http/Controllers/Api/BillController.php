@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 class BillController extends Controller
 {
     public function userBill(Request $request){
+
+        //hàm trả về danh sách lịch sử quét mã
         try{
             $userInfo = $request->user();
             $histories = History::where('customer_id',$userInfo->id)->get();
