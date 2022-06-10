@@ -18,9 +18,7 @@ use App\Http\Controllers\Api\OrderController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+
 
 //Route::get('/nguoidung',[CustomerController::class, 'index'])->name('api.customer');
 Route::get('/nguoidung/{customer_id}',[CustomerController::class, 'show']);
@@ -42,12 +40,11 @@ Route::get('/testmd5',function (){
 
 Route::post('/login',[\App\Http\Controllers\Api\AuthController::class,'login']);
 Route::post('/register',[\App\Http\Controllers\Api\AuthController::class,'register']);
-
+Route::get ("/user",[\App\Http\Controllers\Api\AuthController::class,'getUserInfo'])->middleware('auth:sanctum');
 Route::get('/history',[\App\Http\Controllers\Api\BillController::class,'userBill'])->middleware('auth:sanctum');
 Route::post('/gift-exchange',[\App\Http\Controllers\Api\GiftExchangeController::class,'giftExchange'])->middleware('auth:sanctum');
 Route::post('/change-info',[\App\Http\Controllers\Api\AuthController::class,'changeInformation'])->middleware('auth:sanctum');
 Route::post('/change-password-has-token',[\App\Http\Controllers\Api\AuthController::class,'changePasswordHasToken'])->middleware('auth:sanctum');
 Route::post('/change-password-no-token',[\App\Http\Controllers\Api\AuthController::class,'changePasswordNoToken'])->middleware('auth:sanctum');
-Route::get('/test-logged',[\App\Http\Controllers\Api\AuthController::class,'checkLogged'])->middleware('auth:sanctum');
 Route::get('/logout',[\App\Http\Controllers\Api\AuthController::class,'logout'])->middleware('auth:sanctum');
 

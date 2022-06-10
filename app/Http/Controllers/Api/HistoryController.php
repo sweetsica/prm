@@ -3,22 +3,23 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\History;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
-class BillController extends Controller
+class HistoryController extends Controller
 {
-    public function userBill(Request $request){
+    public function history(Request $request){
         try{
             $userInfo = $request->user();
-            $histories = History::where('customer_id',$userInfo->id)->get();
+            $order =  Order::where("customer_id",$userInfo->id)->with("gift")->get();
             return response()->json([
-                "history"=>$histories
-            ],200);
+                "order"=>$order
+            ], 200);
         }catch (\Exception $e){
             return response()->json([
                 "error"=>$e
-            ],500);
+            ], 500);
         }
+
     }
 }
