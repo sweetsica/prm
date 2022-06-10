@@ -13,6 +13,6 @@ class Gift extends Model
 
     public function orders()
     {
-        return $this->hasOne(Order::class);
+        return $this->belongsToMany(Order::class);
     }
 }
