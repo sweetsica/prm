@@ -44,4 +44,5 @@ Route::post('/change-info',[\App\Http\Controllers\Api\AuthController::class,'cha
 Route::post('/change-password-has-token',[\App\Http\Controllers\Api\AuthController::class,'changePasswordHasToken'])->middleware('auth:sanctum');
 Route::post('/change-password-no-token',[\App\Http\Controllers\Api\AuthController::class,'changePasswordNoToken'])->middleware('auth:sanctum');
 Route::get('/logout',[\App\Http\Controllers\Api\AuthController::class,'logout'])->middleware('auth:sanctum');
+Route::get('/tichdiem/{promotion_id}/{product_id}/{special_code}',[\App\Http\Controllers\Api\ScanQRController::class,'scanQR'])->middleware('auth:sanctum');
 

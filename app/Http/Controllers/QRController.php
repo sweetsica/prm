@@ -66,7 +66,6 @@ class QRController extends Controller
                     }
 
                 } else {
-
                     echo '404 không có sản phẩm này';
                 }
             } else {
