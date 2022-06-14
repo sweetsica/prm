@@ -13,12 +13,6 @@ use Illuminate\Validation\Rule;
 class AuthController extends Controller
 {
 
-    public function register(){
-        return response()->json([
-            "status_code"=>200,
-            "message"=>"hello"
-        ], 200);
-    }
 
     public function login(Request $request): \Illuminate\Http\JsonResponse
     {
