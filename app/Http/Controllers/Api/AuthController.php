@@ -57,7 +57,7 @@ class AuthController extends Controller
         }
     }
 
-    public function register(Request $request)
+    public function register_customer(Request $request)
     {
         try {
             $validator = Validator::make($request->all(), [

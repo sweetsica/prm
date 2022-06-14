@@ -35,7 +35,7 @@ Route::get('/promotion',[\App\Http\Controllers\Api\QrController::class,'promotio
 
 Route::post('/login',[\App\Http\Controllers\Api\AuthController::class,'login']);
 Route::post('/login-qrcode',[\App\Http\Controllers\Api\AuthController::class,'loginForQrcode']);
-Route::post('/customer-register',[\App\Http\Controllers\Api\AuthController::class,'register']);
+Route::post('/customer-register',[\App\Http\Controllers\Api\AuthController::class,'register_customer']);
 Route::get ("/user",[\App\Http\Controllers\Api\AuthController::class,'getUserInfo'])->middleware('auth:sanctum');
 Route::get('/history',[\App\Http\Controllers\Api\BillController::class,'userBill'])->middleware('auth:sanctum');
 Route::get('/history-gift-exchange',[\App\Http\Controllers\Api\HistoryController::class,'historyGiftExchange'])->middleware('auth:sanctum');
