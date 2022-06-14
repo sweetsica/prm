@@ -42,10 +42,16 @@ class GiftExchangeController extends Controller
                                 } else {
                                     DB::rollBack();
                                     return response()->json([
-                                        "error" => "Đổi quà thất bại."
-                                    ], 400);
+                                        "error" => "Lỗi hệ thống vui lòng thử lại sau."
+                                    ], 500);
                                 }
+                            }else{
+                                DB::rollBack();
+                                return response()->json([
+                                    "error" => "Lỗi hệ thống vui lòng thử lại sau."
+                                ], 500);
                             }
+
                         } else {
                             return response()->json([
                                 "error" => "Bạn không đủ điểm."
@@ -62,19 +68,15 @@ class GiftExchangeController extends Controller
                     ], 400);
                 }
             }else{
-                DB::rollBack();
                 return response()->json([
                     "error" => "Lỗi hệ thống."
                 ], 500);
             }
         } catch (\Exception $e) {
+            DB::rollBack();
             return response()->json([
                 "error" => $e
             ], 500);
         }
-        DB::rollBack();
-        return response()->json([
-            "error" => "Lỗi hệ thống."
-        ], 400);
     }
 }
