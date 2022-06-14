@@ -47,6 +47,7 @@ class ScanQRController extends Controller
                             "product"=>$productInfo,
                             "status_code"=>200,
                             "status"=>true,
+                            "point"=>$promotionPointBonus,
                             "massage" => "Tích điểm thành công"
                         ], 200);
                     }else{

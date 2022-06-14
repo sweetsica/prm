@@ -19,7 +19,7 @@ class KinderOptimaSeeder extends Seeder
     {
         $promotion_id =20;
         $product_id = 20;
-        $count = 60000;
+        $count = 20000;
         for ($i =0 ; $i < $count ; $i++){
             $specialCode = Str::random(12);
             DB::table('q_r_s')->insert([
