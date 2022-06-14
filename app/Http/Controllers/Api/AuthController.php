@@ -13,7 +13,7 @@ use Illuminate\Validation\Rule;
 class AuthController extends Controller
 {
 
-    public function login(Request $request)
+    public function login(Request $request): \Illuminate\Http\JsonResponse
     {
         try {
             $validator = Validator::make($request->all(), [
@@ -57,7 +57,7 @@ class AuthController extends Controller
         }
     }
 
-    public function register_customer(Request $request)
+    public function register(Request $request): \Illuminate\Http\JsonResponse
     {
         try {
             $validator = Validator::make($request->all(), [
@@ -106,7 +106,7 @@ class AuthController extends Controller
         }
     }
 
-    public function getUserInfo(Request $request)
+    public function getUserInfo(Request $request): \Illuminate\Http\JsonResponse
     {
         $userInfo = $request->user();
         return response()->json([
@@ -260,7 +260,8 @@ class AuthController extends Controller
             400
         );
     }
-    public function loginForQrcode(Request $request){
+    public function loginForQrcode(Request $request): \Illuminate\Http\JsonResponse
+    {
         try {
             $validator = Validator::make($request->all(), [
                 "email" => ["required"],
