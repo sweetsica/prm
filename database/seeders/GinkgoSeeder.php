@@ -19,7 +19,7 @@ class GinkgoSeeder extends Seeder
     {
         $promotion_id = 11;
         $product_id = 11;
-        $count = 10000;
+        $count = 5000;
         for ($i =0 ; $i < $count ; $i++){
             $specialCode = Str::random(12);
             DB::table('q_r_s')->insert([
