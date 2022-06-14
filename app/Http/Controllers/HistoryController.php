@@ -8,7 +8,8 @@ class HistoryController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+     *            DB::rollBack();
+
      * @return \Illuminate\Http\Response
      */
     public function index()
