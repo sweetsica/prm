@@ -44,12 +44,14 @@ class ScanQRController extends Controller
                         ]);
                         DB::commit();
                         return response()->json([
+                            "product"=>$productInfo,
                             "status_code"=>200,
                             "status"=>true,
                             "error" => "Tích điểm thành công"
                         ], 200);
                     }else{
                         return response()->json([
+                            "product"=>$productInfo,
                             "status_code"=>200,
                             "status"=>false,
                             "error" => "Tích điểm thất bại"

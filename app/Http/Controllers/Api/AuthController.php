@@ -30,10 +30,17 @@ class AuthController extends Controller
                 ], 400);
             }
             $user = Customer::where('phone', $request->phone)->first();
-            if ($user == null && !Hash::check($request->password, $user->password)) {
+            if ($user != null){
+                if (!Hash::check($request->password, $user->password)) {
+                    return response()->json([
+                        "status_code"=>400,
+                        "error" => "Sai thông tin đăng nhập."
+                    ], 400);
+                }
+            }else{
                 return response()->json([
                     "status_code"=>400,
-                    "error" => "Sai thông tin đăng nhập"
+                    "error" => "Số điện thoại chưa được đăng ký."
                 ], 400);
             }
             $tokenResult = $user->createToken('authToken')->plainTextToken;
