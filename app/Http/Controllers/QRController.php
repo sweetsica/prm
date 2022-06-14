@@ -73,7 +73,6 @@ class QRController extends Controller
             }
 
         }catch (\Exception $e){
-            dump($e);
             DB::rollBack();
         }
 
