@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\QrsExport;
 use App\Models\Customer;
 use App\Models\History;
 use App\Models\Product;
@@ -11,6 +12,7 @@ use Complex\Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Maatwebsite\Excel\Facades\Excel;
 
 class QRController extends Controller
 {
@@ -82,4 +84,8 @@ class QRController extends Controller
         return view('FrontEnd/blank');
     }
 
+    public function export()
+    {
+        return Excel::download(new QrsExport, 'qrs_export.xlsx');
+    }
 }

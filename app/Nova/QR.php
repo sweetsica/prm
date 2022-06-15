@@ -61,7 +61,7 @@ class QR extends Resource
     /**
      * @var int[]
      */
-    public static $perPageOptions = [50, 100, 500, 1000];
+    public static $perPageOptions = [50, 100, 500, 1000, 3000, 4000, 5000, 100000];
 
     /**
      * Get the cards available for the request.
@@ -105,7 +105,7 @@ class QR extends Resource
     public function actions(NovaRequest $request)
     {
         return [
-            new CreateQRAction(),
+//            new CreateQRAction(),
             new DownloadExcel(),
         ];
     }
