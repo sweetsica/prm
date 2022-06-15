@@ -26,23 +26,23 @@ class AuthController extends Controller
             ]);
             if ($validator->fails()) {
                 return response()->json([
-                    "status_code"=>400,
+                    "status_code"=>422,
                     "error"=>$validator->errors()
-                ], 400);
+                ], 422);
             }
             $user = Customer::where('phone', $request->phone)->first();
             if ($user != null){
                 if (!Hash::check($request->password, $user->password)) {
                     return response()->json([
-                        "status_code"=>400,
+                        "status_code"=>422,
                         "error" => "Sai thông tin đăng nhập."
-                    ], 400);
+                    ], 422);
                 }
             }else{
                 return response()->json([
-                    "status_code"=>400,
+                    "status_code"=>422,
                     "error" => "Số điện thoại chưa được đăng ký."
-                ], 400);
+                ], 422);
             }
             $tokenResult = $user->createToken('authToken')->plainTextToken;
             return response()->json([
@@ -81,9 +81,9 @@ class AuthController extends Controller
             ]);
             if ($validator->fails()) {
                 return response()->json([
-                    "status_code"=>400,
+                    "status_code"=>422,
                     "error"=>$validator->errors()
-                ], 400);
+                ], 422);
             }
             $fullName = $request->get('name');
             $email = $request->get('email');
@@ -144,9 +144,9 @@ class AuthController extends Controller
             ]);
             if ($validator->fails()) {
                 return response()->json([
-                    "status_code"=>400,
+                    "status_code"=>422,
                     "error"=>$validator->errors()
-                ], 400);
+                ], 422);
             }
             if ($userInfo) {
                 $changeInfo = $userInfo->update([
