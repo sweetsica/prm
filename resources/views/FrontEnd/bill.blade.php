@@ -118,7 +118,7 @@
                                                 <tbody>
                                                 @if($histories->all() == [])
                                                     <tr>
-                                                        <td colspan="4" class="">Bạn Chưa Mua Sản Phẩm Nào!, <a
+                                                        <td colspan="4" class="">Bạn Chưa Mua Sản Phẩm Nào! <a
                                                                 class="text-red "
                                                                 href="https://doppelherz.vn/san-pham/">Mua
                                                                 Hàng Để Nhận Điểm</a></td>
@@ -168,7 +168,7 @@
                                                 <tbody>
                                                 @if($order->all() == [])
                                                     <tr>
-                                                        <td colspan="4" class="">Bạn chứ đổi phần quà nào!, <a
+                                                        <td colspan="4" class="">Bạn chưa đổi phần quà nào! <a
                                                                 class="text-red "
                                                                 href="{{$userBillInfo->url}}">Đổi quà ngay!</a></td>
                                                     </tr>
