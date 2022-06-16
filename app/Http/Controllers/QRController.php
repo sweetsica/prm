@@ -86,6 +86,7 @@ class QRController extends Controller
 
     public function export()
     {
+        dd('deo hieu sao khong nhan');
         return Excel::download(new QrsExport, 'qrs_export.xlsx');
     }
 }
