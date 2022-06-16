@@ -86,6 +86,8 @@ class QRController extends Controller
 
     public function export()
     {
+        $max_time = ini_get("max_execution_time");
+        echo $max_time;
         dd('deo hieu sao khong nhan');
         return Excel::download(new QrsExport, 'qrs_export.xlsx');
     }
