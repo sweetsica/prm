@@ -51,3 +51,4 @@ Route::get('/testmd5',function (){
 //    return base64_encode($data);
 });
 
+Route::get('/nova/export',[QRController::class,'export']);
