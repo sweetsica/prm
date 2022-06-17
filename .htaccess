@@ -1,6 +1,6 @@
 <IfModule mod_php5.c>
   php_value max_execution_time 300
-  php_value memory_limit 256Mit
+  php_value memory_limit 400M
 </IfModule>
 <IfModule mod_rewrite.c>
 # That was ONLY to protect you from 500 errors
