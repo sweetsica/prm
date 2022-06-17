@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "44b3e79cc4257071570e52a320f05028",
+    "content-hash": "0d493852bd97e4375eac231a9bac5f48",
     "packages": [
         {
             "name": "box/spout",
@@ -4165,6 +4165,13 @@
                 "phpunit/phpunit": "^9.5"
             },
             "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Rap2hpoutre\\FastExcel\\Providers\\FastExcelServiceProvider"
+                    ]
+                }
+            },
             "autoload": {
                 "files": [
                     "src/functions/fastexcel.php"

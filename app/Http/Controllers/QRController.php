@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Maatwebsite\Excel\Facades\Excel;
+use Rap2hpoutre\FastExcel\FastExcel;
+
 
 class QRController extends Controller
 {
@@ -86,6 +88,9 @@ class QRController extends Controller
 
     public function export()
     {
-        return Excel::download(new QrsExport, 'qrs_export.xlsx');
+//        $max_time = ini_get("max_execution_time");
+//        dd($max_time);
+//        return Excel::download(new QrsExport, 'qrs_export.xlsx');
+        return (new FastExcel(QR::all()))->export('qr_fastexport.xlsx');
     }
 }
