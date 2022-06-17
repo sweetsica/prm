@@ -178,7 +178,7 @@
                                                             <td class="">{{$orderItem->gift->name}}</td>
                                                             <td class="text-left">{{$orderItem->address}}</td>
                                                             <td class="text-left">{{$orderItem->created_at->format('d/m/Y')}}</td>
-                                                            <td></td>
+                                                            <td class="text-left">{{$orderItem->status}}</td>
                                                         </tr>
                                                     @endforeach
                                                 @endif

@@ -11,8 +11,5 @@ class Gift extends Model
 
     protected $guarded = [''];
 
-    public function orders()
-    {
-        return $this->belongsToMany(Order::class);
-    }
+
 }

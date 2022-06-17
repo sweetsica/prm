@@ -4,8 +4,44 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "44b3e79cc4257071570e52a320f05028",
+    "content-hash": "bec812379572a2ef024e7a39a1151d20",
     "packages": [
+        {
+            "name": "acme/analytics",
+            "version": "dev-test-chart",
+            "dist": {
+                "type": "path",
+                "url": "./nova-components/Analytics",
+                "reference": "0090afddbea18d43efc47efdcc657640e837fd54"
+            },
+            "require": {
+                "php": "^7.3|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Acme\\Analytics\\CardServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Acme\\Analytics\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova card.",
+            "keywords": [
+                "laravel",
+                "nova"
+            ],
+            "transport-options": {
+                "relative": true
+            }
+        },
         {
             "name": "box/spout",
             "version": "v3.3.0",
@@ -200,6 +236,69 @@
                 }
             ],
             "time": "2021-10-10T11:59:43+00:00"
+        },
+        {
+            "name": "coroowicaksono/chart-js-integration",
+            "version": "v0.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/coroo/nova-chartjs.git",
+                "reference": "536abe58319b5eeae86d0a11a7b08609a209d1d0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/coroo/nova-chartjs/zipball/536abe58319b5eeae86d0a11a7b08609a209d1d0",
+                "reference": "536abe58319b5eeae86d0a11a7b08609a209d1d0",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/nova": "^4.0",
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Coroowicaksono\\ChartJsIntegration\\CardServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Coroowicaksono\\ChartJsIntegration\\": "src/",
+                    "Coroowicaksono\\ChartJsIntegration\\Api\\": "src/api"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kuncoro Wicaksono",
+                    "email": "coroo.wicaksono@gmail.com",
+                    "role": "Software Engineer"
+                }
+            ],
+            "description": "A Simple Dashboard Chart in Laravel Nova using Chart JS. Starting create your own dashboard with Chart JS Integration can save your time and help you maintain consistency across standard elements such as Bar, Stacked, Line, Area, Doughnut and Pie Chart.",
+            "homepage": "https://github.com/coroo",
+            "keywords": [
+                "chart js",
+                "laravel",
+                "nova",
+                "stacked chart"
+            ],
+            "support": {
+                "issues": "https://github.com/coroo/nova-chartjs/issues",
+                "source": "https://github.com/coroo/nova-chartjs/tree/v0.4.0"
+            },
+            "funding": [
+                {
+                    "url": "https://www.buymeacoffee.com/coroowicaksono",
+                    "type": "custom"
+                }
+            ],
+            "time": "2022-05-15T10:46:32+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -9354,5 +9453,5 @@
         "php": "^8.0.2"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.3.0"
 }
