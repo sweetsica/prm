@@ -44,7 +44,6 @@ class Order extends Resource
         return [
             ID::make()->sortable(),
             BelongsTo::make('Customer'),
-            HasOne::make('Gift'),
             Select::make('Trạng thái','status')
             ->options([
                 'Đang xử lý' => ['label' => 'Đang xử lý', 'group' => 'Admin'],
@@ -53,7 +52,8 @@ class Order extends Resource
                 'Đang giao' => ['label' => 'Đang giao', 'group' => 'Đơn vị vận chuyển'],
                 'Giao thành công' => ['label' => 'Giao thành công', 'group' => 'Hoàn tất'],
             ]),
-            Text::make('Địa chỉ nhận quà','address')
+            Text::make('Địa chỉ nhận quà','address'),
+            BelongsTo::make('Gift')
         ];
     }
         // Tạo bảng quan hệ nhiều nhiều gift - order

@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use Carbon\Carbon;
+use Cassandra\Date;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -20,6 +22,7 @@ class ActiveMenPlusSeeder extends Seeder
         $promotion_id = 3;
         $product_id = 3 ;
         $count = 5000;
+        $timeNow = Carbon::now();
         for ($i =0 ; $i < $count ; $i++){
             $specialCode = Str::random(12);
             DB::table('q_r_s')->insert([
@@ -27,6 +30,8 @@ class ActiveMenPlusSeeder extends Seeder
                 "product_id"=>$product_id,
                 "specialCode"=>$specialCode,
                 "linkQr"=>URL::route('website')."/tichdiem/".$promotion_id."/".$product_id."/".$specialCode,
+                'created_at'=>$timeNow,
+                'updated_at'=>$timeNow
             ]);
         }
     }

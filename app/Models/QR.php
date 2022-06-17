@@ -4,14 +4,25 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
+use Illuminate\Notifications\Notifiable;
 
 
 class QR extends Model
 {
-    use HasFactory;
+    use HasFactory,Notifiable;
+    protected $table = 'q_r_s';
 
     protected $guarded = [''];
+
+    public function scopeActive($query)
+    {
+        return $query->where('status', 1);
+    }
+    public function scopeInactive($query)
+    {
+        return $query->where('status', 0);
+    }
+
 
     public function product()
     {

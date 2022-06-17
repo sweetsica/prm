@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\QR;
+use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -21,6 +22,8 @@ class VitalPregnaSeeder extends Seeder
         $count = 20000;
         $promotion_id = 26;//Vital Pregna
         $product_id = 26;//Vital Pregna
+        $timeNow = Carbon::now();
+
         for ($i =0 ; $i < $count ; $i++){
             $specialCode = Str::random(12);
             DB::table('q_r_s')->insert([
@@ -28,6 +31,8 @@ class VitalPregnaSeeder extends Seeder
                 "product_id"=>$product_id,
                 "specialCode"=>$specialCode,
                 "linkQr"=>URL::route('website')."/tichdiem/".$promotion_id."/".$product_id."/".$specialCode,
+                'created_at'=>$timeNow,
+                'updated_at'=>$timeNow
             ]);
         }
     }
