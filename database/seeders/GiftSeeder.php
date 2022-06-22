@@ -18,7 +18,7 @@ class GiftSeeder extends Seeder
         DB::table('gifts')->insert([
             'id'=>'1',
             'name' =>'Phần quà: A-Z Depot',
-            'image'=>'kDLc6po3lroyjEVmT5RMNXUq4waHcgEf1tjYovbg.png',
+            'image'=>'iA7NxBb5TKuHD7jPd6Kf6TMBl74JdSw9Ef7KcIVd.png',
             'typePromotion'=>'point',
             'valuePromotion'=>'339',
             'status' => '1'
@@ -90,7 +90,7 @@ class GiftSeeder extends Seeder
         DB::table('gifts')->insert([
             'id'=>'9',
             'name' =>'Phần quà: Coenzyme Q10',
-            'image'=>'RFofz3IsHyPFEtBQZ57uMyFMBv4WE4fGRo7OqoEO.png',
+            'image'=>'qKgaQJrtreTcHtwA9FbGp44aYvbUG5LubFVpZo73.png',
             'typePromotion'=>'point',
             'valuePromotion'=>'324',
             'status' => '1'
@@ -216,7 +216,7 @@ class GiftSeeder extends Seeder
         DB::table('gifts')->insert([
             'id'=>'23',
             'name' =>'Phần quà: Magnesium + Calcium + D3',
-            'image'=>'pilxKwbJJfZesApH4y8ZVbgjtsEJjiRHsMS2UZo8.png',
+            'image'=>'QlGAa2P3uelNZrT09a6rjoEROUgVjRC6ggZQGT7D.png',
             'typePromotion'=>'point',
             'valuePromotion'=>'324',
             'status' => '1'

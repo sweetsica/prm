@@ -18,7 +18,7 @@ class ProductSeeder extends Seeder
         DB::table('products')->insert([
             'name' =>'A-Z Depot',
             'link_product'=>'https://doppelherz.vn/san-pham/a-z-depot-30-vien/',
-            'image'=>'kOlR2qY3gDn9XLnnB5Kp3ZrKFV25pidMaO3xzDa8.png',
+            'image'=>'iA7NxBb5TKuHD7jPd6Kf6TMBl74JdSw9Ef7KcIVd.png',
             'price' => '339000',
             'status' => '1',
         ]);
@@ -90,16 +90,16 @@ class ProductSeeder extends Seeder
         DB::table('products')->insert([
             'name' =>'Coenzyme Q10',
             'link_product'=>'https://doppelherz.vn/san-pham/coenzyme-q10-30-vien/',
-            'image'=>'1ccbD7sxhdOFBtWoLsWpJSO9uqUCDsjbeDtiX89F.png',
+            'image'=>'qKgaQJrtreTcHtwA9FbGp44aYvbUG5LubFVpZo73.png',
             'price' => '324000',
             'status' => '1',
         ]);
 
 
         DB::table('products')->insert([
-            'name' =>'Eye Vital',
+            'name' =>'Eye Vital Capsules',
             'link_product'=>'https://doppelherz.vn/san-pham/eye-vital-capsules-30-vien/',
-            'image'=>'FKeEeWA67etu4GTaCnGOc7HvT2XttgnOukcsGXHQ.png',
+            'image'=>'vh3vFCdn032xgcjIS75xDkyNitwqTeTLvG17fdFp.png',
             'price' => '339000',
             'status' => '1',
         ]);
@@ -216,7 +216,7 @@ class ProductSeeder extends Seeder
         DB::table('products')->insert([
             'name' =>'Magnesium + Calcium + D3',
             'link_product'=>'https://doppelherz.vn/san-pham/magnesium-calcium-d3-30-vien/',
-            'image'=>'wny19w9CWc1JR2Jbw52uapMMneXpVIZVhd5g5ChU.png',
+            'image'=>'QlGAa2P3uelNZrT09a6rjoEROUgVjRC6ggZQGT7D.png',
             'price' => '324000',
             'status' => '1',
         ]);

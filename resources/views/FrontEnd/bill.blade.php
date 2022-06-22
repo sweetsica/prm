@@ -344,7 +344,7 @@
                     </div>
                     <div class="text-center">
                         <span>Quý khách muốn đổi số điện thoại xin vui lòng liên hệ đến</span><br/>
-                        Email: <a class="text-red" href="mailto:info@mastertran.com">info@mastertran.com</a>
+                        Email: <a class="text-red" href="mailto:info@mastertran.vn">info@mastertran.vn</a>
                     </div>
                 </div>
                 <div class="modal-footer">
