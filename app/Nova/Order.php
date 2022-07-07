@@ -10,6 +10,7 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Maatwebsite\LaravelNovaExcel\Actions\DownloadExcel;
 
 class Order extends Resource
 {
@@ -97,6 +98,8 @@ class Order extends Resource
      */
     public function actions(NovaRequest $request)
     {
-        return [];
+        return [
+            new DownloadExcel(),
+        ];
     }
 }
