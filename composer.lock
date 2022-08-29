@@ -4,15 +4,15 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bec812379572a2ef024e7a39a1151d20",
+    "content-hash": "f1c7357569c1460afba00e175596294d",
     "packages": [
         {
             "name": "acme/analytics",
-            "version": "dev-test-chart",
+            "version": "dev-update_branch_6_15_2022",
             "dist": {
                 "type": "path",
                 "url": "./nova-components/Analytics",
-                "reference": "0090afddbea18d43efc47efdcc657640e837fd54"
+                "reference": "4dc1847c705266151e62f59aa88e331678103cfe"
             },
             "require": {
                 "php": "^7.3|^8.0"
@@ -3356,6 +3356,130 @@
                 "source": "https://github.com/MohmmedAshraf/nova-hidden-field/tree/v1.0.3"
             },
             "time": "2020-05-20T14:43:47+00:00"
+        },
+        {
+            "name": "outl1ne/nova-menu-builder",
+            "version": "7.0.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/outl1ne/nova-menu-builder.git",
+                "reference": "1347db4d4bcaaaa60787f1d6ce3d57856f8af05e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/outl1ne/nova-menu-builder/zipball/1347db4d4bcaaaa60787f1d6ce3d57856f8af05e",
+                "reference": "1347db4d4bcaaaa60787f1d6ce3d57856f8af05e",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/dbal": ">=2.0.0",
+                "laravel/nova": "^4.0",
+                "outl1ne/nova-translations-loader": "^5.0.0",
+                "php": ">=8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^7.0",
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Outl1ne\\MenuBuilder\\MenuBuilderServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Outl1ne\\MenuBuilder\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tarvo Reinpalu",
+                    "email": "tarvoreinpalu@gmail.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Optimist Digital",
+                    "email": "info@optimistdigital.com",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "This Laravel Nova package allows you to create and manage menus and menu items.",
+            "keywords": [
+                "builder",
+                "laravel",
+                "menu",
+                "nova"
+            ],
+            "support": {
+                "issues": "https://github.com/outl1ne/nova-menu-builder/issues",
+                "source": "https://github.com/outl1ne/nova-menu-builder/tree/7.0.10"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/outl1ne",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-08-09T08:31:41+00:00"
+        },
+        {
+            "name": "outl1ne/nova-translations-loader",
+            "version": "5.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/outl1ne/nova-translations-loader.git",
+                "reference": "a005e37d105473b0cfc4a1586d87bfc7d45ffcba"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/outl1ne/nova-translations-loader/zipball/a005e37d105473b0cfc4a1586d87bfc7d45ffcba",
+                "reference": "a005e37d105473b0cfc4a1586d87bfc7d45ffcba",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^8.0|^9.0",
+                "laravel/nova": "^4.0",
+                "php": ">=8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [],
+                    "aliases": []
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Outl1ne\\NovaTranslationsLoader\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "This Laravel Nova package helps developers load translations into their packages.",
+            "keywords": [
+                "laravel",
+                "nova",
+                "optimistdigital",
+                "outl1ne",
+                "translations"
+            ],
+            "support": {
+                "issues": "https://github.com/outl1ne/nova-translations-loader/issues",
+                "source": "https://github.com/outl1ne/nova-translations-loader/tree/5.0.0"
+            },
+            "time": "2022-04-29T14:58:51+00:00"
         },
         {
             "name": "phpoffice/phpspreadsheet",
@@ -9453,5 +9577,5 @@
         "php": "^8.0.2"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.1.0"
 }

@@ -10,7 +10,7 @@ use Laravel\Nova\Actions\Action;
 use Laravel\Nova\Fields\ActionFields;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class CreateQRAction extends Action
+class ExportQr extends Action
 {
     use InteractsWithQueue, Queueable;
 
@@ -23,7 +23,7 @@ class CreateQRAction extends Action
      */
     public function handle(ActionFields $fields, Collection $models)
     {
-        return Action::message('Tạo QR thành công');
+        //
     }
 
     /**

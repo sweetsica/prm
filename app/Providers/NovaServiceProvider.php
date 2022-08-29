@@ -47,6 +47,11 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     MenuItem::resource(Promotion::class),
                     MenuItem::resource(QR::class),
                 ])->icon('lightning-bolt')->collapsable(),
+
+                MenuSection::make('Chức năng', [
+                    MenuItem::externalLink('Stripe Payments', 'http://prm.test:81/nova/export/1/1000'),
+                ])->icon('lightning-bolt')->collapsable(),
+
             ];
         });
     }

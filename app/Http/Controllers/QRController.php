@@ -8,6 +8,7 @@ use App\Models\History;
 use App\Models\Product;
 use App\Models\Promotion;
 use App\Models\QR;
+use Carbon\Carbon;
 use Complex\Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -91,8 +92,10 @@ class QRController extends Controller
         return view('FrontEnd/blank');
     }
 
-    public function export()
+    public function export($startid,$endid)
     {
-        return Excel::download(new QrsExport, 'qrs_export.xlsx');
+        $fileName = 'Danh-sách-mã-QR-từ-'.$startid.'-đến-'.$endid.'-ngày-'.Carbon::today()->format('d-m-Y').'.xlsx';
+        $QrsExport = new QrsExport($startid,$endid);
+        return Excel::download($QrsExport, $fileName);
     }
 }
