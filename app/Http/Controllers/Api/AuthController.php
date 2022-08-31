@@ -12,8 +12,6 @@ use Illuminate\Validation\Rule;
 
 class AuthController extends Controller
 {
-
-
     public function login(Request $request): \Illuminate\Http\JsonResponse
     {
         try {
@@ -30,7 +28,7 @@ class AuthController extends Controller
                     "error"=>$validator->errors()
                 ], 422);
             }
-            $user = Customer::where('phone', $request->phone)->first();
+            $user = Customer::where('phone', $request->phone)->orWhere('email',$request->email)->first();
             if ($user != null){
                 if (!Hash::check($request->password, $user->password)) {
                     return response()->json([

@@ -20,7 +20,7 @@ use App\Http\Controllers\Api\OrderController;
 
 
 
-//Route::get('/nguoidung',[CustomerController::class, 'index'])->name('api.customer');
+Route::get('/nguoidung',[CustomerController::class, 'index'])->name('api.customer');
 Route::get('/nguoidung/{customer_id}',[CustomerController::class, 'show']);
 Route::put('/nguoidung/{customer_id}',[CustomerController::class, 'update']);
 Route::put('/dangxuat',[CustomerController::class, 'logout']);
@@ -33,7 +33,8 @@ Route::get('/qrcode',[\App\Http\Controllers\Api\QrController::class,'index']);
 Route::get('/promotion',[\App\Http\Controllers\Api\QrController::class,'promotion']);
 
 
-Route::post('/login',[\App\Http\Controllers\Api\AuthController::class,'login']);
+//Route::post('/login',[\App\Http\Controllers\Api\AuthController::class,'login']);
+Route::post('/login',[\App\Http\Controllers\Api\CustomerController::class,'login']);
 Route::post('/login-qrcode',[\App\Http\Controllers\Api\AuthController::class,'loginForQrcode']);
 Route::post('/dangky',[\App\Http\Controllers\Api\AuthController::class,'registerCustomer']);
 Route::get ("/user",[\App\Http\Controllers\Api\AuthController::class,'getUserInfo'])->middleware('auth:sanctum');

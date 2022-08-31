@@ -20,6 +20,23 @@ class CustomerController extends Controller
         return response()->json($customer_all,200);
     }
 
+    public function login(Request $request)
+    {
+        $customer = Customer::where('phone','=',$request->phone)->orWhere('email','=',$request->email)->first();
+        if($customer){
+            $data = Customer::find($customer['id']);
+            $tokenResult = $customer->createToken('authToken')->plainTextToken;
+            return response()->json([
+                'data' => $data,
+                'status_code' => 200,
+                'access_token' => $tokenResult,
+                'token_type' => 'Bearer',
+                ], 200);
+        }else{
+            $data = "Không tồn tại thông tin này, vui lòng kiểm tra lại";
+            return response()->json($data, 200);
+        }
+    }
     /**
      * Store a newly created resource in storage.
      *

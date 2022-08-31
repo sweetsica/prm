@@ -30,7 +30,6 @@ class QRController extends Controller
         DB::beginTransaction();
         try{
             if (Session::get('customer_id') !== null) {
-
                 $promotion_infomation = QR::where('promotion_id', $promotion_id)->where('product_id', $product_id)->firstOrFail();
                 if(Session::get('notice-success')){
                     Session::forget('notice-success');

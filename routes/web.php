@@ -19,18 +19,18 @@ use Illuminate\Support\Facades\URL;
 */
 
 Route::get('/', function () {
-    return redirect()->to("https://tichdiem.doppelherz.vn");
+    return redirect()->to("https://prm-kid1412.vercel.app/");
 })->name('website');
 
-Route::get('/dangky',[CustomerController::class,'create'])->name('signUp');
-Route::post('/dangky',[CustomerController::class,'store'])->name('signUp.send');
+//Route::get('/dangky',[CustomerController::class,'create'])->name('signUp');
+//Route::post('/dangky',[CustomerController::class,'store'])->name('signUp.send');
 
-Route::get('/dangnhap',[CustomerController::class,'login'])->name('login');
-Route::get('/dangxuat',[CustomerController::class,'logout'])->name('logout');
-Route::post('/dangnhap',[CustomerController::class,'checkLogin'])->name('login.send');
+//Route::get('/dangnhap',[CustomerController::class,'login'])->name('login');
+//Route::get('/dangxuat',[CustomerController::class,'logout'])->name('logout');
+//Route::post('/dangnhap',[CustomerController::class,'checkLogin'])->name('login.send');
 Route::post('/doithongtin/{id}',[CustomerController::class,'changeInfoCus']);
 
-Route::get('/hoadon',[CustomerController::class,'userBill'])->name('user.bill');
+//Route::get('/hoadon',[CustomerController::class,'userBill'])->name('user.bill');
 
 Route::get('doithuong',function (){
     return Redirect::to('https://promotion-manage.vercel.app/nhanthuong');
