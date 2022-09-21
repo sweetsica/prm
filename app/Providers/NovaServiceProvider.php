@@ -9,6 +9,7 @@ use App\Nova\Order;
 use App\Nova\Product;
 use App\Nova\Promotion;
 use App\Nova\QR;
+use App\Nova\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\Dashboards\Main;
@@ -33,6 +34,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
             return [
                 MenuSection::dashboard(Main::class)->icon('chart-bar'),
                 MenuSection::make('Người dùng', [
+                    MenuItem::resource(User::class),
                     MenuItem::resource(Customer::class),
                     MenuItem::resource(Order::class),
                 ])->icon('user-group')->collapsable(),

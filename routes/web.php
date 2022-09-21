@@ -22,6 +22,10 @@ Route::get('/', function () {
     return redirect()->to("https://prm-kid1412.vercel.app/");
 })->name('website');
 
+Route::get('/login', function () {
+    echo 'đăng nhập';
+})->name('login');
+
 //Route::get('/dangky',[CustomerController::class,'create'])->name('signUp');
 //Route::post('/dangky',[CustomerController::class,'store'])->name('signUp.send');
 

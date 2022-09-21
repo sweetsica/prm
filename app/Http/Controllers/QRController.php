@@ -17,6 +17,10 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class QRController extends Controller
 {
+    public function getQR(Request $request)
+    {
+        dd($request);
+    }
     /**
      * @param $promotion_id
      * @param $product_id
