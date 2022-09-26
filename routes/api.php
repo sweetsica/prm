@@ -26,6 +26,8 @@ Route::get('/login-admin',[UserController::class, 'getTokenAdmin'])->name('getTo
 
 Route::get('/list-product',[ProductController::class, 'getListProduct'])->name('getListProduct');
 Route::get('/get-product',[ProductController::class, 'getProduct'])->name('getProduct');
+Route::get('/product/{product_id}',[ProductController::class,'detail']);
+
 
 Route::get('/get-promotion',[PromotionController::class, 'getPromotion'])->name('getPromotion');
 
