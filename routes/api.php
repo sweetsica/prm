@@ -62,6 +62,7 @@ Route::post('/login',[\App\Http\Controllers\Api\CustomerController::class,'login
 Route::post('/login-qrcode',[\App\Http\Controllers\Api\AuthController::class,'loginForQrcode']);
 Route::post('/dangky',[\App\Http\Controllers\Api\AuthController::class,'registerCustomer']);
 
+
 Route::get ('/user',[UserController::class,'index']);
 Route::post ('/user-login',[CustomerController::class,'index']);
 //Route::get ('/user',[\App\Http\Controllers\Api\AuthController::class,'getUserInfo'])->middleware('auth:sanctum');
