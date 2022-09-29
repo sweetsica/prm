@@ -55,6 +55,7 @@ class QR extends Resource
 //            HiddenField::make('Link QR', 'linkQr'),
             Text::make('Link QR', 'linkQr')->showOnIndex()->hideWhenCreating(),
             Boolean::make('Trạng thái', 'status')->sortable(),
+            Text::make('Excel', 'excel')->showOnIndex()->hideWhenCreating(),
         ];
     }
 
