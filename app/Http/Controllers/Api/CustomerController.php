@@ -78,6 +78,43 @@ class CustomerController extends Controller
         return $member;
     }
 
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function updateMore(Request $request, $id)
+    {
+        $member = Customer::find($id);
+        $data = [];
+        if($request->has('name')) {
+            $data['name'] = $request->get('name');
+        }
+        if($request->has('address')) {
+            $data['address'] = $request->get('address');
+        }
+        if($request->has('password')) {
+            $data['password'] = bcrypt($request->get('password'));
+        }
+        if($request->has('email')) {
+            $data['email'] = $request->get('email');
+        }
+        if(!empty($data)) {
+            $member->update($data);
+            return response()->json([
+                'status_code' => 200,
+                'message' => 'Cập nhật thông tin thành công',
+            ], 200);
+        }
+        return response()->json([
+            'status_code' => 500,
+            'message' => 'Cập nhật thông tin thấp bại',
+        ], 200);
+    }
+
     /**
      * Remove the specified resource from storage.
      *

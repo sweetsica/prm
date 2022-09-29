@@ -29,6 +29,9 @@ Route::get('/get-product',[ProductController::class, 'getProduct'])->name('getPr
 Route::get('/product/{product_id}',[ProductController::class,'detail']);
 
 
+Route::get('/get-category/{category_id}',[\App\Http\Controllers\Api\CategoryController::class, 'detail'])->name('getCategory');
+
+
 Route::get('/get-promotion',[PromotionController::class, 'getPromotion'])->name('getPromotion');
 
 Route::get('/get-qr',[QrController::class, 'getInfoQr'])->name('getInfoQr');
@@ -43,7 +46,7 @@ Route::get('/list-customer',[CustomerController::class, 'getListCustomer'])->nam
 Route::post('/getCustomer',[CustomerController::class, 'getCustomer'])->name('getCustomer');
 Route::put('/update-customer',[CustomerController::class, 'updateCustomer'])->name('updateCustomer');
 
-
+Route::put('/customer/update/{customer_id}',[CustomerController::class, 'updateMore']);
 
 Route::get('/nguoidung',[CustomerController::class, 'index'])->name('api.customer');
 Route::get('/nguoidung/{customer_id}',[CustomerController::class, 'show']);
@@ -75,6 +78,11 @@ Route::post('/change-password-has-token',[\App\Http\Controllers\Api\AuthControll
 Route::post('/change-password-no-token',[\App\Http\Controllers\Api\AuthController::class,'changePasswordNoToken'])->middleware('auth:sanctum');
 Route::get('/logout',[\App\Http\Controllers\Api\AuthController::class,'logout'])->middleware('auth:sanctum');
 Route::get('/tichdiem/{promotion_id}/{product_id}/{special_code}',[\App\Http\Controllers\Api\ScanQRController::class,'scanQR'])->middleware('auth:sanctum');
+Route::post('/tichdiem/{promotion_id}/{product_id}/{special_code}',[\App\Http\Controllers\Api\ScanQRController::class,'scanQR'])->middleware('auth:sanctum');
+
+Route::get('/diem/{product_id}/{customer_id}',[\App\Http\Controllers\Api\ScanQRController::class, 'getPoint']);
+
+Route::get('/diem/{promotion_id}/{product_id}',[\App\Http\Controllers\Api\ScanQRController::class,'scanQR'])->middleware('auth:sanctum');
 
 Route::post('/info-qr-code',[QrController::class,'getQR'])->middleware('auth:sanctum');
 Route::get('/qr-code',[QrController::class,'index'])->middleware('auth:sanctum');
