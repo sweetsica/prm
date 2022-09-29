@@ -26,6 +26,11 @@ Route::get('/login-admin',[UserController::class, 'getTokenAdmin'])->name('getTo
 
 Route::get('/list-product',[ProductController::class, 'getListProduct'])->name('getListProduct');
 Route::get('/get-product',[ProductController::class, 'getProduct'])->name('getProduct');
+Route::get('/product/{product_id}',[ProductController::class,'detail']);
+
+
+Route::get('/get-category/{category_id}',[\App\Http\Controllers\Api\CategoryController::class, 'detail'])->name('getCategory');
+
 
 Route::get('/get-promotion',[PromotionController::class, 'getPromotion'])->name('getPromotion');
 
@@ -41,7 +46,7 @@ Route::get('/list-customer',[CustomerController::class, 'getListCustomer'])->nam
 Route::post('/getCustomer',[CustomerController::class, 'getCustomer'])->name('getCustomer');
 Route::put('/update-customer',[CustomerController::class, 'updateCustomer'])->name('updateCustomer');
 
-
+Route::put('/customer/update/{customer_id}',[CustomerController::class, 'updateMore']);
 
 Route::get('/nguoidung',[CustomerController::class, 'index'])->name('api.customer');
 Route::get('/nguoidung/{customer_id}',[CustomerController::class, 'show']);
@@ -60,6 +65,7 @@ Route::post('/login',[\App\Http\Controllers\Api\CustomerController::class,'login
 Route::post('/login-qrcode',[\App\Http\Controllers\Api\AuthController::class,'loginForQrcode']);
 Route::post('/dangky',[\App\Http\Controllers\Api\AuthController::class,'registerCustomer']);
 
+
 Route::get ('/user',[UserController::class,'index']);
 Route::post ('/user-login',[CustomerController::class,'index']);
 //Route::get ('/user',[\App\Http\Controllers\Api\AuthController::class,'getUserInfo'])->middleware('auth:sanctum');
@@ -72,6 +78,11 @@ Route::post('/change-password-has-token',[\App\Http\Controllers\Api\AuthControll
 Route::post('/change-password-no-token',[\App\Http\Controllers\Api\AuthController::class,'changePasswordNoToken'])->middleware('auth:sanctum');
 Route::get('/logout',[\App\Http\Controllers\Api\AuthController::class,'logout'])->middleware('auth:sanctum');
 Route::get('/tichdiem/{promotion_id}/{product_id}/{special_code}',[\App\Http\Controllers\Api\ScanQRController::class,'scanQR'])->middleware('auth:sanctum');
+Route::post('/tichdiem/{promotion_id}/{product_id}/{special_code}',[\App\Http\Controllers\Api\ScanQRController::class,'scanQR'])->middleware('auth:sanctum');
+
+Route::get('/diem/{product_id}/{customer_id}',[\App\Http\Controllers\Api\ScanQRController::class, 'getPoint']);
+
+Route::get('/diem/{promotion_id}/{product_id}',[\App\Http\Controllers\Api\ScanQRController::class,'scanQR'])->middleware('auth:sanctum');
 
 Route::post('/info-qr-code',[QrController::class,'getQR'])->middleware('auth:sanctum');
 Route::get('/qr-code',[QrController::class,'index'])->middleware('auth:sanctum');
