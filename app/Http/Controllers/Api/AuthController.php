@@ -42,7 +42,7 @@ class AuthController extends Controller
                     "error" => "Số điện thoại chưa được đăng ký."
                 ], 422);
             }
-            $tokenResult = $user->createToken('authToken')->plainTextToken;
+                $tokenResult = $user->createToken('authToken')->plainTextToken;
             return response()->json([
                 'status_code' => 200,
                 'access_token' => $tokenResult,

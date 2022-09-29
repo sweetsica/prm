@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\URL;
 */
 
 Route::get('/', function () {
-    return redirect()->to("https://prm-kid1412.vercel.app/");
+    return redirect()->to("https://prm-kid1412.vercel.a hpp/");
 })->name('website');
 
 Route::get('/login', function () {
