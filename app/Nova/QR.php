@@ -96,17 +96,25 @@ class QR extends Resource
         return [];
     }
 
-    /**
-     * Get the actions available for the resource.
-     *
-     * @param \Laravel\Nova\Http\Requests\NovaRequest $request
-     * @return array
-     */
+    public function handle(ActionFields $fields, Collection $models)
+    {
+        foreach ($models as $model) {
+            $model->update(['excel' => 'Active']);
+        }
+        return $models;
+    }
+
     public function actions(NovaRequest $request)
     {
+        $ids = $request->get('resources');
+        $type = $request->get('action');
+        // Update status excel khi export
+        if($type == 'download-excel' && !empty($ids)) {
+            self::$model::whereIn('id',explode(",",$ids))->update(['excel' => 'Active']);
+        }
         return [
 //            new CreateQRAction(),
-            new DownloadExcel(),
+            new DownloadExcel()
         ];
     }
 }

@@ -31,6 +31,9 @@ class ScanQRController extends Controller
                     $qrs = QR::where('specialCode', $special_code)->firstOrFail();
                     if($qrs->status == 1){
                         $qrs->status = 0;
+                        if(!empty($qrs->excel)) {
+                            $qrs->excel = "Unactive";
+                        }
                         $qrs->save();
                         $user['summaryPoint'] = $user['summaryPoint'] + $promotionPointBonus;
                         $user['totalPoint'] = $user['totalPoint'] + $promotionPointBonus;
