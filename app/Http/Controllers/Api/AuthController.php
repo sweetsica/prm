@@ -91,7 +91,10 @@ class AuthController extends Controller
                 'name' => $fullName,
                 'email' => $email,
                 'phone' => $phone,
-                'password' => bcrypt($password)
+                'password' => bcrypt($password),
+                'totalPoint' => 5,
+                'lastPoint' => 5,
+                'summaryPoint' => 5
             ]);
             return response()->json([
                 "status_code"=>200,

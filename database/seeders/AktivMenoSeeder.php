@@ -20,7 +20,7 @@ class AktivMenoSeeder extends Seeder
     {
         $promotion_id = 4;
         $product_id = 4 ;
-        $count = 20000;
+        $count = 30000;
         $timeNow = Carbon::now();
         for ($i =0 ; $i < $count ; $i++){
             $specialCode = Str::random(12);
@@ -28,7 +28,8 @@ class AktivMenoSeeder extends Seeder
                 "promotion_id"=>$promotion_id,
                 "product_id"=>$product_id,
                 "specialCode"=>$specialCode,
-                "linkQr"=>URL::route('website')."/tichdiem/".$promotion_id."/".$product_id."/".$specialCode,
+//                "linkQr"=>URL::route('website')."/tichdiem/".$promotion_id."/".$product_id."/".$specialCode,
+                "linkQR"=>"https://tichdiem.doppelherz.vn/tichdiem/".$promotion_id."/".$product_id."/".$specialCode,
                 'created_at'=>$timeNow,
                 'updated_at'=>$timeNow
             ]);
