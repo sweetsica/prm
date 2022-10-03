@@ -8,14 +8,15 @@ use App\Models\History;
 use App\Models\Product;
 use App\Models\Promotion;
 use App\Models\QR;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class ScanQRController extends Controller
 {
     //
-    public function scanQR(Request $request,$promotion_id, $product_id, $special_code){
-        $user = $request->user();
+    public function scanQR(Request $request){
+        $user = Customer::where('id',$request->user)->first();
         DB::beginTransaction();
         try{
             if($user == null){
@@ -24,11 +25,11 @@ class ScanQRController extends Controller
                     "error" => "Vui lòng đăng nhập"
                 ], 404);
             }else{
-                $promotion_infomation = QR::where('promotion_id', $promotion_id)->where('product_id', $product_id)->firstOrFail();
+                $promotion_infomation = QR::where('promotion_id', $request->promotion_id)->where('product_id', $request->product_id)->firstOrFail();
                 $productInfo = Product::where('id', $promotion_infomation->product_id)->firstOrFail();
                 if($promotion_infomation != null){
                     $promotionPointBonus = Promotion::where('id', $promotion_infomation->promotion_id)->first()->valueSale;
-                    $qrs = QR::where('specialCode', $special_code)->firstOrFail();
+                    $qrs = QR::where('specialCode', $request->special_code)->firstOrFail();
                     if($qrs->status == 1){
                         $qrs->status = 0;
                         if(!empty($qrs->excel)) {
@@ -41,7 +42,7 @@ class ScanQRController extends Controller
                         $user->save();
                         History::create([
                             "customer_id"=>$user->id,
-                            "qr_specialCode"=>$special_code,
+                            "qr_specialCode"=>$request->special_code,
                             "product_name"=>$productInfo->name,
                             "price"=>$productInfo->price,
                             "qr_id"=>$promotion_infomation->id
