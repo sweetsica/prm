@@ -19,12 +19,12 @@ use Illuminate\Support\Facades\URL;
 */
 
 Route::get('/', function () {
-    return redirect()->to("https://prm-kid1412.vercel.a hpp/");
+    return redirect()->to('https://tichdiem.doppelherz.vn');
 })->name('website');
 
-Route::get('/login', function () {
-    echo 'đăng nhập';
-})->name('login');
+//Route::get('/login', function () {
+//    echo 'đăng nhập';
+//})->name('login');
 
 //Route::get('/dangky',[CustomerController::class,'create'])->name('signUp');
 //Route::post('/dangky',[CustomerController::class,'store'])->name('signUp.send');
@@ -32,27 +32,28 @@ Route::get('/login', function () {
 //Route::get('/dangnhap',[CustomerController::class,'login'])->name('login');
 //Route::get('/dangxuat',[CustomerController::class,'logout'])->name('logout');
 //Route::post('/dangnhap',[CustomerController::class,'checkLogin'])->name('login.send');
-Route::post('/doithongtin/{id}',[CustomerController::class,'changeInfoCus']);
+//Route::post('/doithongtin/{id}',[CustomerController::class,'changeInfoCus']);
 
 //Route::get('/hoadon',[CustomerController::class,'userBill'])->name('user.bill');
 
-Route::get('doithuong',function (){
-    return Redirect::to('https://promotion-manage.vercel.app/nhanthuong');
-})->name('doithuong');
+//Route::get('doithuong',function (){
+//    return Redirect::to('https://promotion-manage.vercel.app/nhanthuong');
+//})->name('doithuong');
 
-Route::get('/tichdiem/{promotion_id}/{product_id}/{special_code}',[QRController::class,'checkQR']);
-Route::get('/thongbao',[QRController::class,'testNotify']);
+//Route::get('/tichdiem/{promotion_id}/{product_id}/{special_code}',[QRController::class,'checkQR']);
+//Route::get('/thongbao',[QRController::class,'testNotify']);
+
 Route::get('/clear',function(){
     Session::flush();
     Session::flash('notice_clear','');
     return route('login');
 });
 
-Route::get('/testmd5',function (){
-    $data = "muop dang la kho qua 9991";
-    dd(URL::route('website'));
+//Route::get('/testmd5',function (){
+//    $data = "muop dang la kho qua 9991";
+//    dd(URL::route('website'));
 //    return md5($data);
 //    return base64_encode($data);
-});
+//});
 
 Route::get('nova/export/{startid}/{endid}',[QRController::class,'export']);
