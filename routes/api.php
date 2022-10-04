@@ -86,6 +86,8 @@ Route::get('/diem/{product_id}/{customer_id}',[\App\Http\Controllers\Api\ScanQRC
 
 Route::get('/diem/{promotion_id}/{product_id}',[\App\Http\Controllers\Api\ScanQRController::class,'scanQR'])->middleware('auth:sanctum');
 
-Route::post('/info-qr-code',[QrController::class,'getQR'])->middleware('auth:sanctum');
+Route::post('/info-qr-code',[QrController::class,'getQR']);
 Route::get('/qr-code',[QrController::class,'index'])->middleware('auth:sanctum');
+
+
 

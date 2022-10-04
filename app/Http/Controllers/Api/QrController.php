@@ -19,6 +19,13 @@ class QrController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function getQR(Request $request)
+    {
+        $info['qr'] = QR::where('specialCode','=',$request->special_code)->first();
+        $info['product'] = Product::where('id','=',$info['qr']['product_id'])->first();
+        $info['promotion'] = Promotion::where('id','=',$info['qr']['promotion_id'])->first();
+        return response()->json($info,200);
+    }
     public function index(Request $request)
     {
         $limit = $request->get('limit');
