@@ -10,7 +10,11 @@ use App\Models\Product;
 
 class CategoryController extends Controller
 {
-
+    public function index()
+    {
+        $info = Category::all();
+        return response()->json($info,200);
+    }
 
     public function detail($category_id)
     {
