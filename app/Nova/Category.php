@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
@@ -74,7 +75,7 @@ class Category extends Resource
             Trix::make('Mô tả','description'),
             Boolean::make('Trạng thái','status'),
 
-            HasMany::make('Products')->nullable(true),
+            BelongsToMany::make('Products')->nullable(true),
         ];
     }
 
