@@ -20,7 +20,7 @@ class GiftSeeder extends Seeder
             'name' =>'Phần quà: A-Z Depot',
             'image'=>'https://doppelherz.vn/wp-content/uploads/2020/12/AZD-front_1-01-1.png',
             'typePromotion'=>'point',
-            'valuePromotion'=>'68',
+            'valuePromotion'=>'339',
             'status' => '1'
         ]);
 
@@ -29,7 +29,7 @@ class GiftSeeder extends Seeder
             'name' =>'Phần quà: A-Z Fizz',
             'image'=>'https://doppelherz.vn/wp-content/uploads/2020/12/IMAGE_0048_90728767_A_Z_BRAUSE_13er_weisser-Deckel_VN.jpg',
             'typePromotion'=>'point',
-            'valuePromotion'=>'16',
+            'valuePromotion'=>'78',
             'status' => '1'
         ]);
 
@@ -38,7 +38,7 @@ class GiftSeeder extends Seeder
             'name' =>'Phần quà: Active Men Plus',
             'image'=>'https://doppelherz.vn/wp-content/uploads/2020/12/ACMEN-front-01.png',
             'typePromotion'=>'point',
-            'valuePromotion'=>'99',
+            'valuePromotion'=>'491',
             'status' => '1'
         ]);
 
@@ -47,7 +47,7 @@ class GiftSeeder extends Seeder
             'name' =>'Phần quà: Aktiv Meno',
             'image'=>'https://doppelherz.vn/wp-content/uploads/2021/04/AkMeno-20v-front-01.png',
             'typePromotion'=>'point',
-            'valuePromotion'=>'53',
+            'valuePromotion'=>'266',
             'status' => '1'
         ]);
 
@@ -56,7 +56,7 @@ class GiftSeeder extends Seeder
             'name' =>'Phần quà: Anti Stress',
             'image'=>'https://doppelherz.vn/wp-content/uploads/2020/12/ANTS-front-01.png',
             'typePromotion'=>'point',
-            'valuePromotion'=>'66',
+            'valuePromotion'=>'329',
             'status' => '1'
         ]);
 
@@ -65,7 +65,7 @@ class GiftSeeder extends Seeder
             'name' =>'Phần quà: Beauty Collagen',
             'image'=>'https://doppelherz.vn/wp-content/uploads/2020/12/BECO30-front-01.png',
             'typePromotion'=>'point',
-            'valuePromotion'=>'540',
+            'valuePromotion'=>'2700',
             'status' => '1',
         ]);
 
@@ -74,7 +74,7 @@ class GiftSeeder extends Seeder
             'name' =>'Phần quà: Belle Anti-aging',
             'image'=>'https://doppelherz.vn/wp-content/uploads/2020/12/ATAG-front-01.png',
             'typePromotion'=>'point',
-            'valuePromotion'=>'65',
+            'valuePromotion'=>'324',
             'status' => '1'
         ]);
 
@@ -83,7 +83,7 @@ class GiftSeeder extends Seeder
             'name' =>'Phần quà: Belle Hairnakin',
             'image'=>'https://doppelherz.vn/wp-content/uploads/2020/12/HAIRNAKIN-front-01.png',
             'typePromotion'=>'point',
-            'valuePromotion'=>'60',
+            'valuePromotion'=>'291',
             'status' => '1'
         ]);
 
@@ -92,7 +92,7 @@ class GiftSeeder extends Seeder
             'name' =>'Phần quà: Coenzyme Q10',
             'image'=>'https://doppelherz.vn/wp-content/uploads/2020/12/COQ10-front-01.png',
             'typePromotion'=>'point',
-            'valuePromotion'=>'65',
+            'valuePromotion'=>'324',
             'status' => '1'
         ]);
 
@@ -101,7 +101,7 @@ class GiftSeeder extends Seeder
             'name' =>'Phần quà: Eye Vital',
             'image'=>'https://doppelherz.vn/wp-content/uploads/2020/12/EVIT-front-01.png',
             'typePromotion'=>'point',
-            'valuePromotion'=>'68',
+            'valuePromotion'=>'339',
             'status' => '1'
         ]);
 
@@ -110,7 +110,7 @@ class GiftSeeder extends Seeder
             'name' =>'Phần quà: Ginkgo + Vitamin B + Choline',
             'image'=>'https://doppelherz.vn/wp-content/uploads/2022/03/Ginkgo-front-01.png',
             'typePromotion'=>'point',
-            'valuePromotion'=>'67',
+            'valuePromotion'=>'335',
             'status' => '1'
         ]);
 
@@ -119,7 +119,7 @@ class GiftSeeder extends Seeder
             'name' =>'Phần quà: Haemo Vital',
             'image'=>'https://doppelherz.vn/wp-content/uploads/2020/12/HAEMO-front-01.png',
             'typePromotion'=>'point',
-            'valuePromotion'=>'70',
+            'valuePromotion'=>'349',
             'status' => '1'
         ]);
 
@@ -128,7 +128,7 @@ class GiftSeeder extends Seeder
             'name' =>'Phần quà: Hair Plus',
             'image'=>'https://doppelherz.vn/wp-content/uploads/2020/12/HAIR-front-01.png',
             'typePromotion'=>'point',
-            'valuePromotion'=>'108',
+            'valuePromotion'=>'536',
             'status' => '1'
         ]);
 
@@ -137,7 +137,7 @@ class GiftSeeder extends Seeder
             'name' =>'Phần quà: Joints ULTRA',
             'image'=>'https://doppelherz.vn/wp-content/uploads/2021/11/Joints-ULTRA-front-01.png',
             'typePromotion'=>'point',
-            'valuePromotion'=>'95',
+            'valuePromotion'=>'472',
             'status' => '1'
         ]);
 
@@ -146,7 +146,7 @@ class GiftSeeder extends Seeder
             'name' =>'Phần quà: Kinder Active D3 Drops',
             'image'=>'https://doppelherz.vn/wp-content/uploads/2020/12/D3DR-front-01.png',
             'typePromotion'=>'point',
-            'valuePromotion'=>'46',
+            'valuePromotion'=>'226',
             'status' => '1'
         ]);
 
@@ -155,7 +155,7 @@ class GiftSeeder extends Seeder
             'name' =>'Phần quà: Kinder Calciovin Liquid',
             'image'=>'https://doppelherz.vn/wp-content/uploads/2020/12/CALCI-front-01.png',
             'typePromotion'=>'point',
-            'valuePromotion'=>'90',
+            'valuePromotion'=>'450',
             'status' => '1'
         ]);
 
@@ -164,7 +164,7 @@ class GiftSeeder extends Seeder
             'name' =>'Phần quà: Kinder Immune 150ml',
             'image'=>'https://doppelherz.vn/wp-content/uploads/2020/12/IMMU-front-01.png',
             'typePromotion'=>'point',
-            'valuePromotion'=>'78',
+            'valuePromotion'=>'389',
             'status' => '1'
         ]);
 
@@ -173,7 +173,7 @@ class GiftSeeder extends Seeder
             'name' =>'Phần quà: Kinder Iron Drops',
             'image'=>'https://doppelherz.vn/wp-content/uploads/2020/12/IRDR-front1-01.png',
             'typePromotion'=>'point',
-            'valuePromotion'=>'59',
+            'valuePromotion'=>'293',
             'status' => '1'
         ]);
 
@@ -182,7 +182,7 @@ class GiftSeeder extends Seeder
             'name' =>'Phần quà: Kinder Omega-3 Syrup',
             'image'=>'https://doppelherz.vn/wp-content/uploads/2020/12/OMG3s-front-01.png',
             'typePromotion'=>'point',
-            'valuePromotion'=>'96',
+            'valuePromotion'=>'478',
             'status' => '1'
         ]);
 
@@ -191,7 +191,7 @@ class GiftSeeder extends Seeder
             'name' =>'Phần quà: Kinder Optima',
             'image'=>'https://doppelherz.vn/wp-content/uploads/2020/12/OTM-front-01.png',
             'typePromotion'=>'point',
-            'valuePromotion'=>'61',
+            'valuePromotion'=>'305',
             'status' => '1'
         ]);
 
@@ -200,7 +200,7 @@ class GiftSeeder extends Seeder
             'name' =>'Phần quà: Kinder Thymepect',
             'image'=>'https://doppelherz.vn/wp-content/uploads/2022/03/THYM-front-01-1.png',
             'typePromotion'=>'point',
-            'valuePromotion'=>'44',
+            'valuePromotion'=>'216',
             'status' => '1'
         ]);
 
@@ -209,7 +209,7 @@ class GiftSeeder extends Seeder
             'name' =>'Phần quà: Liver Complex',
             'image'=>'https://doppelherz.vn/wp-content/uploads/2020/12/LICO-front-01.png',
             'typePromotion'=>'point',
-            'valuePromotion'=>'70',
+            'valuePromotion'=>'349',
             'status' => '1'
         ]);
 
@@ -218,7 +218,7 @@ class GiftSeeder extends Seeder
             'name' =>'Phần quà: Magnesium + Calcium + D3',
             'image'=>'https://doppelherz.vn/wp-content/uploads/2020/12/MGCAD3-front-01.png',
             'typePromotion'=>'point',
-            'valuePromotion'=>'65',
+            'valuePromotion'=>'324',
             'status' => '1'
         ]);
 
@@ -227,7 +227,7 @@ class GiftSeeder extends Seeder
             'name' =>'Phần quà: Omega-3 + Folic axit + B6 + B12',
             'image'=>'https://doppelherz.vn/wp-content/uploads/2020/12/OMGv-front-01.png',
             'typePromotion'=>'point',
-            'valuePromotion'=>'54',
+            'valuePromotion'=>'270',
             'status' => '1'
         ]);
 
@@ -236,7 +236,7 @@ class GiftSeeder extends Seeder
             'name' =>'Phần quà: Prostacalm',
             'image'=>'https://doppelherz.vn/wp-content/uploads/2020/12/PROS-front-01.png',
             'typePromotion'=>'point',
-            'valuePromotion'=>'70',
+            'valuePromotion'=>'349',
             'status' => '1'
         ]);
 
@@ -245,7 +245,7 @@ class GiftSeeder extends Seeder
             'name' =>'Phần quà: Vital Pregna',
             'image'=>'https://doppelherz.vn/wp-content/uploads/2020/12/VITAL-front-01.png',
             'typePromotion'=>'point',
-            'valuePromotion'=>'65',
+            'valuePromotion'=>'324',
             'status' => '1'
         ]);
 
@@ -254,7 +254,7 @@ class GiftSeeder extends Seeder
             'name' =>'Phần quà: Vitamin D3 + K2',
             'image'=>'https://doppelherz.vn/wp-content/uploads/2021/09/K2-D3-web-2-01.png',
             'typePromotion'=>'point',
-            'valuePromotion'=>'74',
+            'valuePromotion'=>'369',
             'status' => '1'
         ]);
 
@@ -263,7 +263,7 @@ class GiftSeeder extends Seeder
             'name' =>'Phần quà: Zincodin',
             'image'=>'https://doppelherz.vn/wp-content/uploads/2022/03/zincodin-front.png',
             'typePromotion'=>'point',
-            'valuePromotion'=>'43',
+            'valuePromotion'=>'215',
             'status' => '1'
         ]);
 
@@ -272,7 +272,7 @@ class GiftSeeder extends Seeder
             'name' =>'Phần quà: Bộ gồm 2 quyển tập tô cho bé',
             'image'=>'https://doppelherz.vn/wp-content/uploads/2022/09/Tap-to-cho-be-01.png',
             'typePromotion'=>'point',
-            'valuePromotion'=>'10',
+            'valuePromotion'=>'30',
             'status' => '1'
         ]);
 
@@ -281,7 +281,7 @@ class GiftSeeder extends Seeder
             'name' =>'Phần quà: Cẩm nang phụ nữ',
             'image'=>'https://doppelherz.vn/wp-content/uploads/2022/09/Cam-nang-phu-nu-01.png',
             'typePromotion'=>'point',
-            'valuePromotion'=>'10',
+            'valuePromotion'=>'50',
             'status' => '1'
         ]);
 
@@ -290,7 +290,7 @@ class GiftSeeder extends Seeder
             'name' =>'Phần quà: Túi đựng đồ đa năng',
             'image'=>'https://doppelherz.vn/wp-content/uploads/2022/09/Tui-dung-my-pham-01.png',
             'typePromotion'=>'point',
-            'valuePromotion'=>'15',
+            'valuePromotion'=>'100',
             'status' => '1'
         ]);
     }
