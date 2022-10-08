@@ -111,8 +111,26 @@ class QR extends Resource
         $type = $request->get('action');
         // Update status excel khi export
         if($type == 'download-excel' && !empty($ids)) {
-            self::$model::whereIn('id',explode(",",$ids))->update(['excel' => 'Active']);
+            if($ids == 'all') {
+                self::$model::where('excel','Unactive')->chunkById(50,
+                    function ($qrs) {
+                        foreach ($qrs as $qr) {
+                            self::$model::where('id', $qr->id)->update(['excel' => 'Active']);
+                        }
+                    }
+                );
+            }else{
+                $id_list = explode(",",$ids);
+                self::$model::whereIn('id',$id_list)->chunkById(50,
+                    function ($qrs) {
+                        foreach ($qrs as $qr) {
+                            self::$model::where('id', $qr->id)->update(['excel' => 'Active']);
+                        }
+                    }
+                );
+            }
         }
+
         return [
 //            new CreateQRAction(),
             new DownloadExcel()

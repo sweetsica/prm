@@ -14,6 +14,14 @@ class QrsExport implements FromCollection
     }
     public function collection()
     {
-        return QR::whereBetween('id', [$this->startid, $this->endid])->get();
+        $qrs = QR::whereBetween('id', [$this->startid, $this->endid]);
+        $qrs->chunkById(50,
+            function ($qrs) {
+                foreach ($qrs as $qr) {
+                    QR::where('id', $qr->id)->update(['excel' => 'Active']);
+                }
+            }
+        );
+        return $qrs->get();
     }
 }
