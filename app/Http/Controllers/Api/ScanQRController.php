@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Customer;
 use App\Models\History;
 use App\Models\Product;
 use App\Models\Promotion;
@@ -30,6 +31,9 @@ class ScanQRController extends Controller
                     $qrs = QR::where('specialCode', $special_code)->firstOrFail();
                     if($qrs->status == 1){
                         $qrs->status = 0;
+                        if(!empty($qrs->excel)) {
+                            $qrs->excel = "Unactive";
+                        }
                         $qrs->save();
                         $user['summaryPoint'] = $user['summaryPoint'] + $promotionPointBonus;
                         $user['totalPoint'] = $user['totalPoint'] + $promotionPointBonus;
@@ -67,6 +71,34 @@ class ScanQRController extends Controller
             }
         }catch (\Exception $e){
             DB::rollBack();
+            return response()->json([
+                "status_code"=>500,
+                "error" => $e
+            ], 500);
+        }
+    }
+
+
+    public function getPoint($product_id, $customer_id) {
+        try {
+            $customer = Customer::where('id','=',$customer_id)->first();
+            $productInfo = Product::where('id', $product_id)->firstOrFail();
+            if($customer){
+                $data = new \stdClass();
+                $data->customer_id = $customer->id;
+                $data->totalPoint = $customer->totalPoint;
+                $data->lastPoint = $customer->lastPoint;
+                $data->summaryPoint = $customer->summaryPoint;
+                $data->product = $productInfo;
+                    return response()->json([
+                        'status_code' => 200,
+                        'data' => $data,
+                    ], 200);
+                }else{
+                $data = "Không tồn tại thông tin này, vui lòng kiểm tra lại";
+                return response()->json($data, 200);
+            }
+        }catch (\Exception $e){
             return response()->json([
                 "status_code"=>500,
                 "error" => $e

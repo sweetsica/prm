@@ -55,6 +55,7 @@ class QR extends Resource
 //            HiddenField::make('Link QR', 'linkQr'),
             Text::make('Link QR', 'linkQr')->showOnIndex()->hideWhenCreating(),
             Boolean::make('Trạng thái', 'status')->sortable(),
+            Text::make('Excel', 'excel')->showOnIndex()->hideWhenCreating(),
         ];
     }
 
@@ -96,17 +97,43 @@ class QR extends Resource
         return [];
     }
 
-    /**
-     * Get the actions available for the resource.
-     *
-     * @param \Laravel\Nova\Http\Requests\NovaRequest $request
-     * @return array
-     */
+    public function handle(ActionFields $fields, Collection $models)
+    {
+        foreach ($models as $model) {
+            $model->update(['excel' => 'Active']);
+        }
+        return $models;
+    }
+
     public function actions(NovaRequest $request)
     {
+        $ids = $request->get('resources');
+        $type = $request->get('action');
+        // Update status excel khi export
+        if($type == 'download-excel' && !empty($ids)) {
+            if($ids == 'all') {
+                self::$model::where('excel','Unactive')->chunkById(50,
+                    function ($qrs) {
+                        foreach ($qrs as $qr) {
+                            self::$model::where('id', $qr->id)->update(['excel' => 'Active']);
+                        }
+                    }
+                );
+            }else{
+                $id_list = explode(",",$ids);
+                self::$model::whereIn('id',$id_list)->chunkById(50,
+                    function ($qrs) {
+                        foreach ($qrs as $qr) {
+                            self::$model::where('id', $qr->id)->update(['excel' => 'Active']);
+                        }
+                    }
+                );
+            }
+        }
+
         return [
 //            new CreateQRAction(),
-            new DownloadExcel(),
+            new DownloadExcel()
         ];
     }
 }
