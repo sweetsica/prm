@@ -216,8 +216,7 @@ class AuthController extends Controller
         $data_user = Customer::where('id','=',$request->user_id)->first();
         $data_user->password = Hash::make($request['password']);
         $data_user->save();
-        dd($data_user);
-        return $this->extractedUpdatePassword($request, $user);
+        return response()->json("Đổi mật khẩu thành công!",200);
     }
 
     /**
