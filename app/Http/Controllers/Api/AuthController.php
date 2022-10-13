@@ -198,23 +198,25 @@ class AuthController extends Controller
 
     public function changePasswordNoToken(Request $request): \Illuminate\Http\JsonResponse
     {
-        $validator = Validator::make($request->all(), [
-            "curren_password" => "required",
-            "new_password" => "required|min:6",
-            "password_confirmation" => "same:new_password"
-        ],[
-            "curren_password.required" => "Vui lòng nhập mật khẩu hiện tại",
-            "new_password.required" => "Vui lòng nhập mật khẩu",
-            "new_password.regex" => "Mật khẩu phải có ít nhất 6 ký tự",
-            "password_confirmation.same" => "Mật khẩu không khớp"
-        ]);
-        if ($validator->fails()) {
-            return response()->json([
-                "status_code"=>400,
-                "error"=>$validator->errors()
-            ], 400);
-        }
-        $user = Customer::where('phone', $request->get("phone"))->first();
+//        $validator = Validator::make($request->all(), [
+//            "new_password" => "required|min:6",
+//            "password_confirmation" => "same:new_password"
+//        ],[
+//            "new_password.required" => "Vui lòng nhập mật khẩu",
+//            "new_password.regex" => "Mật khẩu phải có ít nhất 6 ký tự",
+//            "password_confirmation.same" => "Mật khẩu không khớp"
+//        ]);
+//        if ($validator->fails()) {
+//            return response()->json([
+//                "status_code"=>400,
+//                "error"=>$validator->errors()
+//            ], 400);
+//        }
+
+        $data_user = Customer::where('id','=',$request->user_id)->first();
+        $data_user->password = Hash::make($request['password']);
+        $data_user->save();
+        dd($data_user);
         return $this->extractedUpdatePassword($request, $user);
     }
 

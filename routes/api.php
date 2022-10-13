@@ -75,7 +75,7 @@ Route::get('/history-gift-exchange',[\App\Http\Controllers\Api\HistoryController
 Route::post('/gift-exchange',[\App\Http\Controllers\Api\GiftExchangeController::class,'giftExchange'])->middleware('auth:sanctum');
 Route::post('/change-info',[\App\Http\Controllers\Api\AuthController::class,'changeInformation'])->middleware('auth:sanctum');
 Route::post('/change-password-has-token',[\App\Http\Controllers\Api\AuthController::class,'changePasswordHasToken'])->middleware('auth:sanctum');
-Route::post('/change-password-no-token',[\App\Http\Controllers\Api\AuthController::class,'changePasswordNoToken'])->middleware('auth:sanctum');
+Route::post('/doi-mat-khau',[\App\Http\Controllers\Api\AuthController::class,'changePasswordNoToken']);
 Route::get('/logout',[\App\Http\Controllers\Api\AuthController::class,'logout'])->middleware('auth:sanctum');
 Route::get('/tichdiem/{promotion_id}/{product_id}/{special_code}',[\App\Http\Controllers\Api\ScanQRController::class,'scanQR'])->middleware('auth:sanctum');
 Route::post('/tichdiem/{promotion_id}/{product_id}/{special_code}',[\App\Http\Controllers\Api\ScanQRController::class,'scanQR'])->middleware('auth:sanctum');

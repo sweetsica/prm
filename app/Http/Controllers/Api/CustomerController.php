@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Customer;
 use Cassandra\Custom;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class CustomerController extends Controller
 {
@@ -24,17 +25,22 @@ class CustomerController extends Controller
     {
         $customer = Customer::where('phone','=',$request->phone)->orWhere('email','=',$request->email)->first();
         if($customer){
-            $data = Customer::find($customer['id']);
-            $tokenResult = $customer->createToken('authToken')->plainTextToken;
-            return response()->json([
-                'data' => $data,
-                'status_code' => 200,
-                'access_token' => $tokenResult,
-                'token_type' => 'Bearer',
+            if (Hash::check($request->password, $customer['password'])) {
+                $data = Customer::find($customer['id']);
+                $tokenResult = $customer->createToken('authToken')->plainTextToken;
+                return response()->json([
+                    'data' => $data,
+                    'status_code' => 200,
+                    'access_token' => $tokenResult,
+                    'token_type' => 'Bearer',
                 ], 200);
+            }else{
+                $data = "Sai mật khẩu! Vui lòng thử lại.";
+                return response()->json($data, 404);
+            }
         }else{
             $data = "Không tồn tại thông tin này, vui lòng kiểm tra lại";
-            return response()->json($data, 200);
+            return response()->json($data, 404);
         }
     }
     /**
