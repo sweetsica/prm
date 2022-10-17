@@ -18,6 +18,9 @@ class HelpController extends Controller
 //        Help::create($request->all);
         $help = $request->all();
         Help::create($help);
-        return response()->json('Gửi thông tin thành công. Chúng tôi sẽ xử lý và liên hệ trong thời gian sớm nhất!',200);
+        return response()->json([
+            'status' => 200,
+            'messenger' => 'Gửi yêu cầu đổi mật khẩu thành công. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất!',
+        ],200);
     }
 }
