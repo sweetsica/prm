@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\QrController;
 use App\Http\Controllers\Api\GiftController;
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\CustomerController;
+use App\Http\Controllers\Api\HelpController;
 
 /*
 |--------------------------------------------------------------------------
@@ -87,3 +88,5 @@ Route::get('/diem/{promotion_id}/{product_id}',[\App\Http\Controllers\Api\ScanQR
 Route::post('/info-qr-code',[QrController::class,'getQR'])->middleware('auth:sanctum');
 Route::get('/qr-code',[QrController::class,'index'])->middleware('auth:sanctum');
 
+Route::post('help/send',[HelpController::class,'storeHelp'])->name('help.store');
+Route::get('help/list',[HelpController::class,'getHelpList'])->name('help.list');

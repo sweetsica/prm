@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Nova\Gift;
 use App\Nova\Category;
 use App\Nova\Customer;
+use App\Nova\Help;
 use App\Nova\Order;
 use App\Nova\Product;
 use App\Nova\Promotion;
@@ -37,6 +38,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     MenuItem::resource(User::class),
                     MenuItem::resource(Customer::class),
                     MenuItem::resource(Order::class),
+                    MenuItem::resource(Help::class),
                 ])->icon('user-group')->collapsable(),
 
                 MenuSection::make('Sản phẩm', [
