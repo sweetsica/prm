@@ -20,4 +20,10 @@ class ProductController extends Controller
         }
 
     }
+
+    public function getProduct()
+    {
+        $data = Product::all();
+        return response()->json($data,200);
+    }
 }

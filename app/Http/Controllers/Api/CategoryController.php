@@ -10,8 +10,6 @@ use App\Models\Product;
 
 class CategoryController extends Controller
 {
-
-
     public function detail($category_id)
     {
         try{
@@ -30,5 +28,11 @@ class CategoryController extends Controller
                 'error' => $e,
             ], 200);
         }
+    }
+
+    public function getCategories()
+    {
+        $data = Category::all();
+        return response()->json($data,200);
     }
 }

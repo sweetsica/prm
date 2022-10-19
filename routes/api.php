@@ -31,7 +31,7 @@ Route::get('/product/{product_id}',[ProductController::class,'detail']);
 
 
 Route::get('/get-category/{category_id}',[\App\Http\Controllers\Api\CategoryController::class, 'detail'])->name('getCategory');
-
+Route::get('/get-category',[\App\Http\Controllers\Api\CategoryController::class, 'getCategories'])->name('getCategoryAll');
 
 Route::get('/get-promotion',[PromotionController::class, 'getPromotion'])->name('getPromotion');
 
