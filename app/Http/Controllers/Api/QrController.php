@@ -70,7 +70,13 @@ class QrController extends Controller
                             ]);
                             Session::forget('currentURL');
                             DB::commit();
-                            return response()->json('Kích hoạt thành công!',200);
+                            return response()
+                                ->json([
+                                    "messenger"=>'Tích điểm thành công!',
+                                    "status_code"=>200,
+                                    "productInfo"=>$productInfo,
+                                    "point"=>$promotionPointBonus
+                                ], 200);
                         }else{
                             DB::rollBack();
                             abort(404);
