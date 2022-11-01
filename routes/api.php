@@ -78,15 +78,22 @@ Route::post('/change-info',[\App\Http\Controllers\Api\AuthController::class,'cha
 Route::post('/change-password-has-token',[\App\Http\Controllers\Api\AuthController::class,'changePasswordHasToken'])->middleware('auth:sanctum');
 Route::post('/doi-mat-khau',[\App\Http\Controllers\Api\AuthController::class,'changePasswordNoToken']);
 Route::get('/logout',[\App\Http\Controllers\Api\AuthController::class,'logout'])->middleware('auth:sanctum');
-Route::get('/tichdiem/{promotion_id}/{product_id}/{special_code}',[\App\Http\Controllers\Api\ScanQRController::class,'scanQR'])->middleware('auth:sanctum');
-Route::post('/tichdiem/{promotion_id}/{product_id}/{special_code}',[\App\Http\Controllers\Api\ScanQRController::class,'scanQR'])->middleware('auth:sanctum');
+//Route::get('/tichdiem/{promotion_id}/{product_id}/{special_code}',[\App\Http\Controllers\Api\ScanQRController::class,'scanQR'])->middleware('auth:sanctum');
+//Route::get('/tichdiem/{promotion_id}/{product_id}/{special_code}',[\App\Http\Controllers\Api\ScanQRController::class,'scanQR']);
 
-Route::get('/diem/{product_id}/{customer_id}',[\App\Http\Controllers\Api\ScanQRController::class, 'getPoint']);
+//Route::post('/tichdiem/{promotion_id}/{product_id}/{special_code}',[\App\Http\Controllers\Api\ScanQRController::class,'scanQR'])->middleware('auth:sanctum');
+//Route::post('/tichdiem/{promotion_id}/{product_id}/{special_code}',[\App\Http\Controllers\Api\ScanQRController::class,'scanQR']);
 
-Route::get('/diem/{promotion_id}/{product_id}',[\App\Http\Controllers\Api\ScanQRController::class,'scanQR'])->middleware('auth:sanctum');
+//Route::get('/diem/{product_id}/{customer_id}',[\App\Http\Controllers\Api\ScanQRController::class, 'getPoint']);
 
-Route::post('/info-qr-code',[QrController::class,'getQR'])->middleware('auth:sanctum');
-Route::get('/qr-code',[QrController::class,'index'])->middleware('auth:sanctum');
+//Route::get('/diem/{promotion_id}/{product_id}',[\App\Http\Controllers\Api\ScanQRController::class,'scanQR'])->middleware('auth:sanctum');
+
+//Route::post('/info-qr-code',[QrController::class,'getQR'])->middleware('auth:sanctum');
+Route::post('/info-qr-code',[QrController::class,'show']);
+Route::post('/tichdiem',[QrController::class,'store']);
+
+//Route::get('/qr-code',[QrController::class,'index'])->middleware('auth:sanctum');
+Route::get('/qr-code',[QrController::class,'index']);
 
 Route::post('help/send',[HelpController::class,'storeHelp'])->name('help.store');
 Route::get('help/list',[HelpController::class,'getHelpList'])->name('help.list');

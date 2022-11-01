@@ -14,16 +14,16 @@ use Illuminate\Support\Facades\DB;
 class ScanQRController extends Controller
 {
     //
-    public function scanQR(Request $request,$promotion_id, $product_id, $special_code){
+    public function scanQR(Request $request, $promotion_id, $product_id, $special_code){
         $user = $request->user();
-        DB::beginTransaction();
-        try{
-            if($user == null){
-                return response()->json([
-                    "status_code"=>404,
-                    "error" => "Vui lòng đăng nhập"
-                ], 404);
-            }else{
+//        DB::beginTransaction();
+//        try{
+//            if($user == null){
+//                return response()->json([
+//                    "status_code"=>404,
+//                    "error" => "Vui lòng đăng nhập"
+//                ], 404);
+//            }else{
                 $promotion_infomation = QR::where('promotion_id', $promotion_id)->where('product_id', $product_id)->firstOrFail();
                 $productInfo = Product::where('id', $promotion_infomation->product_id)->firstOrFail();
                 if($promotion_infomation != null){
@@ -69,14 +69,14 @@ class ScanQRController extends Controller
                     ], 404);
                 }
             }
-        }catch (\Exception $e){
-            DB::rollBack();
-            return response()->json([
-                "status_code"=>500,
-                "error" => $e
-            ], 500);
-        }
-    }
+//        }catch (\Exception $e){
+//            DB::rollBack();
+//            return response()->json([
+//                "status_code"=>500,
+//                "error" => $e
+//            ], 500);
+//        }
+//    }
 
 
     public function getPoint($product_id, $customer_id) {

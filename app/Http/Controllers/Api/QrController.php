@@ -40,23 +40,26 @@ class QrController extends Controller
     public function store(Request $request)
     {
         try{
-                $promotion_infomation = QR::where('promotion_id', $request['promotion_id'])->where('product_id', $request['product_id'])->firstOrFail();
+                $promotion_infomation = QR::where('promotion_id', $request['promotion_id'])
+                    ->where('product_id', $request['product_id'])
+                    ->where('specialCode', $request['special_code'])
+                    ->firstOrFail();
                 if ($promotion_infomation !== null) {
                     $promotionPointBonus = Promotion::where('id', "=", $promotion_infomation['promotion_id'])->first()->valueSale;
-                    $qrs = QR::where('specialCode', '=', $request['special_code'])->firstOrFail();
+                    $qrs = QR::where('specialCode', '=', $request['special_code'])->first();
                     if ($qrs['status'] == 1) {
                         $updateQrs =  $qrs->update([
                             'status'=>0
                         ]);
                         if($updateQrs){
-                            $customer_info = Customer::where('id', '=', $request['customer_id'])->first();
+                            $customer_info = Customer::where('id', '=', $request['user'])->first();
                             $customer_info['summaryPoint'] = $customer_info['summaryPoint'] + $promotionPointBonus;
                             $customer_info['totalPoint'] = $customer_info['totalPoint'] + $promotionPointBonus;
                             $customer_info['lastPoint'] = $customer_info['totalPoint'];
                             $customer_info->save();
                             $history = new History();
-                            $history->customer_id = $request['customer_id'];
-                            $history->qr_specialCode = $request['special_code'];
+                            $history->customer_id = $request['user'];
+                            $history->qr_specialCode = $request['specialCode'];
                             $productInfo = Product::where('id', $promotion_infomation->product_id)->firstOrFail();
                             $history->product_name = $productInfo['name'];
                             $history->price = $productInfo['price'];
@@ -99,7 +102,9 @@ class QrController extends Controller
      */
     public function show(Request $request)
     {
-        $info_qr = QR::where('id','=',$request->id);
+//        dd($request);
+        $info_qr = QR::where('specialCode','=',$request->special_code)->first();
+        return response()->json($info_qr,200);
     }
 
     /**
