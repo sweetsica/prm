@@ -20,7 +20,7 @@ class AZFizzSeeder extends Seeder
     {
         $promotion_id = 2;
         $product_id = 2 ;
-        $count = 60000;
+        $count = 40000;
         $timeNow = Carbon::now();
         for ($i =0 ; $i < $count ; $i++){
             $specialCode = Str::random(12);
