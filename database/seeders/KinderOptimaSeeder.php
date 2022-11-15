@@ -29,7 +29,8 @@ class KinderOptimaSeeder extends Seeder
                 "promotion_id"=>$promotion_id,
                 "product_id"=>$product_id,
                 "specialCode"=>$specialCode,
-                "linkQr"=>URL::route('website')."/tichdiem/".$promotion_id."/".$product_id."/".$specialCode,
+//                "linkQr"=>URL::route('website')."/tichdiem/".$promotion_id."/".$product_id."/".$specialCode,
+                "linkQR"=>"https://tichdiem.doppelherz.vn/tichdiem/".$promotion_id."/".$product_id."/".$specialCode,
                 'created_at'=>$timeNow,
                 'updated_at'=>$timeNow
             ]);
