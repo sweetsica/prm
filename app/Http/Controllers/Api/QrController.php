@@ -59,7 +59,7 @@ class QrController extends Controller
                             $customer_info->save();
                             $history = new History();
                             $history->customer_id = $request['user'];
-                            $history->qr_specialCode = $request['specialCode'];
+                            $history->qr_specialCode = $request['special_code'];
                             $productInfo = Product::where('id', $promotion_infomation->product_id)->firstOrFail();
                             $history->product_name = $productInfo['name'];
                             $history->price = $productInfo['price'];

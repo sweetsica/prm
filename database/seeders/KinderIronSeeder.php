@@ -20,7 +20,7 @@ class KinderIronSeeder extends Seeder
     {
         $promotion_id =18;
         $product_id = 18;
-        $count = 2000;
+        $count = 5000;
         $timeNow = Carbon::now();
         for ($i =0 ; $i < $count ; $i++){
             $specialCode = Str::random(12);

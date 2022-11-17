@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('linkQr')->nullable();
             $table->boolean('status')->default('1');
             $table->dateTime('deleted_at')->nullable();
+            $table->boolean('excel')->default('0');
             $table->timestamps();
         });
     }

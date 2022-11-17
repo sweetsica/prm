@@ -59,32 +59,12 @@ class AuthController extends Controller
     public function registerCustomer(Request $request): \Illuminate\Http\JsonResponse
     {
         try {
-//            $validator = Validator::make($request->all(), [
-//                "name" => "required",
-//                "email" => ["required", "regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/", "unique:customers"],
-//                "phone" => ["required", "regex:/(84|0[3|5|7|8|9])+([0-9]{8})\b/", "unique:customers"],
-//                "password" => ["required", "min:6"],
-//                "password_confirmation" => "same:password"
-//            ],[
-//                "name.required" => "Vui lòng nhập họ và tên",
-//                "phone.required" => "Vui lòng nhập số điện thoại",
-//                "phone.unique" => "Số điện thoại đã tồn tại.",
-//                "phone.regex" => "Số điện thoại không hợp lệ.",
-//                "email.required" => "Vui lòng nhập địa chỉ email",
-//                "email.unique" => "Email đã tồn tại.",
-//                "email.regex" => "Email không hợp lệ, vui lòng nhập lại",
-//                "password.required" => "Vui lòng nhập mật khẩu",
-//                "password.regex" => "Mật khẩu phải có ít nhất 6 ký tự",
-//                "password_confirmation.same" => "Mật khẩu không khớp"
-//            ]);
-//            if ($validator->fails()) {
-//                return response()->json([
-//                    "status_code"=>422,
-//                    "error"=>$validator->errors()
-//                ], 422);
-//            }
             $fullName = $request->get('name');
-            $email = $request->get('email');
+            if($request->email==null){
+                $email = $request->phone.'@doppelherz.vn';
+            }else{
+                $email = $request->get('email');
+            }
             $phone = $request->get('phone');
             $password = $request->get('password');
             Customer::create([

@@ -19,7 +19,7 @@ class VitalPregnaSeeder extends Seeder
      */
     public function run()
     {
-        $count = 30000;
+        $count = 30;
         $promotion_id = 26;//Vital Pregna
         $product_id = 26;//Vital Pregna
         $timeNow = Carbon::now();

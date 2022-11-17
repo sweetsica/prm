@@ -28,10 +28,6 @@ Route::get('/login', function () {
 
 Route::post('/doithongtin/{id}',[CustomerController::class,'changeInfoCus']);
 
-Route::get('doithuong',function (){
-    return Redirect::to('https://promotion-manage.vercel.app/nhanthuong');
-})->name('doithuong');
-
 Route::get('/tichdiem/{promotion_id}/{product_id}/{special_code}',[QRController::class,'checkQR']);
 Route::get('/thongbao',[QRController::class,'testNotify']);
 Route::get('/clear',function(){

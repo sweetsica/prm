@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\GiftController;
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\CustomerController;
 use App\Http\Controllers\Api\HelpController;
+use App\Http\Controllers\Api\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,7 +65,7 @@ Route::get('/promotion',[QrController::class,'promotion']);
 //Route::post('/login',[\App\Http\Controllers\Api\AuthController::class,'login']);
 Route::post('/login',[\App\Http\Controllers\Api\CustomerController::class,'login']);
 Route::post('/login-qrcode',[\App\Http\Controllers\Api\AuthController::class,'loginForQrcode']);
-Route::post('/dangky',[\App\Http\Controllers\Api\AuthController::class,'registerCustomer']);
+Route::post('/dangky',[AuthController::class,'registerCustomer']);
 
 
 Route::get ('/user',[UserController::class,'index']);
