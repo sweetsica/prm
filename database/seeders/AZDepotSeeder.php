@@ -20,7 +20,7 @@ class AZDepotSeeder extends Seeder
     {
         $promotion_id = 1;
         $product_id = 1 ;
-        $count = 10000;
+        $count = 20000;
         $timeNow = Carbon::now();
         for ($i =0 ; $i < $count ; $i++){
             $specialCode = Str::random(12);
