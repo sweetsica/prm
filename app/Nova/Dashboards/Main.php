@@ -40,7 +40,7 @@ class Main extends Dashboard
                 ]))
                 ->options([
                     'xaxis' => [
-                        'categories' => ['Khách hàng mới', 'Khách hàng cũ', 'Khách hàng nội bộ']
+                        'categories' => ['Khách hàng mới']
                     ],
                 ])->width('1/3')
             ,
@@ -53,7 +53,7 @@ class Main extends Dashboard
                 ]))
                 ->options([
                     'xaxis' => [
-                        'categories' => ['Đang xử lý', 'Đang chuẩn bị', 'Đã xuất kho', 'Đang giao', 'Hoàn tất']
+                        'categories' => ['Đang xử lý','Đang giao', 'Hoàn tất']
                     ],
                 ])->width('1/3')
             , (new StackedChart())
@@ -64,6 +64,9 @@ class Main extends Dashboard
                         'key' => 'status',
                         'operator' => '=',
                         'value' => 0
+                    ],[
+                        'key' => 'updated_at',
+                        'operator' => 'IS NOT NULL',
                     ])
                 ]), new GiftCount
             , new ProductCount,
