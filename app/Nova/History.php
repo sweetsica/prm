@@ -45,7 +45,7 @@ class History extends Resource
             ID::make()->sortable(),
             Text::make('Id người dùng','customer_id'),
             Text::make('Mã QR','qr_specialCode'),
-            Text::make('Products', function($model) {
+            Text::make('Sản phẩm', function($model) {
                 $product_id = QR::where('id', '=', $model->qr_id)->first()->product_id;
                 $product_name = Product::where('id','=',$product_id)->first()->name;
                 return $product_name;
