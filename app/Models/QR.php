@@ -23,7 +23,6 @@ class QR extends Model
         return $query->where('status', 0);
     }
 
-
     public function product()
     {
         return $this->belongsTo(Product::class);

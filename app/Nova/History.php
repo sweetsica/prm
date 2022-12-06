@@ -2,10 +2,11 @@
 
 namespace App\Nova;
 
-use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use App\Models\QR;
+use App\Models\Product;
 
 class History extends Resource
 {
@@ -44,6 +45,11 @@ class History extends Resource
             ID::make()->sortable(),
             Text::make('Id người dùng','customer_id'),
             Text::make('Mã QR','qr_specialCode'),
+            Text::make('Products', function($model) {
+                $product_id = QR::where('id', '=', $model->qr_id)->first()->product_id;
+                $product_name = Product::where('id','=',$product_id)->first()->name;
+                return $product_name;
+            }),
             Text::make('Giá','price'),
             Text::make('Id QR','qr_id')
         ];
