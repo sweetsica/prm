@@ -42,3 +42,4 @@ Route::get('/testmd5',function (){
 });
 
 Route::get('nova/export/{startid}/{endid}',[QRController::class,'export']);
+

@@ -83,7 +83,7 @@ class Product extends Resource
         return [
             ID::make()->sortable(),
             Text::make('Tên sản phẩm','name')->sortable(),
-            Image::make('Ảnh sản phẩm','image'),
+            Text::make('Ảnh sản phẩm','image'),
             Text::make('Link sản phẩm','link_product')->hideFromIndex(),
             Trix::make('Mô tả', 'description')->hideFromIndex(),
             Number::make('Giá','price'),
