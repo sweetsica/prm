@@ -47,31 +47,21 @@ Route::post('/createOrder',[QrController::class, 'createOrder'])->name('createOr
 Route::get('/list-customer',[CustomerController::class, 'getListCustomer'])->name('getListCustomer');
 Route::post('/getCustomer',[CustomerController::class, 'getCustomer'])->name('getCustomer');
 Route::put('/update-customer',[CustomerController::class, 'updateCustomer'])->name('updateCustomer');
-
 Route::put('/customer/update/{customer_id}',[CustomerController::class, 'updateMore']);
-
 Route::get('/nguoidung',[CustomerController::class, 'index'])->name('api.customer');
 Route::get('/nguoidung/{customer_id}',[CustomerController::class, 'show']);
 Route::put('/nguoidung/{customer_id}',[CustomerController::class, 'update']);
 Route::put('/dangxuat',[CustomerController::class, 'logout']);
 Route::get('/thongtinsanpham',[GiftController::class, 'product']);
-
 Route::get('/thongtinquatang',[GiftController::class, 'index']);
 Route::post('/doiqua',[OrderController::class,'changeGift']);
-
 Route::get('/qrcode',[QrController::class,'index']);
 Route::get('/promotion',[QrController::class,'promotion']);
-
-//Route::post('/login',[\App\Http\Controllers\Api\AuthController::class,'login']);
 Route::post('/login',[\App\Http\Controllers\Api\CustomerController::class,'login']);
 Route::post('/login-qrcode',[\App\Http\Controllers\Api\AuthController::class,'loginForQrcode']);
 Route::post('/dangky',[AuthController::class,'registerCustomer']);
-
-
 Route::get ('/user',[UserController::class,'index']);
 Route::post ('/user-login',[CustomerController::class,'index']);
-//Route::get ('/user',[\App\Http\Controllers\Api\AuthController::class,'getUserInfo'])->middleware('auth:sanctum');
-
 Route::get('/history',[\App\Http\Controllers\Api\BillController::class,'userBill'])->middleware('auth:sanctum');
 Route::get('/history-gift-exchange',[\App\Http\Controllers\Api\HistoryController::class,'historyGiftExchange'])->middleware('auth:sanctum');
 Route::post('/gift-exchange',[\App\Http\Controllers\Api\GiftExchangeController::class,'giftExchange'])->middleware('auth:sanctum');
@@ -79,22 +69,8 @@ Route::post('/change-info',[\App\Http\Controllers\Api\AuthController::class,'cha
 Route::post('/change-password-has-token',[\App\Http\Controllers\Api\AuthController::class,'changePasswordHasToken'])->middleware('auth:sanctum');
 Route::post('/doi-mat-khau',[\App\Http\Controllers\Api\AuthController::class,'changePasswordNoToken']);
 Route::get('/logout',[\App\Http\Controllers\Api\AuthController::class,'logout'])->middleware('auth:sanctum');
-//Route::get('/tichdiem/{promotion_id}/{product_id}/{special_code}',[\App\Http\Controllers\Api\ScanQRController::class,'scanQR'])->middleware('auth:sanctum');
-//Route::get('/tichdiem/{promotion_id}/{product_id}/{special_code}',[\App\Http\Controllers\Api\ScanQRController::class,'scanQR']);
-
-//Route::post('/tichdiem/{promotion_id}/{product_id}/{special_code}',[\App\Http\Controllers\Api\ScanQRController::class,'scanQR'])->middleware('auth:sanctum');
-//Route::post('/tichdiem/{promotion_id}/{product_id}/{special_code}',[\App\Http\Controllers\Api\ScanQRController::class,'scanQR']);
-
-//Route::get('/diem/{product_id}/{customer_id}',[\App\Http\Controllers\Api\ScanQRController::class, 'getPoint']);
-
-//Route::get('/diem/{promotion_id}/{product_id}',[\App\Http\Controllers\Api\ScanQRController::class,'scanQR'])->middleware('auth:sanctum');
-
-//Route::post('/info-qr-code',[QrController::class,'getQR'])->middleware('auth:sanctum');
 Route::post('/info-qr-code',[QrController::class,'show']);
 Route::post('/tichdiem',[QrController::class,'store']);
-
-//Route::get('/qr-code',[QrController::class,'index'])->middleware('auth:sanctum');
 Route::get('/qr-code',[QrController::class,'index']);
-
 Route::post('help/send',[HelpController::class,'storeHelp'])->name('help.store');
 Route::get('help/list',[HelpController::class,'getHelpList'])->name('help.list');
