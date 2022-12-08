@@ -50,6 +50,7 @@ class Main extends Dashboard
                 ->series(array([
                     'data' => [count(Order::where('status', "Đang xử lý")->get()), count(Order::where('status', "Đang chuẩn bị hàng")->get()), count(Order::where('status', "Đã xuất kho")->get()), count(Order::where('status', "Đang giao")->get()), count(Order::where('status', "Hoàn tất")->get())],
                     'backgroundColor' => ["#ffcc5c", "#91e8e1", "#ff6f69", "#b088d8", "#88d8b0"],
+                    'itemSort' => ['updated_at'],
                 ]))
                 ->options([
                     'xaxis' => [
@@ -64,9 +65,6 @@ class Main extends Dashboard
                         'key' => 'status',
                         'operator' => '=',
                         'value' => 0
-                    ],[
-                        'key' => 'updated_at',
-                        'operator' => 'IS NOT NULL',
                     ])
                 ]), new GiftCount
             , new ProductCount,
