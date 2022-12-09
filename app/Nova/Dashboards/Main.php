@@ -72,3 +72,4 @@ class Main extends Dashboard
         ];
     }
 }
+//https://coroo.github.io/nova-chartjs/#/?id=tooltips

@@ -6,10 +6,9 @@ use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
 
-class BeautyCollagenSeeder extends Seeder
+class CollagenMaxSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -18,8 +17,8 @@ class BeautyCollagenSeeder extends Seeder
      */
     public function run()
     {
-        $promotion_id = 6;
-        $product_id = 6 ;
+        $promotion_id = 29;
+        $product_id = 29 ;
         $count = 1000;
         $timeNow = Carbon::now();
         for ($i =0 ; $i < $count ; $i++){

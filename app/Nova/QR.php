@@ -136,4 +136,5 @@ class QR extends Resource
             new DownloadExcel()
         ];
     }
+
 }
