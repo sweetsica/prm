@@ -89,7 +89,7 @@ class Product extends Resource
             Number::make('Giá','price'),
             Boolean::make('Trạng thái','status'),
 
-            HasMany::make('Category'),
+            BelongsToMany::make('Category'),
         ];
     }
 
