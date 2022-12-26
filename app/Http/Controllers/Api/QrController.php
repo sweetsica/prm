@@ -108,9 +108,13 @@ class QrController extends Controller
      */
     public function show(Request $request)
     {
-//        dd($request);
-        $info_qr = QR::where('specialCode','=',$request->special_code)->first();
-        return response()->json($info_qr,200);
+        try{
+            $info_qr = QR::where('specialCode','=',$request->special_code)->first();
+            return response()->json($info_qr,200);
+        }catch (\Exception $e) {
+            $info_qr = $e;
+            return response()->json('Truy vấn sai, vui lòng thử lại',500);
+        }
     }
 
     /**
