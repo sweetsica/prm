@@ -20,7 +20,7 @@ class KinderOmegaSeeder extends Seeder
     {
         $promotion_id =19;
         $product_id = 19;
-        $count = 5000;
+        $count = 20000;
         $timeNow = Carbon::now();
         for ($i =0 ; $i < $count ; $i++){
             $specialCode = Str::random(12);
