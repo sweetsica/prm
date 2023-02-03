@@ -20,7 +20,7 @@ class LiverComplexSeeder extends Seeder
     {
         $promotion_id =22;
         $product_id = 22;
-        $count = 10000;
+        $count = 3000;
         $timeNow = Carbon::now();
 
         for ($i =0 ; $i < $count ; $i++){
