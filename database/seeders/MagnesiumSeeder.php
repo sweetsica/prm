@@ -20,7 +20,7 @@ class MagnesiumSeeder extends Seeder
     {
         $promotion_id =23;
         $product_id = 23;
-        $count = 30000;
+        $count = 20000;
         $timeNow = Carbon::now();
 
         for ($i =0 ; $i < $count ; $i++){
