@@ -18,7 +18,7 @@ class CollagenMaxSeeder extends Seeder
     public function run()
     {
         $promotion_id = 29;
-        $product_id = 29 ;
+        $product_id = 29;
         $count = 1000;
         $timeNow = Carbon::now();
         for ($i =0 ; $i < $count ; $i++){

@@ -20,7 +20,7 @@ class VitaminD3K2Seeder extends Seeder
     {
         $promotion_id =27;
         $product_id = 27;
-        $count = 10000;
+        $count = 0;
         $timeNow = Carbon::now();
 
         for ($i =0 ; $i < $count ; $i++){

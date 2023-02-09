@@ -20,7 +20,7 @@ class CoenzymeQ10Seeder extends Seeder
     {
         $promotion_id = 9;
         $product_id = 9;
-        $count = 15000;
+        $count = 20000;
         $timeNow = Carbon::now();
         for ($i =0 ; $i < $count ; $i++){
             $specialCode = Str::random(12);
