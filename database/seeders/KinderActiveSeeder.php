@@ -20,7 +20,7 @@ class KinderActiveSeeder extends Seeder
     {
         $promotion_id =15;
         $product_id = 15;
-        $count = 0;
+        $count = 10000;
         $timeNow = Carbon::now();
 
         for ($i =0 ; $i < $count ; $i++){
