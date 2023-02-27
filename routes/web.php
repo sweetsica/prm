@@ -43,3 +43,4 @@ Route::get('/testmd5',function (){
 
 Route::get('nova/export/{startid}/{endid}',[QRController::class,'export']);
 
+Route::get('nova/ip',[\App\Http\Controllers\HistoryController::class,'index']);

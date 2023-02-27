@@ -8,12 +8,14 @@ use App\Models\History;
 use App\Models\Product;
 use App\Models\Promotion;
 use App\Models\QR;
+use App\Traits\IpTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class QrController extends Controller
 {
+    use IpTrait;
     /**
      * Display a listing of the resource.
      *
@@ -64,6 +66,7 @@ class QrController extends Controller
                             $history->product_name = $productInfo['name'];
                             $history->price = $productInfo['price'];
                             $history->qr_id = $promotion_infomation['id'];
+                            $history->ipaddress = $this->getIp();
                             $history->save();
                             Session::flash('notice-success', [
                                 $promotionPointBonus,$productInfo
