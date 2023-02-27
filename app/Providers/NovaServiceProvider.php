@@ -53,7 +53,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                 ])->icon('lightning-bolt')->collapsable(),
 
                 MenuSection::make('Chức năng', [
-                    MenuItem::externalLink('Xuất excel từ 1 - 10000', 'http://prm.test:81/nova/export/1/1000'),
+                    MenuItem::externalLink('Xuất excel từ 1 - 10000', 'http://sukien.doppelherz.vn/nova/export/1/1000'),
                 ])->icon('lightning-bolt')->collapsable(),
 
             ];

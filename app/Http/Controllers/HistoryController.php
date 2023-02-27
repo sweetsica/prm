@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Traits\IpTrait;
 use Illuminate\Http\Request;
 
 class HistoryController extends Controller
 {
+    use IpTrait;
     /**
      * Display a listing of the resource.
      *            DB::rollBack();
@@ -14,7 +16,7 @@ class HistoryController extends Controller
      */
     public function index()
     {
-        //
+        echo $this->getIp();
     }
 
     /**
