@@ -20,7 +20,7 @@ class ProductSeeder2 extends Seeder
             'name' =>'Lacta+',
             'link_product'=>'https://doppelherz.vn/san-pham/thuc-pham-bao-ve-suc-khoe-lacta/',
             'image'=>'https://doppelherz.vn/wp-content/uploads/2023/02/Lacta-front-01.png',
-            'price' => ' ',
+            'price' => '0',
             'status' => '1',
         ]);
         DB::table('gifts')->insert([
@@ -44,7 +44,7 @@ class ProductSeeder2 extends Seeder
             'name' =>'Conceptive Men',
             'link_product'=>'https://doppelherz.vn/san-pham/thuc-pham-bao-ve-suc-khoe-conceptive-women/',
             'image'=>'https://doppelherz.vn/wp-content/uploads/2023/02/Conceptive-Men-front-01.png',
-            'price' => ' ',
+            'price' => '0',
             'status' => '1',
         ]);
         DB::table('gifts')->insert([
@@ -68,7 +68,7 @@ class ProductSeeder2 extends Seeder
             'name' =>'Conceptive Women',
             'link_product'=>'https://doppelherz.vn/san-pham/thuc-pham-bao-ve-suc-khoe-conceptive-women/',
             'image'=>'https://doppelherz.vn/wp-content/uploads/2023/02/Conceptive-Women-front-01.png',
-            'price' => ' ',
+            'price' => '0',
             'status' => '1',
         ]);
         DB::table('gifts')->insert([
