@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -50,6 +51,7 @@ class History extends Resource
                 $product_name = Product::where('id','=',$product_id)->first()->name;
                 return $product_name;
             }),
+            DateTime::make('Ngày quét','updated_at'),
             Text::make('Giá','price'),
             Text::make('Id QR','qr_id')
         ];
