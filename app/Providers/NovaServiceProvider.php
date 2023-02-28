@@ -6,6 +6,7 @@ use App\Nova\Gift;
 use App\Nova\Category;
 use App\Nova\Customer;
 use App\Nova\Help;
+use App\Nova\History;
 use App\Nova\Order;
 use App\Nova\Product;
 use App\Nova\Promotion;
@@ -50,6 +51,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                 MenuSection::make('Kỹ thuật', [
                     MenuItem::resource(Promotion::class),
                     MenuItem::resource(QR::class),
+                    MenuItem::resource(History::class),
                 ])->icon('lightning-bolt')->collapsable(),
 
                 MenuSection::make('Chức năng', [
