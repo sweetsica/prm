@@ -52,6 +52,7 @@ class History extends Resource
                 return $product_name;
             }),
             DateTime::make('Ngày quét','updated_at'),
+            Text::make('Ip','ipaddress'),
             Text::make('Giá','price'),
             Text::make('Id QR','qr_id')
         ];
