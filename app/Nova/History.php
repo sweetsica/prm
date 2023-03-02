@@ -8,6 +8,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use App\Models\QR;
 use App\Models\Product;
+use App\Models\Customer;
 
 class History extends Resource
 {
@@ -45,6 +46,10 @@ class History extends Resource
         return [
             ID::make()->sortable(),
             Text::make('Id người dùng','customer_id'),
+            Text::make('Tên', function($model) {
+                $name_customer = Customer::where('id', '=', $model->customer_id)->first()->name;
+                return $name_customer;
+            }),
             Text::make('Mã QR','qr_specialCode'),
             Text::make('Sản phẩm', function($model) {
                 $product_id = QR::where('id', '=', $model->qr_id)->first()->product_id;
