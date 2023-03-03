@@ -50,9 +50,9 @@ class Customer extends Resource
         return [
             ID::make()->sortable(),
             Text::make('Họ tên khách','name'),
-            Number::make('Số điện thoại','phone'),
-            Password::make('Mật khẩu','password')->hideFromIndex(),
-            Text::make('Email'),
+            Number::make('Số điện thoại','phone')->readonly(true),
+            Password::make('Mật khẩu','password')->hideFromIndex()->readonly(true),
+            Text::make('Email')->readonly(true)->readonly(true),
             Text::make('Địa chỉ','address')->displayUsing(function ($value) {
                 return Str::limit($value, 45,'...');
             }),
@@ -61,7 +61,7 @@ class Customer extends Resource
             }),
             Number::make('Điểm thưởng hiện tại','totalPoint'),
             Number::make('Tổng điểm tới giờ','summaryPoint')->readonly(true),
-            Boolean::make('Trạng thái','status'),
+            Boolean::make('Trạng thái','status')->readonly(true),
             HasMany::make('History'),
             HasMany::make('Order','orders')
         ];
