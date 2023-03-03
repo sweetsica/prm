@@ -51,8 +51,8 @@ class Customer extends Resource
             ID::make()->sortable(),
             Text::make('Họ tên khách','name'),
             Number::make('Số điện thoại','phone')->readonly(true),
-            Password::make('Mật khẩu','password')->hideFromIndex()->readonly(true),
-            Text::make('Email')->readonly(true)->readonly(true),
+            Password::make('Mật khẩu','password')->hideFromIndex(),
+            Text::make('Email')->readonly(true),
             Text::make('Địa chỉ','address')->displayUsing(function ($value) {
                 return Str::limit($value, 45,'...');
             }),
