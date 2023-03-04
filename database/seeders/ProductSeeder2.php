@@ -25,14 +25,14 @@ class ProductSeeder2 extends Seeder
 //        ]);
 //        DB::table('gifts')->insert([
 //            'id'=>'32',
-//            'name' =>'Phần quà: Lacta+',
+//            'name' =>'Phần quà: LactaSeeder+',
 //            'image'=>'https://doppelherz.vn/wp-content/uploads/2023/02/Lacta-front-01.png',
 //            'typePromotion'=>'point',
 //            'valuePromotion'=>'75',
 //            'status' => '1'
 //        ]);
 //        DB::table('promotions')->insert([
-//            'name' =>'Tích điểm Lacta+',
+//            'name' =>'Tích điểm LactaSeeder+',
 //            'product_id'=>'30',
 //            'typeSale'=>'point',
 //            'valueSale'=>'4',
