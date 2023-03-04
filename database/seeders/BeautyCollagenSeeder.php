@@ -20,7 +20,7 @@ class BeautyCollagenSeeder extends Seeder
     {
         $promotion_id = 6;
         $product_id = 6 ;
-        $count = 1000;
+        $count = 0;
         $timeNow = Carbon::now();
         for ($i =0 ; $i < $count ; $i++){
             $specialCode = Str::random(12);

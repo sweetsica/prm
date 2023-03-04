@@ -20,7 +20,7 @@ class BelleHairnakinSeeder extends Seeder
     {
         $promotion_id = 8;
         $product_id = 8;
-        $count = 2000;
+        $count = 0;
         $timeNow = Carbon::now();
         for ($i =0 ; $i < $count ; $i++){
             $specialCode = Str::random(12);

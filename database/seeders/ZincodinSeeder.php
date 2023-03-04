@@ -20,8 +20,8 @@ class ZincodinSeeder extends Seeder
     {
         $promotion_id =28;
         $product_id = 28;
-        $count = 0;
         $timeNow = Carbon::now();
+        $count = 0;
         for ($i =0 ; $i < $count ; $i++){
             $specialCode = Str::random(12);
             DB::table('q_r_s')->insert([

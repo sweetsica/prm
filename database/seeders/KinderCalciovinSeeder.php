@@ -20,7 +20,7 @@ class KinderCalciovinSeeder extends Seeder
     {
         $promotion_id =16;
         $product_id = 16;
-        $count = 20000;
+        $count = 0;
         $timeNow = Carbon::now();
 
         for ($i =0 ; $i < $count ; $i++){

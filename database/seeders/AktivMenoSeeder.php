@@ -20,7 +20,7 @@ class AktivMenoSeeder extends Seeder
     {
         $promotion_id = 4;
         $product_id = 4 ;
-        $count = 20000;
+        $count = 0;
         $timeNow = Carbon::now();
         for ($i =0 ; $i < $count ; $i++){
             $specialCode = Str::random(12);

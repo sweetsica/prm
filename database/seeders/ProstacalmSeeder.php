@@ -20,7 +20,7 @@ class ProstacalmSeeder extends Seeder
     {
         $promotion_id =25;
         $product_id = 25;
-        $count = 10000;
+        $count = 0;
         $timeNow = Carbon::now();
 
         for ($i =0 ; $i < $count ; $i++){

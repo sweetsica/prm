@@ -6,10 +6,9 @@ use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
 
-class HairPlusSeeder extends Seeder
+class Lacta extends Seeder
 {
     /**
      * Run the database seeds.
@@ -18,11 +17,10 @@ class HairPlusSeeder extends Seeder
      */
     public function run()
     {
-        $promotion_id = 13;
-        $product_id = 13;
+        $promotion_id = 30;
+        $product_id = 30;
         $count = 3000;
         $timeNow = Carbon::now();
-
         for ($i =0 ; $i < $count ; $i++){
             $specialCode = Str::random(12);
             DB::table('q_r_s')->insert([

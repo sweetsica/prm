@@ -22,7 +22,6 @@ class MagnesiumSeeder extends Seeder
         $product_id = 23;
         $count = 20000;
         $timeNow = Carbon::now();
-
         for ($i =0 ; $i < $count ; $i++){
             $specialCode = Str::random(12);
             DB::table('q_r_s')->insert([
