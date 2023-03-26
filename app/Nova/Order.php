@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use Illuminate\Support\Str;
 use Laravel\Nova\Fields\BelongsTo;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\HasMany;
@@ -52,9 +53,14 @@ class Order extends Resource
                 'Đã xuất kho' => ['label' => 'Đã xuất kho', 'group' => 'Kho'],
                 'Đang giao' => ['label' => 'Đang giao', 'group' => 'Đơn vị vận chuyển'],
                 'Giao thành công' => ['label' => 'Giao thành công', 'group' => 'Hoàn tất'],
-            ]),
-            Text::make('Địa chỉ nhận quà','address'),
-            BelongsTo::make('Gift')
+            ])->showOnIndex(),
+            BelongsTo::make('Gift'),
+            Text::make('Địa chỉ nhận quà','address')->rules('max:255')->displayUsing(function ($text) {
+                if (strlen($text) > 30) {
+                    return substr($text, 0, 10) . '...';
+                }
+                return $text;
+            })
         ];
     }
         // Tạo bảng quan hệ nhiều nhiều gift - order

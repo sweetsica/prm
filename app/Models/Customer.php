@@ -15,11 +15,11 @@ class Customer extends Model
 
     public function orders()
     {
-        return $this->hasMany(Order::class);
+        return $this->hasMany(Order::class,'customer_id');
     }
 
-    public function history()
+    public function histories()
     {
-        return $this->hasMany(History::class);
+        return $this->hasMany(History::class, 'customer_id')->latest();
     }
 }

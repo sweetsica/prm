@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('customers', function (Blueprint $table) {
-            if (!Schema::hasColumn('customers', 'note')) {
-                $table->text('note')->nullable()->after('address');
+        Schema::table('products', function (Blueprint $table) {
+            if (!Schema::hasColumn('products', 'SKU')) {
+                $table->string('SKU')->nullable()->after('price');
             }
         });
     }
@@ -27,12 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        if (Schema::hasColumn('customers', 'note'))
-        {
-            Schema::table('customers', function (Blueprint $table)
-            {
-                $table->dropColumn('note');
-            });
-        }
+        //
     }
 };

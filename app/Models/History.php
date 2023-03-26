@@ -15,8 +15,12 @@ class History extends Model
 
     public function customer()
     {
-        return $this->belongsTo(Customer::class);
+        return $this->belongsTo(Customer::class, 'customer_id');
     }
 
+    public function product()
+    {
+        return $this->hasOne(Product::class,'id','product_id');
+    }
 }
 

@@ -8,6 +8,7 @@ use App\Models\History;
 use App\Models\Product;
 use App\Models\Promotion;
 use App\Models\QR;
+use App\Traits\checkSKUlimited;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -16,6 +17,7 @@ use App\Traits\getIpAdress;
 class QrController extends Controller
 {
     use getIpAdress;
+    use checkSKUlimited;
     /**
      * Display a listing of the resource.
      *
@@ -41,6 +43,16 @@ class QrController extends Controller
      */
     public function store(Request $request)
     {
+        $data_user_id=$request['user'];
+        $data_product_id=$request['product_id'];
+        $datacheck=$this->checkSKU($data_user_id,$data_product_id);
+//        dd($datacheck);
+        if($datacheck == false){
+            return response()->json('Vượt quá giới hạn quét trong tháng!',404);
+        }
+//        $data_check=[$data_user_id,$data_product_id];
+//        dd($data_check);
+
         try{
                 $promotion_infomation = QR::where('promotion_id', $request['promotion_id'])
                     ->where('product_id', $request['product_id'])
@@ -64,6 +76,7 @@ class QrController extends Controller
                             $history->qr_specialCode = $request['special_code'];
                             $productInfo = Product::where('id', $promotion_infomation->product_id)->firstOrFail();
                             $history->product_name = $productInfo['name'];
+                            $history->product_id = $productInfo['id'];
                             $history->price = $productInfo['price'];
                             $history->qr_id = $promotion_infomation['id'];
                             $history->ipaddress = $this->getIp();

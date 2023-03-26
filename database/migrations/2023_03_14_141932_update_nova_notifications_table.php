@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('customers', function (Blueprint $table) {
-            if (!Schema::hasColumn('customers', 'note')) {
-                $table->text('note')->nullable()->after('address');
+        Schema::table('nova_notifications', function (Blueprint $table) {
+            if (!Schema::hasColumn('nova_notifications', 'deleted_at')) {
+                $table->string('deleted_at')->nullable()->after('created_at');
             }
         });
     }
@@ -27,12 +27,8 @@ return new class extends Migration
      */
     public function down()
     {
-        if (Schema::hasColumn('customers', 'note'))
-        {
-            Schema::table('customers', function (Blueprint $table)
-            {
-                $table->dropColumn('note');
-            });
-        }
+        Schema::table('nova_notifications', function (Blueprint $table) {
+            $table->dropColumn('deleted_at');
+        });
     }
 };

@@ -238,5 +238,12 @@ class PromotionSeeder extends Seeder
 //            'valueSale'=>'21',
 //            'status' => '1'
 //        ]);
+//        DB::table('promotions')->insert([
+//            'name' =>'Tích điểm Collagen Max 30 ống',
+//            'product_id'=>'28',
+//            'typeSale'=>'point',
+//            'valueSale'=>'21',
+//            'status' => '1'
+//        ]);
     }
 }

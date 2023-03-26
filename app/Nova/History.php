@@ -32,7 +32,7 @@ class History extends Resource
      * @var array
      */
     public static $search = [
-        'id','qr_specialCode'
+        'qr_specialCode','customer_id'
     ];
 
     /**
@@ -51,11 +51,12 @@ class History extends Resource
                 return $name_customer;
             }),
             Text::make('Mã QR','qr_specialCode'),
-            Text::make('Sản phẩm', function($model) {
-                $product_id = QR::where('id', '=', $model->qr_id)->first()->product_id;
-                $product_name = Product::where('id','=',$product_id)->first()->name;
-                return $product_name;
-            }),
+//            Text::make('Sản phẩm', function($model) {
+//                $product_id = QR::where('id', '=', $model->qr_id)->first()->product_id;
+//                $product_name = Product::where('id','=',$product_id)->first()->name;
+//                return $product_name;
+//            }),
+            Text::make('Sản phẩm','product_name'),
             DateTime::make('Ngày quét','updated_at'),
             Text::make('Ip','ipaddress'),
             Text::make('Giá','price'),

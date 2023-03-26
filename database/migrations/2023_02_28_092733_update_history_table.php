@@ -14,7 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::table('histories', function (Blueprint $table) {
-            $table->string('ipaddress')->nullable()->after('product_name');
+            if (!Schema::hasColumn('histories', 'ipaddress')) {
+                $table->text('ipaddress')->nullable()->after('product_name');
+            }
         });
     }
 

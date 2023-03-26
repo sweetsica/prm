@@ -74,3 +74,5 @@ Route::post('/tichdiem',[QrController::class,'store']);
 Route::get('/qr-code',[QrController::class,'index']);
 Route::post('help/send',[HelpController::class,'storeHelp'])->name('help.store');
 Route::get('help/list',[HelpController::class,'getHelpList'])->name('help.list');
+
+Route::get('nova/updateSKU',[ProductController::class,'updateSKU']);

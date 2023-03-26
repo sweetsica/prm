@@ -31,4 +31,8 @@ class Product extends Model
     {
         return $this->hasMany(QR::class);
     }
+    public function histories()
+    {
+        return $this->hasMany(History::class,'product_id','id');
+    }
 }

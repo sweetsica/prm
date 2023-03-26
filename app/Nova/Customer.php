@@ -36,7 +36,7 @@ class Customer extends Resource
      * @var array
      */
     public static $search = [
-        'id','name','phone','address'
+        'id','name','phone','address','email'
     ];
 
     /**
@@ -59,14 +59,13 @@ class Customer extends Resource
             Text::make('Ghi chú','note')->displayUsing(function ($value) {
                 return Str::limit($value, 45,'...');
             }),
-            Number::make('Điểm thưởng hiện tại','totalPoint'),
-            Number::make('Tổng điểm tới giờ','summaryPoint')->readonly(true),
-            Boolean::make('Trạng thái','status')->readonly(true),
-            HasMany::make('History'),
-            HasMany::make('Order','orders')
+            Number::make('Điểm thưởng hiện tại','totalPoint')->sortable(),
+            Number::make('Tổng điểm tới giờ','summaryPoint')->readonly(true)->sortable(),
+            Boolean::make('Trạng thái','status')->readonly(true)->sortable(),
+            HasMany::make('Histories'),
+            HasMany::make('Orders')
         ];
     }
-
     /**
      * Get the cards available for the request.
      *
