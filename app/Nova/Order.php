@@ -55,12 +55,8 @@ class Order extends Resource
                 'Giao thành công' => ['label' => 'Giao thành công', 'group' => 'Hoàn tất'],
             ])->showOnIndex(),
             BelongsTo::make('Gift'),
-            Text::make('Địa chỉ nhận quà','address')->rules('max:255')->displayUsing(function ($text) {
-                if (strlen($text) > 30) {
-                    return substr($text, 0, 10) . '...';
-                }
-                return $text;
-            })
+            Text::make('Địa chỉ nhận quà','address')->displayUsing(function($text) {
+                return Str::limit($text, 15);}),
         ];
     }
         // Tạo bảng quan hệ nhiều nhiều gift - order
