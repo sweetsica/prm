@@ -20,7 +20,7 @@ class VitaminESeeder extends Seeder
         $promotion_id =33;
         $product_id = 33;
         $timeNow = Carbon::now();
-        $count = 1;
+        $count = 4999;
         for ($i =0 ; $i < $count ; $i++){
             $specialCode = Str::random(12);
             DB::table('q_r_s')->insert([
