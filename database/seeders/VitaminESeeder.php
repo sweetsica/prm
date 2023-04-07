@@ -17,7 +17,7 @@ class VitaminESeeder extends Seeder
      */
     public function run()
     {
-        $promotion_id =35;
+        $promotion_id =33;
         $product_id = 33;
         $timeNow = Carbon::now();
         $count = 5000;
