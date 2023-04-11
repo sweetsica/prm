@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
 
-class MagnesiumSeeder extends Seeder
+class MCD3Seeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -18,9 +18,11 @@ class MagnesiumSeeder extends Seeder
      */
     public function run()
     {
+        //Magnesium + Calcium + D3
+        //MgCaD3
         $promotion_id =23;
         $product_id = 23;
-        $count = 20000;
+        $count = 7000;
         $timeNow = Carbon::now();
         for ($i =0 ; $i < $count ; $i++){
             $specialCode = Str::random(12);

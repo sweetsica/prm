@@ -38,7 +38,7 @@ class DatabaseSeeder extends Seeder
 //            KinderOptimaSeeder::class,/*19*/
 //            KinderThymepectSeeder::class,/*20*/
 //            LiverComplexSeeder::class,/*21*/
-//            MagnesiumSeeder::class,/*22*/
+//            MCD3Seeder::class,/*22*/
 //            Omega3FolicAxitSeeder::class,/*23*/
 //            ProstacalmSeeder::class,/*24*/
 //            VitaminD3K2Seeder::class,/*25*/

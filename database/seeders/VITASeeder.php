@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
 
-class VitalPregnaSeeder extends Seeder
+class VITASeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -22,7 +22,7 @@ class VitalPregnaSeeder extends Seeder
         $promotion_id = 26;//Vital Pregna
         $product_id = 26;//Vital Pregna
         $timeNow = Carbon::now();
-        $count = 0;
+        $count = 9000;
         for ($i =0 ; $i < $count ; $i++){
             $specialCode = Str::random(12);
             DB::table('q_r_s')->insert([

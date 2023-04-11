@@ -36,14 +36,14 @@ class QRSeeder extends Seeder
 //            KinderOptimaSeeder::class,/*19*/
 //            KinderThymepectSeeder::class,/*20*/
 //            LiverComplexSeeder::class,/*21*/
-//            MagnesiumSeeder::class,/*22*/
+//            MCD3Seeder::class,/*22*/
 //            Omega3FolicAxitSeeder::class,/*23*/
 //            ProstacalmSeeder::class,/*24*/
 //            VitaminD3K2Seeder::class,/*25*/
 //            ZincodinSeeder::class,/*26*/
 //
 //            AktivMenoSeeder::class,/*27*/
-//            VitalPregnaSeeder::class,/*28*/
+//            VITASeeder::class,/*28*/
 //        ]);
     }
 }
