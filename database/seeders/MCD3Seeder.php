@@ -22,7 +22,7 @@ class MCD3Seeder extends Seeder
         //MgCaD3
         $promotion_id =23;
         $product_id = 23;
-        $count = 7000;
+        $count = 0;
         $timeNow = Carbon::now();
         for ($i =0 ; $i < $count ; $i++){
             $specialCode = Str::random(12);
