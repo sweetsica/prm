@@ -19,7 +19,7 @@ class ConceptiveWomenSeeder extends Seeder
     {
         $promotion_id = 32;
         $product_id = 32;
-        $count = 3000;
+        $count = 0;
         $timeNow = Carbon::now();
         for ($i =0 ; $i < $count ; $i++){
             $specialCode = Str::random(12);
