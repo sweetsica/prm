@@ -25,8 +25,12 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('q_r_s', function (Blueprint $table) {
-            Schema::dropIfExists('excel');
-        });
+        if (Schema::hasColumn('q_r_s', 'excel'))
+        {
+            Schema::table('q_r_s', function (Blueprint $table)
+            {
+                $table->dropColumn('excel');
+            });
+        }
     }
 };
