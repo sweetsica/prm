@@ -26,7 +26,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('q_r_s', function (Blueprint $table) {
-            //
+            Schema::dropIfExists('excel');
         });
     }
 };
