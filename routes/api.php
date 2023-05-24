@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\CustomerController;
 use App\Http\Controllers\Api\HelpController;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\ContentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -74,5 +75,7 @@ Route::post('/tichdiem',[QrController::class,'store']);
 Route::get('/qr-code',[QrController::class,'index']);
 Route::post('help/send',[HelpController::class,'storeHelp'])->name('help.store');
 Route::get('help/list',[HelpController::class,'getHelpList'])->name('help.list');
+Route::get('/content/list',[ContentController::class,'index'])->name('content.list');
+Route::get('/content/id/{positionKey}',[ContentController::class,'show'])->name('content.show');
 
 Route::get('nova/updateSKU',[ProductController::class,'updateSKU']);

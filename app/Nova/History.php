@@ -9,6 +9,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 use App\Models\QR;
 use App\Models\Product;
 use App\Models\Customer;
+use Maatwebsite\LaravelNovaExcel\Actions\DownloadExcel;
 
 class History extends Resource
 {
@@ -105,6 +106,8 @@ class History extends Resource
      */
     public function actions(NovaRequest $request)
     {
-        return [];
+        return [
+            new DownloadExcel(),
+        ];
     }
 }

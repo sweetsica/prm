@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Nova\Content;
 use App\Nova\Gift;
 use App\Nova\Category;
 use App\Nova\Customer;
@@ -52,6 +53,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     MenuItem::resource(Promotion::class),
                     MenuItem::resource(QR::class),
                     MenuItem::resource(History::class),
+                    MenuItem::resource(Content::class),
                 ])->icon('lightning-bolt')->collapsable(),
 
                 MenuSection::make('Chức năng', [

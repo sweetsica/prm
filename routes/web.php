@@ -22,6 +22,10 @@ Route::get('/', function () {
     return redirect()->to("https://doppelherz.vn");
 })->name('website');
 
+Route::get('/welcome',function (){
+   return view('welcome');
+});
+
 Route::get('/login', function () {
     echo 'đăng nhập';
 })->name('login');

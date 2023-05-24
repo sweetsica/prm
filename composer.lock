@@ -4,11 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f1c7357569c1460afba00e175596294d",
+    "content-hash": "761f60960742996121aba9617ad23982",
     "packages": [
         {
             "name": "acme/analytics",
-            "version": "dev-update_branch_6_15_2022",
+            "version": "dev-feature/PRM-14",
             "dist": {
                 "type": "path",
                 "url": "./nova-components/Analytics",
@@ -2944,6 +2944,57 @@
             "time": "2022-04-08T15:43:54+00:00"
         },
         {
+            "name": "murdercode/nova4-tinymce-editor",
+            "version": "v1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/murdercode/Nova4-TinymceEditor.git",
+                "reference": "b73e514c3447d7daa10be6318f0378df1edd300c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/murdercode/Nova4-TinymceEditor/zipball/b73e514c3447d7daa10be6318f0378df1edd300c",
+                "reference": "b73e514c3447d7daa10be6318f0378df1edd300c",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/nova": "^4.0",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.2"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Murdercode\\TinymceEditor\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Murdercode\\TinymceEditor\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Boost your Laravel Nova with the TinyMCE editor.",
+            "keywords": [
+                "editor",
+                "laravel",
+                "nova",
+                "tinymce"
+            ],
+            "support": {
+                "issues": "https://github.com/murdercode/Nova4-TinymceEditor/issues",
+                "source": "https://github.com/murdercode/Nova4-TinymceEditor/tree/v1.0.4"
+            },
+            "time": "2023-01-26T12:15:40+00:00"
+        },
+        {
             "name": "myclabs/php-enum",
             "version": "1.8.3",
             "source": {
@@ -3115,7 +3166,7 @@
             },
             "require": {
                 "nette/utils": "^2.5.7 || ^3.1.5 ||  ^4.0",
-                "php": ">=7.1 <8.2"
+                "php": ">=7.1"
             },
             "require-dev": {
                 "nette/tester": "^2.3 || ^2.4",
@@ -3176,7 +3227,7 @@
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.2 <8.2"
+                "php": ">=7.2"
             },
             "conflict": {
                 "nette/di": "<3.0.6"
@@ -7795,7 +7846,7 @@
             },
             "require": {
                 "doctrine/instantiator": "^1.2",
-                "php": "^7.2 || ~8.0, <8.2",
+                "php": "^7.2 || ~8.0",
                 "phpdocumentor/reflection-docblock": "^5.2",
                 "sebastian/comparator": "^3.0 || ^4.0",
                 "sebastian/recursion-context": "^3.0 || ^4.0"
@@ -9577,5 +9628,5 @@
         "php": "^8.0.2"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.3.0"
 }
