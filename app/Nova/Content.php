@@ -77,7 +77,6 @@ class Content extends Resource
                     'banner_qc_4' => ['label' => 'Banner Ưu điểm 4', 'group' => 'Banner Quảng cáo'],
                     'thongtin_chantrang1' => ['label' => 'Thông tin chân trang 1', 'group' => 'Thông tin trang'],
                     'thongtin_chantrang2' => ['label' => 'Thông tin chân trang 2', 'group' => 'Thông tin trang'],
-
                 ])->default('Chờ xử lý'),
             Text::make('Mã nhúng','shortcodeContent'),
         ];
