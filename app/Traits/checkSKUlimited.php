@@ -24,4 +24,19 @@ trait checkSKUlimited{
         }
         return true;
     }
+
+    public function checkLimit10($user_id)
+    {
+        $customer = Customer::find($user_id);
+        $histories = $customer->histories()
+            ->whereMonth('created_at', Carbon::now()->month)
+            ->get()
+            ->pluck('product_id')
+            ->count();
+        if ($histories >=10) {
+            return false;
+        }
+        return true;
+//        dd($histories);
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Product;
 use App\Models\QR;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -16,7 +17,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-//        $this->call([
+        $this->call([
+            ProductSeeder::class,
+            ProductSeeder2::class,
+            ProductSeeder3_07_03_2023::class,
+            GiftSeeder::class,
+            PromotionSeeder::class
 //            ActiveMenPlusSeeder::class,/*1*/
 //            AntiStressSeeder::class,/*2*/
 //            AZDepotSeeder::class,/*3*/
@@ -43,6 +49,6 @@ class DatabaseSeeder extends Seeder
 //            ProstacalmSeeder::class,/*24*/
 //            VitaminD3K2Seeder::class,/*25*/
 //            ZincodinSeeder::class/*26*/
-//        ]);
+        ]);
     }
 }

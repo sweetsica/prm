@@ -43,16 +43,19 @@ class QrController extends Controller
      */
     public function store(Request $request)
     {
+//        dd($request);
         $data_user_id=$request['user'];
-        $data_product_id=$request['product_id'];
-        $datacheck=$this->checkSKU($data_user_id,$data_product_id);
+//        dd($data_user_id);
+//        $data_product_id=$request['product_id'];
+//        dd($data_product_id);
+//        $datacheck=$this->checkSKU($data_user_id,$data_product_id);//check trên 5SKU/ tháng thì không cho quét
+        $datacheck=$this->checkLimit10($data_user_id);//check trên 10 sản phẩm/ tháng thì không cho quét
 //        dd($datacheck);
         if($datacheck == false){
             return response()->json('Vượt quá giới hạn quét trong tháng!',404);
         }
 //        $data_check=[$data_user_id,$data_product_id];
 //        dd($data_check);
-
         try{
                 $promotion_infomation = QR::where('promotion_id', $request['promotion_id'])
                     ->where('product_id', $request['product_id'])

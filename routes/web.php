@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QRController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\HistoryController;
+
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\URL;
 
@@ -19,7 +21,7 @@ use Illuminate\Support\Facades\URL;
 */
 
 Route::get('/', function () {
-    return redirect()->to("https://doppelherz.vn");
+//    return redirect()->to("https://doppelherz.vn");
 })->name('website');
 
 Route::get('/welcome',function (){
@@ -47,3 +49,5 @@ Route::get('/testmd5',function (){
 
 Route::get('nova/export/{startid}/{endid}',[QRController::class,'export']);
 
+Route::get('nova/export/customer',[CustomerController::class,'export'])->name('customer.export');
+Route::get('nova/export/history',[HistoryController::class,'export'])->name('history.export');
