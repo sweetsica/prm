@@ -47,7 +47,7 @@ Route::get('/testmd5',function (){
     dd(URL::route('website'));
 });
 
-Route::get('nova/export/{startid}/{endid}',[QRController::class,'export']);
+Route::get('nova/export/{startid}/{endid}',[QRController::class,'export'])->name('qr.export');
 
 Route::get('nova/export/customer',[CustomerController::class,'export'])->name('customer.export');
 Route::get('nova/export/history',[HistoryController::class,'export'])->name('history.export');

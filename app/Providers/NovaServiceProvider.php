@@ -57,7 +57,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                 ])->icon('lightning-bolt')->collapsable(),
 
                 MenuSection::make('Chức năng', [
-                    MenuItem::externalLink('Xuất excel từ 1 - 10000', 'https://sukien.doppelherz.vn/nova/export/1/1000'),
+                    MenuItem::externalLink('Xuất khách hàng',route('customer.export')),
+                    MenuItem::externalLink('Xuất lịch sử',route('history.export')),
+                    MenuItem::externalLink('Demo - Đừng có bấm vào', route('qr.export', ['startid' => 1, 'endid' => 100])),
                 ])->icon('lightning-bolt')->collapsable(),
 
             ];
