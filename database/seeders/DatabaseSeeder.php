@@ -18,11 +18,11 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            ProductSeeder::class,
-            ProductSeeder2::class,
-            ProductSeeder3_07_03_2023::class,
-            GiftSeeder::class,
-            PromotionSeeder::class
+//            ProductSeeder::class,
+//            ProductSeeder2::class,
+//            ProductSeeder3_07_03_2023::class,
+//            GiftSeeder::class,
+//            PromotionSeeder::class
 //            ActiveMenPlusSeeder::class,/*1*/
 //            AntiStressSeeder::class,/*2*/
 //            AZDepotSeeder::class,/*3*/
