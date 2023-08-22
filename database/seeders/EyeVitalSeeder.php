@@ -20,7 +20,7 @@ class EyeVitalSeeder extends Seeder
     {
         $promotion_id = 10;
         $product_id = 10;
-        $count = 0;
+        $count = 10000;
         $timeNow = Carbon::now();
         for ($i =0 ; $i < $count ; $i++){
             $specialCode = Str::random(12);
