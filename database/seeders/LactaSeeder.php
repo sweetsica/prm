@@ -19,7 +19,7 @@ class LactaSeeder extends Seeder
     {
         $promotion_id = 30;
         $product_id = 30;
-        $count = 0;
+        $count = 3000;
         $timeNow = Carbon::now();
         for ($i =0 ; $i < $count ; $i++){
             $specialCode = Str::random(12);
