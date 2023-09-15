@@ -11,6 +11,7 @@ use App\Http\Controllers\Api\CustomerController;
 use App\Http\Controllers\Api\HelpController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\ContentController;
+use App\Http\Controllers\Api\PagecontentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,3 +80,5 @@ Route::get('/content/list',[ContentController::class,'index'])->name('content.li
 Route::get('/content/id/{positionKey}',[ContentController::class,'show'])->name('content.show');
 
 Route::get('nova/updateSKU',[ProductController::class,'updateSKU']);
+Route::post('/page/content',[PagecontentController::class,'store']);
+Route::get('/page/content/{title?}/get',[PagecontentController::class,'show']);
