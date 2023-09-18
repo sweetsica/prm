@@ -9,5 +9,7 @@ class PageContent extends Model
 {
     use HasFactory;
 
+    protected $table = 'pagecontents';
+
     protected $guarded = [''];
 }
