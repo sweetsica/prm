@@ -30,8 +30,10 @@ class NewCustomer extends Value
     public function ranges()
     {
         return [
+            7 => __('7 Ngày'),
             30 => __('30 Ngày'),
             60 => __('60 Ngày'),
+            90 => __('90 Ngày'),
             365 => __('365 Ngày'),
             'TODAY' => __('Hôm nay'),
         ];

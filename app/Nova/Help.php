@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Actions\ExportAsCsv;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Number;
@@ -52,7 +53,9 @@ class Help extends Resource
             Select::make('Trạng thái','status')
                 ->options([
                     'Chờ xử lý' => ['label' => 'Đang xử lý', 'group' => 'Admin'],
-                    'Đã hoàn thành' => ['label' => 'Đang chuẩn bị hàng', 'group' => 'Kho'],
+                    'Đã xử lý - Admin' => ['label' => 'Đã xử lý (ADM)', 'group' => 'Admin'],
+                    'Đang xử lý - Kho' => ['label' => 'Đang xử lý (Kho)', 'group' => 'Kho'],
+                    'Đã xử lý - Kho' => ['label' => 'Đã xử lý (Kho)', 'group' => 'Kho'],
                 ])->default('Chờ xử lý'),
             DateTime::make('Ngày tiếp nhận','created_at')
         ];
@@ -99,6 +102,8 @@ class Help extends Resource
      */
     public function actions(NovaRequest $request)
     {
-        return [];
+        return [
+            ExportAsCsv::make()->nameable(),
+        ];
     }
 }

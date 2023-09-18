@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Pagecontent;
+use App\Models\PageContent;
 use Illuminate\Http\Request;
 
 class PagecontentController extends Controller
@@ -37,7 +37,7 @@ class PagecontentController extends Controller
     public function store(Request $request)
     {
 //        dd($request);
-        $data=Pagecontent::create($request->all());
+        $data=PageContent::create($request->all());
         return response()->json($data,200);
     }
 
@@ -49,7 +49,7 @@ class PagecontentController extends Controller
      */
     public function show($title)
     {
-        $data = Pagecontent::where('title','=',$title)->first();
+        $data = PageContent::where('title','=',$title)->first();
         return response()->json($data,200);
     }
 

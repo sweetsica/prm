@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
@@ -45,6 +46,7 @@ class PageContent extends Resource
             ID::make()->sortable(),
             Text::make('title')->sortable(),
             Textarea::make('content'),
+            DateTime::make('Ngày cập nhật cuối','updated_at')
         ];
     }
 

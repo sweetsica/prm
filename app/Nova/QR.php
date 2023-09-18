@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use App\Nova\Actions\CreateQRAction;
+use Laravel\Nova\Actions\ExportAsCsv;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
@@ -97,43 +98,46 @@ class QR extends Resource
         return [];
     }
 
-    public function handle(ActionFields $fields, Collection $models)
-    {
-        foreach ($models as $model) {
-            $model->update(['excel' => 'Active']);
-        }
-        return $models;
-    }
+//    public function handle(ActionFields $fields, Collection $models)
+//    {
+//        foreach ($models as $model) {
+//            $model->update(['excel' => 'Active']);
+//        }
+//        return $models;
+//    }
 
     public function actions(NovaRequest $request)
     {
-        $ids = $request->get('resources');
-        $type = $request->get('action');
-        // Update status excel khi export
-        if($type == 'download-excel' && !empty($ids)) {
-            if($ids == 'all') {
-                self::$model::where('excel','Unactive')->chunkById(50,
-                    function ($qrs) {
-                        foreach ($qrs as $qr) {
-                            self::$model::where('id', $qr->id)->update(['excel' => 'Active']);
-                        }
-                    }
-                );
-            }else{
-                $id_list = explode(",",$ids);
-                self::$model::whereIn('id',$id_list)->chunkById(50,
-                    function ($qrs) {
-                        foreach ($qrs as $qr) {
-                            self::$model::where('id', $qr->id)->update(['excel' => 'Active']);
-                        }
-                    }
-                );
-            }
-        }
-
+//        $ids = $request->get('resources');
+//        $type = $request->get('action');
+//        // Update status excel khi export
+//        if($type == 'download-excel' && !empty($ids)) {
+//            if($ids == 'all') {
+//                self::$model::where('excel','Unactive')->chunkById(50,
+//                    function ($qrs) {
+//                        foreach ($qrs as $qr) {
+//                            self::$model::where('id', $qr->id)->update(['excel' => 'Active']);
+//                        }
+//                    }
+//                );
+//            }else{
+//                $id_list = explode(",",$ids);
+//                self::$model::whereIn('id',$id_list)->chunkById(50,
+//                    function ($qrs) {
+//                        foreach ($qrs as $qr) {
+//                            self::$model::where('id', $qr->id)->update(['excel' => 'Active']);
+//                        }
+//                    }
+//                );
+//            }
+//        }
+//
+//        return [
+////            new CreateQRAction(),
+//            new DownloadExcel()
+//        ];
         return [
-//            new CreateQRAction(),
-            new DownloadExcel()
+            ExportAsCsv::make()->nameable(),
         ];
     }
 
