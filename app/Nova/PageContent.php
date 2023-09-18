@@ -7,6 +7,7 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Manogi\Tiptap\Tiptap;
 
 class PageContent extends Resource
 {
@@ -45,6 +46,39 @@ class PageContent extends Resource
             ID::make()->sortable(),
             Text::make('title')->sortable(),
             Textarea::make('content'),
+//            Tiptap::make('content')->buttons([
+//                'heading',
+//                '|',
+//                'italic',
+//                'bold',
+//                '|',
+//                'link',
+//                'code',
+//                'strike',
+//                'underline',
+//                'highlight',
+//                '|',
+//                'bulletList',
+//                'orderedList',
+//                'br',
+//                'codeBlock',
+//                'blockquote',
+//                '|',
+//                'horizontalRule',
+//                'hardBreak',
+//                '|',
+//                'table',
+//                '|',
+//                'image',
+//                '|',
+//                'textAlign',
+//                '|',
+//                'rtl',
+//                '|',
+//                'history',
+//                '|',
+//                'editHtml',
+//            ])->headingLevels([2, 3, 4]),
         ];
     }
 
