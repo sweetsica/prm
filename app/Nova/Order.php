@@ -2,9 +2,11 @@
 
 namespace App\Nova;
 
+use App\Nova\Filters\OrderStatus;
 use Illuminate\Support\Str;
 use Laravel\Nova\Fields\BelongsTo;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\HasOne;
 use Laravel\Nova\Fields\ID;
@@ -55,6 +57,7 @@ class Order extends Resource
                 'Giao thành công' => ['label' => 'Giao thành công', 'group' => 'Hoàn tất'],
             ])->showOnIndex(),
             BelongsTo::make('Gift'),
+            DateTime::make('Thời gian đổi quà','created_at'),
             Text::make('Địa chỉ nhận quà','address')->displayUsing(function($text) {
                 return Str::limit($text, 15);}),
         ];
@@ -78,7 +81,9 @@ class Order extends Resource
      */
     public function filters(NovaRequest $request)
     {
-        return [];
+        return [
+            new OrderStatus(),
+        ];
     }
 
     /**

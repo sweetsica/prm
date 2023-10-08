@@ -12,6 +12,7 @@ use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Maatwebsite\LaravelNovaExcel\Actions\DownloadExcel;
 
@@ -54,9 +55,10 @@ class Customer extends Resource
             Number::make('Số điện thoại','phone')->readonly(true),
             Password::make('Mật khẩu','password')->hideFromIndex(),
             Text::make('Email')->readonly(true),
-            Text::make('Địa chỉ','address')->displayUsing(function ($value) {
-                return Str::limit($value, 45,'...');
-            }),
+//            Text::make('Địa chỉ','address')->displayUsing(function ($value) {
+//                return Str::limit($value, 45,'...');
+//            }),
+            Text::make('Địa chỉ','address'),
             Select::make('Thành phố','city')->options([
                 "An Giang"=>"An Giang",
                 "Bà Rịa - Vũng Tàu"=>"Bà Rịa - Vũng Tàu",
@@ -121,9 +123,10 @@ class Customer extends Resource
                 "Tp.Hà Nội"=>"Tp.Hà Nội",
                 "TP  HCM"=>"TP HCM"
             ]),
-            Text::make('Ghi chú','note')->displayUsing(function ($value) {
-                return Str::limit($value, 45,'...');
-            }),
+            Textarea::make('Ghi chú','note'),
+//            Textarea::make('Ghi chú','note')->displayUsing(function ($value) {
+//                return Str::limit($value, 100,'...');
+//            }),
             Number::make('Điểm thưởng hiện tại','totalPoint')->sortable(),
             Number::make('Tổng điểm tới giờ','summaryPoint')->readonly(true)->sortable(),
             Boolean::make('Trạng thái','status')->readonly(true)->sortable(),
