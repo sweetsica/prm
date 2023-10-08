@@ -45,16 +45,16 @@ class OrderStatus extends Filter
     public function options(NovaRequest $request)
     {
         return [
-//            'Đang xử lý' => 'Đang xử lý',
-//            'Đang chuẩn bị hàng' => 'Đang chuẩn bị hàng',
-//            'Đã xuất kho' => 'Đã xuất kho',
-//            'Đang giao' => 'Đang giao',
-//            'Giao thành công' => 'Giao thành công',
-            'Đang xử lý' => 'Äang xá»­ lÃ½',
-            'Đang chuẩn bị hàng' => 'Äang chuáº©n bá»‹ hÃ ng',
-            'Đã xuất kho' => 'ÄÃ£ xuáº¥t kho',
-            'Đang giao' => 'Äang giao',
-            'Giao thành công' => 'Giao thÃ nh cÃ´ng',
+            'Đang xử lý' => 'Đang xử lý',
+            'Đang chuẩn bị hàng' => 'Đang chuẩn bị hàng',
+            'Đã xuất kho' => 'Đã xuất kho',
+            'Đang giao' => 'Đang giao',
+            'Giao thành công' => 'Giao thành công',
+//            'Đang xử lý' => 'Äang xá»­ lÃ½',
+//            'Đang chuẩn bị hàng' => 'Äang chuáº©n bá»‹ hÃ ng',
+//            'Đã xuất kho' => 'ÄÃ£ xuáº¥t kho',
+//            'Đang giao' => 'Äang giao',
+//            'Giao thành công' => 'Giao thÃ nh cÃ´ng',
         ];
     }
 }
