@@ -50,4 +50,8 @@ Route::get('/testmd5',function (){
 Route::get('nova/export/{startid}/{endid}',[QRController::class,'export'])->name('qr.export');
 
 Route::get('nova/export/customer',[CustomerController::class,'export'])->name('customer.export');
-Route::get('nova/export/history',[HistoryController::class,'export'])->name('history.export');
+//Route::get('nova/export/history',[HistoryController::class,'export'])->name('history.export');
+
+Route::get('nova/export/history',[HistoryController::class,'exportByRange'])->name('history.export');
+Route::get('nova/export/data',[HistoryController::class,'splitdate'])->name('splitdate');
+Route::get('nova/export/history/{year?}/{startDate?}/{startMonth?}/{EndDate?}/{endMonth?}',[HistoryController::class,'export'])->name('history.exportByRange');

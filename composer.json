@@ -19,7 +19,8 @@
         "maatwebsite/laravel-nova-excel": "^1.3",
         "murdercode/nova4-tinymce-editor": "^1.0",
         "outhebox/nova-hidden-field": "^1.0",
-        "outl1ne/nova-menu-builder": "^7.0"
+        "outl1ne/nova-menu-builder": "^7.0",
+        "sweetsica/date-picker": "*"
     },
     "repositories": [
         {
@@ -45,6 +46,10 @@
         {
             "type": "path",
             "url": "./nova-components/Analytics"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/DatePicker"
         }
     ],
     "require-dev": {
