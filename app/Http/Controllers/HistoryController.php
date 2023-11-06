@@ -20,6 +20,9 @@ class HistoryController extends Controller
         $parts = explode(" tới ", $request->input('datefilter'));
         $startDate = Carbon::createFromFormat('d/m/Y', trim($parts[0]))->format('Y-d-m');
         $endDate = Carbon::createFromFormat('d/m/Y', trim($parts[1]))->format('Y-d-m');
+//        $startDate = Carbon::createFromFormat('Y/d/m', trim($parts[0]))->format('Y-d-m');
+//        $endDate = Carbon::createFromFormat('Y/d/m', trim($parts[1]))->format('Y-d-m');
+
         $fileName = 'Lịch sử quét mã từ '.$startDate.' tới '.$endDate.'.xlsx';
         $export = new HistoriesExport($startDate,$endDate);
 
