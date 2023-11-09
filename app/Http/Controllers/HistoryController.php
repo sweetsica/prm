@@ -17,9 +17,10 @@ class HistoryController extends Controller
 
     public function splitdate(Request $request)
     {
+//        dd($request->input('datefilter'));
         $parts = explode(" tới ", $request->input('datefilter'));
-        $startDate = Carbon::createFromFormat('d/m/Y', trim($parts[0]))->format('Y-d-m');
-        $endDate = Carbon::createFromFormat('d/m/Y', trim($parts[1]))->format('Y-d-m');
+        $startDate = Carbon::createFromFormat('d/m/Y', trim($parts[0]))->format('Y-m-d');
+        $endDate = Carbon::createFromFormat('d/m/Y', trim($parts[1]))->format('Y-m-d');
 //        $startDate = Carbon::createFromFormat('Y/d/m', trim($parts[0]))->format('Y-d-m');
 //        $endDate = Carbon::createFromFormat('Y/d/m', trim($parts[1]))->format('Y-d-m');
 

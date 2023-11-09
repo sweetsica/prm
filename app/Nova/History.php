@@ -51,6 +51,7 @@ class History extends Resource
                 $name_customer = Customer::where('id', '=', $model->customer_id)->first()->name;
                 return $name_customer;
             }),
+            Text::make('Id QR','qr_id'),
             Text::make('Mã QR','qr_specialCode'),
 //            Text::make('Sản phẩm', function($model) {
 //                $product_id = QR::where('id', '=', $model->qr_id)->first()->product_id;
@@ -58,10 +59,11 @@ class History extends Resource
 //                return $product_name;
 //            }),
             Text::make('Sản phẩm','product_name'),
-            DateTime::make('Ngày quét','updated_at'),
+//            DateTime::make('Ngày quét','created_at')->format('d-m-Y'),
+            DateTime::make('Ngày quét', 'updated_at')
+                ->displayUsing(fn ($value) => $value ? $value->format('d-m-Y') : ''),
             Text::make('Ip','ipaddress'),
-            Text::make('Giá','price'),
-            Text::make('Id QR','qr_id')
+            Text::make('Giá','price')
         ];
     }
 

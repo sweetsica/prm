@@ -26,6 +26,7 @@ class HistoriesExport implements FromCollection, WithMapping, WithHeadings, With
     public function collection()
     {
 //        $histories = History::all();
+//        dd($this->startDate.' - '. $this->endDate);
         $histories = History::whereBetween('created_at', [$this->startDate, $this->endDate])->orderBy('id', 'DESC')->get();
         return $histories;
     }
