@@ -20,7 +20,7 @@ class BelleAntiAgingSeeder extends Seeder
     {
         $promotion_id = 7;
         $product_id = 7 ;
-        $count = 0;
+        $count = 3000;
         $timeNow = Carbon::now();
         for ($i =0 ; $i < $count ; $i++){
             $specialCode = Str::random(12);

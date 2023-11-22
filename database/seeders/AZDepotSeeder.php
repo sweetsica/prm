@@ -11,6 +11,8 @@ use Illuminate\Support\Str;
 
 class AZDepotSeeder extends Seeder
 {
+//AZDP
+
     /**
      * Run the database seeds.
      *
@@ -20,7 +22,7 @@ class AZDepotSeeder extends Seeder
     {
         $promotion_id = 1;
         $product_id = 1 ;
-        $count = 0;
+        $count = 15000;
         $timeNow = Carbon::now();
         for ($i =0 ; $i < $count ; $i++){
             $specialCode = Str::random(12);

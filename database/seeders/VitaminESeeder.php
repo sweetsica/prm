@@ -10,6 +10,8 @@ use Illuminate\Support\Str;
 
 class VitaminESeeder extends Seeder
 {
+//VITE
+
     /**
      * Run the database seeds.
      *
@@ -20,7 +22,7 @@ class VitaminESeeder extends Seeder
         $promotion_id =33;
         $product_id = 33;
         $timeNow = Carbon::now();
-        $count = 0;
+        $count = 5000;
         for ($i =0 ; $i < $count ; $i++){
             $specialCode = Str::random(12);
             DB::table('q_r_s')->insert([

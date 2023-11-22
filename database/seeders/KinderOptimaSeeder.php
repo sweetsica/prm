@@ -11,6 +11,8 @@ use Illuminate\Support\Str;
 
 class KinderOptimaSeeder extends Seeder
 {
+//OTM
+
     /**
      * Run the database seeds.
      *
@@ -20,7 +22,7 @@ class KinderOptimaSeeder extends Seeder
     {
         $promotion_id =20;
         $product_id = 20;
-        $count = 0;
+        $count = 8000;
         $timeNow = Carbon::now();
 
         for ($i =0 ; $i < $count ; $i++){

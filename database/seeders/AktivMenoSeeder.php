@@ -11,6 +11,8 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 class AktivMenoSeeder extends Seeder
 {
+//DMENO
+
     /**
      * Run the database seeds.
      *

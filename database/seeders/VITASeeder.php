@@ -12,6 +12,8 @@ use Illuminate\Support\Str;
 
 class VITASeeder extends Seeder
 {
+//VITA
+
     /**
      * Run the database seeds.
      *
@@ -22,7 +24,7 @@ class VITASeeder extends Seeder
         $promotion_id = 26;//Vital Pregna
         $product_id = 26;//Vital Pregna
         $timeNow = Carbon::now();
-        $count = 0;
+        $count = 15000;
         for ($i =0 ; $i < $count ; $i++){
             $specialCode = Str::random(12);
             DB::table('q_r_s')->insert([

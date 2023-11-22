@@ -11,6 +11,8 @@ use Illuminate\Support\Str;
 
 class ProstacalmSeeder extends Seeder
 {
+//PROS
+
     /**
      * Run the database seeds.
      *
@@ -20,7 +22,7 @@ class ProstacalmSeeder extends Seeder
     {
         $promotion_id =25;
         $product_id = 25;
-        $count = 0;
+        $count = 3000;
         $timeNow = Carbon::now();
 
         for ($i =0 ; $i < $count ; $i++){

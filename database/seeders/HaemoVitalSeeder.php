@@ -20,7 +20,7 @@ class HaemoVitalSeeder extends Seeder
     {
         $promotion_id = 12;
         $product_id = 12;
-        $count = 0;
+        $count = 10000;
         $timeNow = Carbon::now();
 
         for ($i =0 ; $i < $count ; $i++){

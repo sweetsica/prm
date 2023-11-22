@@ -11,6 +11,8 @@ use Illuminate\Support\Str;
 
 class CoenzymeQ10Seeder extends Seeder
 {
+//CQ10
+
     /**
      * Run the database seeds.
      *
@@ -20,7 +22,7 @@ class CoenzymeQ10Seeder extends Seeder
     {
         $promotion_id = 9;
         $product_id = 9;
-        $count = 0;
+        $count = 10000;
         $timeNow = Carbon::now();
         for ($i =0 ; $i < $count ; $i++){
             $specialCode = Str::random(12);

@@ -11,6 +11,8 @@ use Illuminate\Support\Str;
 
 class KinderImmuneSeeder extends Seeder
 {
+//IMMU
+
     /**
      * Run the database seeds.
      *
@@ -20,7 +22,7 @@ class KinderImmuneSeeder extends Seeder
     {
         $promotion_id =17;
         $product_id = 17;
-        $count = 0;
+        $count = 5000;
         $timeNow = Carbon::now();
 
         for ($i =0 ; $i < $count ; $i++){

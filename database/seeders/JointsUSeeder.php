@@ -11,6 +11,8 @@ use Illuminate\Support\Str;
 
 class JointsUSeeder extends Seeder
 {
+//JOINU
+
     /**
      * Run the database seeds.
      *
@@ -20,7 +22,7 @@ class JointsUSeeder extends Seeder
     {
         $promotion_id =14;
         $product_id = 14;
-        $count = 0;
+        $count = 12000;
         $timeNow = Carbon::now();
 
         for ($i =0 ; $i < $count ; $i++){

@@ -11,6 +11,8 @@ use Illuminate\Support\Str;
 
 class KinderThymepectSeeder extends Seeder
 {
+//THYM
+
     /**
      * Run the database seeds.
      *
@@ -20,7 +22,7 @@ class KinderThymepectSeeder extends Seeder
     {
         $promotion_id =21;
         $product_id = 21;
-        $count = 0;
+        $count = 6000;
         $timeNow = Carbon::now();
         for ($i =0 ; $i < $count ; $i++){
             $specialCode = Str::random(12);
