@@ -44,9 +44,9 @@ class QRController extends Controller
         return view('FrontEnd/blank');
     }
 
-    public function export($startid,$endid)
+    public function export($startid,$endid,$code)
     {
-        $fileName = 'Danh-sách-mã-QR-từ-'.$startid.'-đến-'.$endid.'-ngày-'.Carbon::today()->format('d-m-Y').'.xlsx';
+        $fileName = 'Danh-sách-mã-QR-'.$code.' từ-'.$startid.'-đến-'.$endid.'-ngày-'.Carbon::today()->format('d-m-Y').'.xlsx';
         $QrsExport = new QrsExport($startid,$endid);
         return Excel::download($QrsExport, $fileName);
     }
