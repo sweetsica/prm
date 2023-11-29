@@ -22,7 +22,7 @@ class KinderThymepectSeeder extends Seeder
     {
         $promotion_id =21;
         $product_id = 21;
-        $count = 6000;
+        $count = 0;
         $timeNow = Carbon::now();
         for ($i =0 ; $i < $count ; $i++){
             $specialCode = Str::random(12);

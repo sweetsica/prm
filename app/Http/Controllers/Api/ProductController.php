@@ -23,7 +23,8 @@ class ProductController extends Controller
 
     public function getProduct()
     {
-        $data = Product::all();
+//        $data = Product::all();
+        $data = Product::where('status',1)->get();
         return response()->json($data,200);
     }
 

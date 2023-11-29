@@ -22,7 +22,7 @@ class Omega3FolicAxitSeeder extends Seeder
     {
         $promotion_id =24;
         $product_id = 24;
-        $count = 10000;
+        $count = 0;
         $timeNow = Carbon::now();
         for ($i =0 ; $i < $count ; $i++){
             $specialCode = Str::random(12);

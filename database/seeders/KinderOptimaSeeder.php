@@ -22,7 +22,7 @@ class KinderOptimaSeeder extends Seeder
     {
         $promotion_id =20;
         $product_id = 20;
-        $count = 8000;
+        $count = 0;
         $timeNow = Carbon::now();
 
         for ($i =0 ; $i < $count ; $i++){

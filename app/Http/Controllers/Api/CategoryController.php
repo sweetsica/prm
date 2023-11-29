@@ -17,7 +17,7 @@ class CategoryController extends Controller
             $product_ids = $category_product->map(function ($item, $key) {
                 return $item->product_id;
             });
-            $products = Product::whereIn('id',$product_ids)->get();
+            $products = Product::whereIn('id',$product_ids)->where('status',1)->get();
             return response()->json([
                 'status_code' => 200,
                 'data' => $products,

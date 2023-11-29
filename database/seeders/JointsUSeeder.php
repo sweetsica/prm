@@ -22,7 +22,7 @@ class JointsUSeeder extends Seeder
     {
         $promotion_id =14;
         $product_id = 14;
-        $count = 12000;
+        $count = 0;
         $timeNow = Carbon::now();
 
         for ($i =0 ; $i < $count ; $i++){

@@ -22,7 +22,7 @@ class KinderImmuneSeeder extends Seeder
     {
         $promotion_id =17;
         $product_id = 17;
-        $count = 5000;
+        $count = 0;
         $timeNow = Carbon::now();
 
         for ($i =0 ; $i < $count ; $i++){

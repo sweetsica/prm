@@ -17,17 +17,17 @@ class customer_seeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create();
+//        $faker = Faker::create();
 
 //        dd(Faker::create()->unique()->phoneNumber);
 
-        for ($i = 1; $i <= 20; $i++) {
-            Customer::create([
-                'name' => $faker->name,
-                'phone' => $faker->unique()->phoneNumber,
-                'password' => Hash::make('123456'),
-                'email' => $faker->unique()->safeEmail,
-            ]);
-        }
+//        for ($i = 1; $i <= 20; $i++) {
+//            Customer::create([
+//                'name' => $faker->name,
+//                'phone' => $faker->unique()->phoneNumber,
+//                'password' => Hash::make('123456'),
+//                'email' => $faker->unique()->safeEmail,
+//            ]);
+//        }
     }
 }
