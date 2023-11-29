@@ -17,12 +17,12 @@ class GiftController extends Controller
      */
     public function index()
     {
-        $gift = Gift::all();
+        $gift = Gift::where('status',1)->get();
         return response()->json($gift,200);
     }
 
     public function product(){
-        $products = Product::all();
+        $products = Product::where('status',1)->get();
         return response()->json($products,200);
     }
 
