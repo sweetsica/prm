@@ -71,7 +71,7 @@ class Gift extends Resource
         return [
             ID::make()->sortable(),
             Text::make('Tên quà tặng','name'),
-            Image::make('Ảnh quà tặng','image'),
+            Text::make('Ảnh quà tặng','image'),
             Trix::make('Mô tả','description'),
             Text::make('Loại khuyến mãi','typePromotion'),
             Text::make('Điểm quy đổi','valuePromotion')->sortable(),

@@ -16,8 +16,8 @@ class HistoriesExport implements FromCollection, WithMapping, WithHeadings, With
     public function __construct($startDate,$endDate)
     {
         $this->startDate = $startDate;
-//        $this->startMonth = $startMonth;
         $this->endDate = $endDate;
+//        $this->startMonth = $startMonth;
 //        $this->endMonth = $endMonth;
     }
     /**

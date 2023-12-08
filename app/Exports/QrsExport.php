@@ -15,6 +15,7 @@ class QrsExport implements FromCollection
     public function collection()
     {
         $qrs = QR::whereBetween('id', [$this->startid, $this->endid]);
+        return $qrs->get();
 //        $qrs->chunkById(50,
 //            function ($qrs) {
 //                foreach ($qrs as $qr) {
@@ -23,6 +24,6 @@ class QrsExport implements FromCollection
 //            }
 //        );
 //        return $qrs->get();
-        return $qrs->get();
+
     }
 }

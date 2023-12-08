@@ -13,7 +13,7 @@ class HelpController extends Controller
         $data = Help::all();
         return response()->json($data,200);
     }
-    public function storeHelp(Request $request)
+    public function storeHelp(Request $request,)
     {
 //        Help::create($request->all);
         $help = $request->all();
